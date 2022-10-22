@@ -1,7 +1,5 @@
 # How to make a WEB page (100% free of charge) by Christen Fihl 
 
-11 ![SITE](/picts/SITE.png)
-22 ![SITE](picts/SITE.png)
 
 DigitalOcean now has a new feature, App’s, and for this use, static pages on demand. 
 
@@ -16,13 +14,13 @@ Hello World
 *	You will need a github.com account, and a repo in there; let’s call it WWW
 *	To have a readme and other stuff at hand, I create the real site inside a folder SITE
 
-![SITE](picts/SITE.png)
+![SITE](https://www.fihl.net/DigitalOcean/picts/SITE.png)
 
 * Inside SITE you have your read web page, with index.html etc. 
 
-![SITE](picts/SITE2.png)
+![SITE](https://www.fihl.net/DigitalOcean/picts/SITE2.png)
 
-As of now, I am now editing file git/WWW/SITE/DigitalOcean/index.md, that is, I am using MSCode for the edit, see the raw file **[here](index.md)**
+As of now, I am now editing file git/WWW/SITE/DigitalOcean/index.md, that is, I am using MSCode for the edit, see the raw file **[here](https://www.fihl.net/DigitalOcean/index.md)**
 My index.html is created from the md one, by the Markdown All in One plugin (press F1, and type **print**)
 * Commit it all to github (index.md not needed, but I just do anyway)
 
@@ -31,26 +29,26 @@ My index.html is created from the md one, by the Markdown All in One plugin (pre
 * Get yourself a free account, like using my referral link: [DigitalOcean](https://m.do.co/c/a01c93af1655) (you and Christen gets some $$)
 * Goto Apps(NEW), and use Create – Apps 
 
-![Create](picts/Create.png)
+![Create](https://www.fihl.net/DigitalOcean/picts/Create.png)
 
 * In 4 steps you just accept most as default, except tell that site is not in / but in /SITE
 * Select repository
 
-![Repo](picts/Repo.png)
+![Repo](https://www.fihl.net/DigitalOcean/picts/Repo.png)
 
 * Before that, you need (once only) to say yes to allow DigitalOcean access to your github repo!
 * Next!
 * If you do see red warning, there is no index.html in the selected repo. Try again..
 
-![noDetect](picts/noDetect.png)
+![noDetect](https://www.fihl.net/DigitalOcean/picts/noDetect.png)
 
 * Then manually type SITE to have /SITE
 
-![selSITE](picts/selSITE.png)
+![selSITE](https://www.fihl.net/DigitalOcean/picts/selSITE.png)
 
 * Do keep the Autodeploy option enabled
 
-![autoDeploy](picts/autoDeploy.png)
+![autoDeploy](https://www.fihl.net/DigitalOcean/picts/autoDeploy.png)
 
 * Next!
 * Next!
@@ -59,28 +57,28 @@ My index.html is created from the md one, by the Markdown All in One plugin (pre
 * Go try it out there
 * Mine looks like:
 
-![mine](picts/mine.png)
+![mine](https://www.fihl.net/DigitalOcean/picts/mine.png)
 
 * And my Live App URL is at [www.fihl.net](https://www.fihl.net/)
 
 ### Using your own URL, this is How it’s made…
 * Goto your App, and press Settings, and do edit Domains
 
-![apps](picts/apps.png)
+![apps](https://www.fihl.net/DigitalOcean/picts/apps.png)
 
-![domains](picts/domains.png)
+![domains](https://www.fihl.net/DigitalOcean/picts/domains.png)
 
 * Select DIY version of DNS (or use DigitalOcean if you like)
 
-![DIY1](picts/DIY1.png)
+![DIY1](https://www.fihl.net/DigitalOcean/picts/DIY1.png)
 
 * Copy the strange URL pressing the Copy button
 
-![DIY2](picts/DIY2.png)
+![DIY2](https://www.fihl.net/DigitalOcean/picts/DIY2.png)
 
 * Goto your DNS account, and add a CNAME for your domain, using the copied alias:
 
-![DIY3](picts/DIY3.png)
+![DIY3](https://www.fihl.net/DigitalOcean/picts/DIY3.png)
 
 ## And that is how you can now read this page on address  [https://www.fihl.net/DigitalOcean/](https://www.fihl.net/DigitalOcean/)
 
