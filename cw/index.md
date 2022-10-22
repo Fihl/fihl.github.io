@@ -61,12 +61,12 @@ Only timing is - and --, and you just key as fast as you like.
 
 ### CWComfort vs Iambic
 
-| VS   | CWComfort | Iambic |  |
+| VS   | CWComfort | Iambic | Iambic? |
 | :--- | :-------- | :----- | :--- |
 | wpm | ok | bad    | Iambic forces you to track wpm used |
 | counting| ok    | bad    | Iambic forces you to "insert dot on correct timing" |
 | release| ok     | bad    | Bad as you also have to release inserted key on right timing |
-| A     | easy   | easy   | Iambic still needs timimg to release dah|
+| A     | easy   | easy   | same same |
 | C     | easy, but more keys | easy, but timing sucks | Iambic still needs timimg to release on **last** dah |
 | 2     | easy   | tough  | remember to release after 3 times dah, and timing depends on wpm |
 
@@ -74,4 +74,4 @@ Only timing is - and --, and you just key as fast as you like.
 ## Refs
 [ ![AliExpress](picts/leonardo.png "Buy a Leonardo unit") ](https://www.aliexpress.com/item/32617886318.html)
 
-Mouser: https://www.mouser.dk/ProductDetail/DFRobot/DFR0816?qs=Li%252BoUPsLEnv9dhK52gqzSQ%3D%3D
+[Or get it from Mouser](https://www.mouser.dk/ProductDetail/DFRobot/DFR0816?qs=Li%252BoUPsLEnv9dhK52gqzSQ%3D%3D)
