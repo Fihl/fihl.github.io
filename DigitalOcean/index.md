@@ -92,5 +92,6 @@ The magic is now that whenever you do change your file locally, and push it to g
 ## And it is all free of charge, using
 * Microsoft Visual Studio Code
 * CheatCheet https://www.markdownguide.org/cheat-sheet
-* [Markdown All in One by Yu Zhang](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
-
+* [Markdown All in One by Yu Zhang, for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+* [DigitalOcean free $200 credit](https://m.do.co/c/a01c93af1655)
+[![DigitalOcean](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://m.do.co/c/a01c93af1655)
