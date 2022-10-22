@@ -1,8 +1,8 @@
 ## Christen Fihl, Denmark
 
 
-<font size=48.0pt; face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
-
+<font face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
+### 
 
 [Me, on LinkedIn](https://www.linkedin.com/in/christenfihl/)
 
@@ -16,7 +16,7 @@
 
 [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
 
-[If (when) you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
+[If you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
 
 ---
 
