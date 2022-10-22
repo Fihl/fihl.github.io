@@ -2,6 +2,8 @@
 ### My morse keyer, the one without timing hassels
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
 
+v3
+
 ## Why
 Years ago I gave myself the task of making a morse coding device, that is anything but a plain keyboard. 
 Could have been a braille typewriter machine, having some 7 keys. 
@@ -70,6 +72,6 @@ Only timing is - and --, and you just key as fast as you like.
 
 
 ## Refs
-[ ![AliExpress](https://www.fihl.net/cw/picts/leonardo.png "Buy a Leonardo unit") ](https://www.aliexpress.com/item/32617886318.html)
+[ ![AliExpress](picts/leonardo.png "Buy a Leonardo unit") ](https://www.aliexpress.com/item/32617886318.html)
 
 Mouser: https://www.mouser.dk/ProductDetail/DFRobot/DFR0816?qs=Li%252BoUPsLEnv9dhK52gqzSQ%3D%3D
