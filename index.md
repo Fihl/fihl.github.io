@@ -1,6 +1,3 @@
-## Christen Fihl, Denmark
-
-
 # <font face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
 
 [Me, on LinkedIn](https://www.linkedin.com/in/christenfihl/)
@@ -19,7 +16,7 @@
 
 ---
 
-[Get starting on DigitalOcean with this $100 credit, and then create WEB pages like mine https://www.fihl.net/DigitalOcean/](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&
+[Get starting on DigitalOcean with this $100 credit, and then create WEB pages like mine](https://www.fihl.net/DigitalOcean/](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&)
 
 ![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)
 
