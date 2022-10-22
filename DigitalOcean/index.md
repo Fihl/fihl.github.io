@@ -1,6 +1,9 @@
 # How to make a WEB page (100% free of charge) by Christen Fihl 
 
 
+Disclamer: Only this https://www.fihl.net/DigitalOcean/ page was original done this way, now I do use [github pages](https://pages.github.com/)
+
+
 DigitalOcean now has a new feature, App’s, and for this use, static pages on demand. 
 
 This page is written, using Microsoft Word, but anything goes as an editor. 
