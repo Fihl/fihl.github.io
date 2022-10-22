@@ -2,8 +2,6 @@
 ### My morse keyer, the one without timing hassels
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
 
-v5
-
 ## Why
 Years ago I gave myself the task of making a morse coding device, that is anything but a plain keyboard. 
 Could have been a braille typewriter machine, having some 7 keys. 
@@ -36,8 +34,8 @@ After a longer *shortdelay* without any dih/dah, you get the word spacing
 
 ## Examples of keying
 
-| di da | Nomenclature | Comment |
-|----|----------------|----------------|
+| di da | Nomenclature |  |
+| :----| :------------ | :--- |
 |dih | i | short press dih | 
 |dah | a | short press dah |
 |dih dih | I | longer press dih |
@@ -63,8 +61,8 @@ Only timing is - and --, and you just key as fast as you like.
 
 ### CWComfort vs Iambic
 
-| VS | CWComfort | Iambic | comment |
-| --- | -------- | ------ | --- |
+| VS   | CWComfort | Iambic |  |
+| :--- | :-------- | :----- | :--- |
 | wpm | ok | bad    | Iambic forces you to track wpm used |
 | counting| ok    | bad    | Iambic forces you to "insert dot on correct timing" |
 | release| ok     | bad    | Bad as you also have to release inserted key on right timing |
