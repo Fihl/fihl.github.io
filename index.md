@@ -20,6 +20,5 @@
 [![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/4ErU)
 [Visitors](https://info.flagcounter.com/4ErU)
 
-[Get started on DigitalOcean with this free $200 credit](https://m.do.co/c/a01c93af1655)
-
-[![DigitalOcean](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://m.do.co/c/a01c93af1655) [And then create WEB pages like mine found here](https://www.fihl.net/DigitalOcean/)
+Get started on DigitalOcean with this free $200 credit [![DigitalOcean](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://m.do.co/c/a01c93af1655) 
+[And then create WEB pages like mine found here](https://www.fihl.net/DigitalOcean/)
