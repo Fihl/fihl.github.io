@@ -14,14 +14,15 @@
 
 [If you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
 
-[test1](https://www.fihl.net/DigitalOcean/](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&)
+[test1](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&)
 
-[test2](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)
+![test2](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)
 
-[test3](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)
----
+![test3](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)
 
-[Get starting on DigitalOcean with this $100 credit, and then create WEB pages like mine](https://www.fihl.net/DigitalOcean/](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&)
+xxxxx
+
+[Get starting on DigitalOcean with this $100 credit, and then create WEB pages like mine https://www.fihl.net/DigitalOcean/](https://www.digitalocean.com/?refcode=a01c93af1655&utm_campaign=Referral_Invite&)
 
 ![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)
 
