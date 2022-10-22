@@ -33,7 +33,7 @@ After same *shortdelay* without any dih/dah, you will get a letter space.
 After a longer *shortdelay* without any dih/dah, you get the word spacing
 
 ## Examples of keying
-| | Nomenklatur | Comment |
+| .| Nomenklatur | Comment |
 |----|----------------|----------------|
 |dih | i | short press dih | 
 |dah | a | short press dah |
@@ -59,8 +59,8 @@ II-i-iaI-iaI-aA -- iA-aA-iai-iaI-aI
 Only timing is - and --, and you just key as fast as you like. 
 
 ### CWComfort vs Iambic
-| VS | CWComfort | Iambic | |
-|----|-----------|--------|------------|
+| VS | CWComfort | Iambic | . |
+| --- | -------- | ------ | --- |
 |wpm | ok        | bad    | Iambic forces you to track wpm used |
 |counting| ok    | bad    | Iambic forces you to "insert dot on correct timing" |
 |release| ok     | bad    | Bad as you also have to release inserted key on right timing |
