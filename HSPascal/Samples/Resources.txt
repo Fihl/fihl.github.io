@@ -1,0 +1,45 @@
+Program HelloWorld;
+
+{$ApplName Hello World,HSP0}
+
+Uses Crt, HSUtils, Field, Form, DataMgr, MemoryMgr;
+
+Resource //Is used
+  VersionResource=(ResTVER,1000,'Hello World V1.0');
+  Alert1=(ResTalt,,0,,0,'HSPascal','^1','Ok');
+
+Resource // Unused in this program
+  MenuRes=(ResMBAR,,
+    (ResMPUL,(6,14,75,33),(4,0,31,12),'File',    //Menu 1
+      MenuEdit=(,'','Edit'),
+      MenuCopy=(,'','Copy'),
+      MenuQuit=(,'X','Exit')
+    ),
+    (ResMPUL,(40,14,75,11),(40,0,31,12),'Edit',  //Menu2
+      MenuErase=(,'E','Erase')
+    )
+  );
+  MainForm=(ResTFRM,1000,(0,0,160,160),0,0,MenuRes,  //LTWH, Default, Help, Menu
+    (FormTitle,'DoodleHS'),
+    MainEraseButton=(FormButton,, (3,145,36,12),,,, 'Erase'),
+    TestButton=(FormButton,, (43,145,36,12),,,, 'Test')
+  );
+
+Var
+  Version, Empty: String;
+  Hand: Handle;
+  Field: FieldPtr;
+  Error, Button: Integer;
+begin
+  Hand := DmGet1Resource(s2u32('tver'),VersionResource);
+  if Hand <> nil then begin
+    Version:= PChar(MemHandleLock(Hand)); // get a pointer to actual string
+    Writeln(Version);
+    //Also show as a dialog
+    Empty:=' ';
+    Button:=FrmCustomAlert(Alert1, Version, Empty, Empty);
+    Error:=MemHandleUnlock(Hand);
+    Error:=DmReleaseResource(Hand);
+  end;
+end.
+

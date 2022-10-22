@@ -1,0 +1,2 @@
+# This is the home of High Speed Pascal, HSPascal
+# HSPascal

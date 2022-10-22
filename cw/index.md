@@ -72,6 +72,8 @@ Only timing is - and --, and you just key as fast as you like.
 
 
 ## Refs
-[ ![AliExpress](picts/leonardo.png "Buy a Leonardo unit") ](https://www.aliexpress.com/item/32617886318.html)
 
-[Or get it from Mouser](https://www.mouser.dk/ProductDetail/DFRobot/DFR0816?qs=Li%252BoUPsLEnv9dhK52gqzSQ%3D%3D)
+[Get a Leonardo from Mouser](https://www.mouser.dk/ProductDetail/DFRobot/DFR0816?qs=Li%252BoUPsLEnv9dhK52gqzSQ%3D%3D)
+
+![AliExpress](picts/leonardo.png "Buy a Leonardo unit") ](https://www.aliexpress.com/item/32617886318.html)
+

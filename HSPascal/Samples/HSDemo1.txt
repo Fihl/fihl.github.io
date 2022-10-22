@@ -1,0 +1,58 @@
+Program HSDemo1;
+
+//Created by Christen Fihl 2001
+//Shareware
+//
+//Can be compiled with HSPascal from
+//
+//  http://HSPascal.Fihl.net
+//  Christen@Fihl.net
+//
+
+{$ApplName HSDemo1,HSP1}
+
+Uses Window, Rect, Form, SystemMgr;
+
+Resource //See HSSys2.pas for definitions
+  Alert1=(ResTalt,,0,0,0,'HSPascal','HSPascal was here','Ok','Buy it');
+  Alert2=(ResTalt,,0,0,0,'HSPascal','Alert 2','Ok');
+  Alert3=(ResTalt,,0,0,0,'HSPascal','Graphics?','Yes please','No thanks');
+
+procedure DrawHarmonics;
+var 
+  I,M,N,Y: Integer; 
+  X,R: Real;
+  WorkRect: RectangleType;
+begin
+  RctSetRectangle(WorkRect, 0, 0, 160, 160); //Full screen
+  WinEraseRectangle(WorkRect, 0);
+  for N:=0 to 180 do begin
+    X:=4*N*AsRadians;
+    R:=0;
+    for I:=1 to 3 do begin
+      M:=I*2-1;
+      R:=R+ Sin(M*X)/M;
+    end;
+    Y:=Trunc(50*R);
+    WinDrawPixel(N,80+Y);
+  end;
+end;
+
+Procedure Test;
+Var 
+  M,N,O: Integer;
+begin
+  for O:=1 to 2 do
+    for M:=1 to 2 do
+      for N:=1 to 10 do WinDrawLine(1+M*30,1+O*30,10*N,100);
+  n:=SysTaskDelay(100);
+  case FrmAlert(Alert1) of
+  0: N:=FrmAlert(Alert2);
+  1: if FrmAlert(Alert3)=0 then DrawHarmonics;
+  end;
+  N:=SysTaskDelay(1*SysTicksPerSecond);
+end;
+
+begin
+  Test
+end.

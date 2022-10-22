@@ -1,0 +1,149 @@
+Program DoodleHS;
+
+//Created by Christen Fihl Feb-8 2001
+//Shareware
+//
+//Can be compiled with HSPascal from
+//
+//  http://HSPascal.Fihl.net
+//  Christen@Fihl.net
+//
+//Codesize is 1150 bytes, the rest is for tAIB Icon etc.
+//Program to draw sketches
+
+{$ApplName DoodleHS,HSP2}
+
+Uses
+  Window, Form, Menu, Rect, Event, SysEvent, SystemMgr;
+
+Resource
+  MenuRes=(ResMBAR,,
+    (ResMPUL,(6,14,75,33),(4,0,31,12),'File',    //First menu
+      (,'','P1 Item1'),
+      (,'Y','P1 Item2'),
+      MenuQuit=(,'X','Exit')
+    ),
+    (ResMPUL,(40,14,75,11),(40,0,31,12),'Edit',  //Second menu
+      MenuErase=(,'E','Erase')
+    )
+  );
+
+  MainForm=(ResTFRM,1000,(0,0,160,160),0,0,MenuRes,  //LTWH, Default, Help, Menu
+    (FormTitle,'DoodleHS'),
+    MainEraseButton=(FormButton,, (3,145,36,12),,,, 'Erase'),
+    //MenuButton=(FormButton,, (83,145,36,12),,,, 'Menu'),
+    TestButton=(FormButton,, (43,145,36,12),,,, 'Test')
+  );
+
+  Help1=(ResTSTR,,'Help for Alert!');
+  Alert1=(ResTalt,,0,Help1,0,'HSPascal','HSPascal was here','Ok','Buy it');
+  Alert2=(ResTalt,,0,Help1,0,'HSPascal','Contact http:// HSPascal.Fihl.net','Ok');
+
+  (ResTAIN,1000,'DoodleHS');
+  (ResTVER,1000,'1.0');
+  (ResPREF,,5000);
+
+Var
+  CurX: Integer;
+  CurY: Integer;
+  MyMenu: MenuBarPtr;
+  DoStop: Boolean;
+  PenDown: Boolean;
+  WorkRect: RectangleType;
+
+Procedure DrawGameBoard;
+begin
+  WinEraseRectangle(WorkRect, 0);
+end;
+
+Function InsideGameBoard(var Event: EventType): Boolean;
+begin
+  with Event do
+    InsideGameBoard:= RctPtInRectangle(ScreenX, ScreenY, WorkRect);
+end;
+
+Function HandleEvent(var Event: EventType): Boolean;
+var
+  N: Integer;
+  OldMenu: Pointer;
+  PForm: FormPtr;
+begin
+  HandleEvent:=True;
+
+  with Event do
+  Case eType of
+  penDownEvent:
+    begin
+      PenDown:=True;
+      if InsideGameBoard(Event) then begin
+        CurX := ScreenX;
+        CurY := ScreenY;
+      end else
+        HandleEvent:=False;
+    end;
+  penUpEvent:
+    begin
+      if PenDown and InsideGameBoard(Event) then
+        WinDrawLine( CurX, CurY, ScreenX, ScreenY);
+      PenDown:=False;
+    end;
+  penMoveEvent:
+    if PenDown and InsideGameBoard(Event) then begin
+      if PenDown then
+        WinDrawLine( CurX, CurY, ScreenX, ScreenY);
+      CurX := ScreenX;
+      CurY := ScreenY;
+    end else
+      HandleEvent:=False;
+  ctlSelectEvent: //Control button
+    case Data.CtlEnter.ControlID of
+    TestButton:      if FrmAlert(Alert1)=1 then N:=FrmAlert(Alert2);
+    MainEraseButton: DrawGameBoard;
+    else             HandleEvent:=False;
+    end;
+  frmOpenEvent: //Main Form
+    begin
+      FrmDrawForm(FrmGetActiveForm);
+      DrawGameBoard;
+    end;
+  menuEvent:
+    Case Data.Menu.ItemID of
+    MenuErase: DrawGameBoard;
+    MenuQuit:  DoStop:=True;
+    end;
+  frmLoadEvent:
+    begin
+      PForm:=FrmInitForm(data.frmLoad.FormID);
+      FrmSetActiveForm(PForm); //Load the Form resource
+      FrmSetEventHandlerNONE(PForm); //Is in Form.pas
+    end;
+  else
+    HandleEvent:=False;
+  end;
+end;
+
+
+Procedure Main;
+var
+  Event: EventType;
+  Error: UInt16;
+begin
+  RctSetRectangle(WorkRect, 0, 16, 160, 128); //LTWH   Y=16..144
+  FrmGotoForm(MainForm);
+  Repeat
+    EvtGetEvent(Event, evtWaitForever);
+    if not SysHandleEvent(Event) then
+      if not MenuHandleEvent(MyMenu,Event,Error) then
+        if not FrmDispatchEvent(Event) then
+          if not HandleEvent(Event) then ;
+  Until DoStop or (Event.eType = appStopEvent);
+  if FrmGetActiveForm<>NIL then begin
+    FrmEraseForm(FrmGetActiveForm);
+    FrmDeleteForm(FrmGetActiveForm);
+  end;
+end;
+
+begin
+  //asm trap #8 end;  //Debug!
+  Main
+end.

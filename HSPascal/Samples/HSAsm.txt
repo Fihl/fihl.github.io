@@ -1,0 +1,29 @@
+//Move procedure
+
+procedure XMOV(Src,Dst: Pointer; Cnt: Integer); Assembler; NoA6Frame; SysProc PSysMove;
+ASM     MOVE.W  4(SP),D0
+        MOVEM.L 6(SP),A0/A1             //Dst,Src
+        CMP.L   A1,A0
+        BEQ     @99
+        BCS     @2
+        ADD.W   D0,A0
+        ADD.W   D0,A1
+        BRA     @12
+@11:    MOVE.B  -(A1),-(A0)             //Move memory up
+@12:    DBRA    D0,@11
+        BRA     @99
+@1:     MOVE.B  (A1)+,(A0)+             //Move memory down
+@2:     DBRA    D0,@1
+@99:
+END;
+
+//FillChar procedure
+
+procedure XFLC(Dst: Pointer; Cnt,Val: Integer); Assembler; NoA6Frame; SysProc PSysFillChar;
+ASM     MOVEM.W 4(SP),D0/D1             //Val/Cnt
+        MOVE.L  8(SP),A0
+        BRA     @2
+@1:     MOVE.B  D0,(A0)+
+@2:     DBRA    D1,@1
+END;
+
