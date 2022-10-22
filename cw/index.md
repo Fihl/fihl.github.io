@@ -2,7 +2,7 @@
 ### My morse keyer, the one without timing hassels
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
 
-v4
+v5
 
 ## Why
 Years ago I gave myself the task of making a morse coding device, that is anything but a plain keyboard. 
@@ -35,6 +35,7 @@ After same *shortdelay* without any dih/dah, you will get a letter space.
 After a longer *shortdelay* without any dih/dah, you get the word spacing
 
 ## Examples of keying
+
 | di da | Nomenclature | Comment |
 |----|----------------|----------------|
 |dih | i | short press dih | 
@@ -46,7 +47,7 @@ After a longer *shortdelay* without any dih/dah, you get the word spacing
 
 
 | L | Morse | How it's keyed | alternative |
-|---|--------|-------|---|
+| :---: | :---- | :--- | :--- |
 | M | _ _ | aa | A |
 | S | . . . | iI | Ii |
 | L | . _ . . | iaI | iaii |
@@ -61,6 +62,7 @@ II-i-iaI-iaI-aA -- iA-aA-iai-iaI-aI
 Only timing is - and --, and you just key as fast as you like. 
 
 ### CWComfort vs Iambic
+
 | VS | CWComfort | Iambic | comment |
 | --- | -------- | ------ | --- |
 | wpm | ok | bad    | Iambic forces you to track wpm used |
