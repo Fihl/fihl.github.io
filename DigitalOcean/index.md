@@ -1,5 +1,9 @@
 # How to make a WEB page (100% free of charge) by Christen Fihl 
 
+11 ![SITE](/picts/SITE.png)
+22 ![SITE](picts/SITE.png)
+33 !(/picts/SITE.png)
+44 !(picts/SITE.png)
 
 DigitalOcean now has a new feature, App’s, and for this use, static pages on demand. 
 
