@@ -6,13 +6,13 @@
 
 [CWComfort, my morse keyer software, one with a lazy attitude](/cw/)
 
-[Something 1990: HSPascal, High Speed Pascal](/HSPascal/)
+[HSPascal, something 1990: High Speed Pascal](/HSPascal/)
 
 [Multitasking on Arduino, and super simple to use](/hsCoRoutines/)
 
 [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
 
-[If you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
+[Beer, if you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
 
 ## <font face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
 
