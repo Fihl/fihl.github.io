@@ -10,12 +10,12 @@
 * Located [here](https://github.com/Fihl/CWComfort)
 
 ## Picts
-###ComfortTX, the BLE receiver with keying circuit
+### ComfortTX, the BLE receiver with keying circuit
 ![ComfortTX](https://www.fihl.net/CWComfort/picts/ComfortTX.png)
 
-###Arduino DUE part, having the USB host for USB keyboard. 
+### Arduino DUE part, having the USB host for USB keyboard. 
 And BLE sending to ComfortTX
 ![ComfortTXusbhost](https://www.fihl.net/CWComfort/picts/USBkbd.jpeg)
 
-###Room with a view
+### Room with a view
 ![QO100](https://www.fihl.net/CWComfort/picts/QO100.jpeg)
