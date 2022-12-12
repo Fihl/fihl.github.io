@@ -12,7 +12,7 @@
 
 - [Multitasking on Arduino, and super simple to use](/hsCoRoutines/)
 
-[How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
+- [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
 
 [Beer, if you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
 
