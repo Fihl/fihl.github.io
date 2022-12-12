@@ -1,14 +1,16 @@
 # Christen Fihl, Denmark  OZ1AAB
 
-[Me, on LinkedIn](https://www.linkedin.com/in/christenfihl/)
+- [Me, on LinkedIn](https://www.linkedin.com/in/christenfihl/)
 
-[HAM radio: OZ1AAB](/oz1aab/)
+- [HAM radio: OZ1AAB](/oz1aab/)
 
-[CWComfort, my morse keyer software, one with a lazy attitude](/cw/)
+- CW, morse stuff
+  - [CWComfort, my morse keyer software, one with a lazy attitude](/cw/)
+  - [Morse keyer software](https://www.fihl.net/CWComfort/)
 
-[HSPascal, something 1990: High Speed Pascal](/HSPascal/)
+- [HSPascal, something 1990: High Speed Pascal](/HSPascal/)
 
-[Multitasking on Arduino, and super simple to use](/hsCoRoutines/)
+- [Multitasking on Arduino, and super simple to use](/hsCoRoutines/)
 
 [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
 
