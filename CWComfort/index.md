@@ -10,8 +10,8 @@
 * Located [here](https://github.com/Fihl/CWComfort)
 
 ## Picts
-![ComfortTX](![SITE](https://www.fihl.net/CWComfort/picts/ComfortTX.jpeg)
+![ComfortTX](https://www.fihl.net/CWComfort/picts/ComfortTX.png)
 
 ![ComfortTXusbhost](https://www.fihl.net/CWComfort/picts/USBkbd.jpeg)
-<br>
+
 ![QO100](https://www.fihl.net/CWComfort/picts/QO100.jpeg)
