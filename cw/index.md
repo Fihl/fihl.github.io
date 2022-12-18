@@ -1,6 +1,7 @@
 # CWC, CWComfort, a morse keyer with lazy attitude
 ### My morse keyer, the one without timing hassels
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
+PS: No public code yet
 
 ## Why
 Years ago I gave myself the task of making a morse coding device, that is anything but a plain keyboard. 
