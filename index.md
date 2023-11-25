@@ -10,7 +10,7 @@
 
 - [HSPascal, something 1990: High Speed Pascal](/HSPascal/)
 
-- [Multitasking on Arduino, and super simple to use](/hsCoRoutines/)
+- [Multitasking on Arduino, and super simple to use](/hsCoRoutines/). ESP too, using ProtoThreads
 
 - [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
 
