@@ -1,20 +1,20 @@
 # Christen Fihl, Denmark  OZ1AAB
 
-- [Me, on LinkedIn](https://www.linkedin.com/in/christenfihl/)
+- [LinkedIn](https://www.linkedin.com/in/christenfihl/). Myself, commercial
 
-- [HAM radio: OZ1AAB](/oz1aab/)
+- [OZ1AAB](/oz1aab/). HAM radio
 
 - CW, morse stuff
-  - [CWComfort, my morse keyer software, one with a lazy attitude](/cw/)
-  - [Morse keyer software](https://www.fihl.net/CWComfort/)
+  - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
+  - [The software](https://www.fihl.net/CWComfort/). For the CWComfort keyer 
 
-- [HSPascal, something 1990: High Speed Pascal](/HSPascal/)
+- [HSPascal]](/HSPascal/). Something 1990: High Speed Pascal
 
-- [Multitasking on Arduino, and super simple to use](/hsCoRoutines/). ESP too, using ProtoThreads
+- [hsCoRoutines]](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, using ProtoThreads
 
-- [How to make your own WEB page, using DigitalOcean Apps, for free](/DigitalOcean/)
+- [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
 
-[Beer, if you like my stuff, you might buy me a cup of coffee/beer, thanks](https://www.buymeacoffee.com/Fihl)
+[Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer, thanks
 
 ## <font face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
 
