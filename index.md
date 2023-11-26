@@ -8,9 +8,9 @@
   - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
   - [The software](https://www.fihl.net/CWComfort/). For the CWComfort keyer 
 
-- [HSPascal]](/HSPascal/). Something 1990: High Speed Pascal
+- [HSPascal](/HSPascal/). Something 1990: High Speed Pascal
 
-- [hsCoRoutines]](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, using ProtoThreads
+- [hsCoRoutines](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, using ProtoThreads
 
 - [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
 
