@@ -13,7 +13,7 @@
 - [hsCoRoutines](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, using ProtoThreads
 
 - [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
-- [LaserCutter2D](https://github.com/Fihl/LaserCutter2D). My finger hinged box construction kit
+- [LaserCutter2D](https://www.fihl.net/LaserCutter2D/). My finger hinged box construction kit
 - 
 - [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer, thanks
 
