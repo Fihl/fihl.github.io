@@ -5,6 +5,7 @@
 - [OZ1AAB](/oz1aab/). HAM radio
 
 - CW, morse stuff
+  - [iceKeyer](https://www.fihl.net/iceKeyer/) A load cell key, without moving parts/contacts
   - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
   - [The software](https://www.fihl.net/CWComfort/). For the CWComfort keyer 
 
