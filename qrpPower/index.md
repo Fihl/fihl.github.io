@@ -1,5 +1,5 @@
-# CWComfort, a morse keyer with lazy attitude
-### My morse keyer, the one without timing hassels
+# qrpPower
+### En RDE
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
 
 [xxxx](/qrpPower/)
@@ -9,7 +9,6 @@
 *  code is [here](https://github.com/Fihl/xxxxxxxxx)
 
 ## Picts
-### ComfortTX, the BLE receiver with keying circuit
 ![asdasda](https://www.fihl.net/qrpPower/picts/xxx.png)
 
 
