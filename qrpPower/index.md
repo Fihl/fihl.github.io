@@ -1,5 +1,5 @@
 # qrpPower
-### En RDE
+### En RDE historie https://www.fihl.net/qrpPower/ 
 ### By Christen Fihl, [OZ1AAB](https://www.fihl.net/oz1aab/)
 
 [xxxx](/qrpPower/)
