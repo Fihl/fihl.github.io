@@ -1,3 +1,5 @@
+// 2024 Christen Fihl Christen@Fihl.net
+
 elephantFootH = 0.3; //Height
 elephantFootW = 0.6; //Width
 
