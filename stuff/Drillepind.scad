@@ -53,8 +53,6 @@ module plotAll(pos,a)
               translate([x*cube, y*cube, 0])
               translate([elephantFootW, elephantFootW, 0])
                 cube([cube-elephantFootW*2, cube-elephantFootW*2, elephantFootH]);
-//          translate([elephantFootW, elephantFootW, 0])
-//            cube([8*cube-elephantFootW*2, 2*cube-elephantFootW*2, elephantFootH]);
       }
       for (z=[0,1])
         for (y=[0:1])
@@ -72,19 +70,4 @@ module plotAll(pos,a)
               sphere(d = cube+0.5, $fn=18);
   }
 }
-
-module hollowCube(xyz,wall)
-{
-    x = xyz[0];
-    y = xyz[1];
-    z = xyz[2];
-    difference() 
-    {
-        cube([x,y,z]);
-        translate([x/2,y/2,z/2])
-          sphere(d = x-wall);
-    }
-}
-
-
 
