@@ -5,9 +5,9 @@
 - [OZ1AAB](/oz1aab/). HAM radio
 
 - CW, morse stuff
-* iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
-  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A atraight key, load cell based
-  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/indexPaddle.html) A single-lever paddle, load cell based
+iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
+  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A straight model
+  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/indexPaddle.html) A single-lever paddle
 
   - [test](https://www.fihl.net/iceKeyer/) TEST
 
