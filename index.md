@@ -5,13 +5,15 @@
 - [OZ1AAB](/oz1aab/). HAM radio
 
 - CW, morse stuff
-  - [iceKeyer](https://www.fihl.net/iceKeyer/) A load cell key, without moving parts/contacts
+  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A atraight key, load cell based, without moving parts/contacts
+  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/) A load cell key, without moving parts/contacts
+
   - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
   - [The software](https://www.fihl.net/CWComfort/). For the CWComfort keyer 
 
 - [HSPascal](/HSPascal/). Something 1990: High Speed Pascal
 
-- [hsCoRoutines](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, using ProtoThreads
+- [hsCoRoutines](/hsCoRoutines/). Multitasking on Arduino, and super simple to use. ESP too, now using ProtoThreads
 
 - [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
 - [LaserCutter2D](https://www.fihl.net/LaserCutter2D/). My finger joint box construction kit
