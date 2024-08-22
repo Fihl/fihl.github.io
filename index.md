@@ -5,8 +5,11 @@
 - [OZ1AAB](/oz1aab/). HAM radio
 
 - CW, morse stuff
-  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A atraight key, load cell based, without moving parts/contacts
-  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/) A load cell key, without moving parts/contacts
+* iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
+  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A atraight key, load cell based
+  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/indexPaddle.html) A single-lever paddle, load cell based
+
+  - [test](https://www.fihl.net/iceKeyer/) TEST
 
   - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
   - [The software](https://www.fihl.net/CWComfort/). For the CWComfort keyer 
