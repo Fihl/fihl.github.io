@@ -20,7 +20,7 @@ Main interests, technical:
 |  | Alarm program on Series/1. 
 |  | Installation and responsibility in USA, Brinks..	| 
 | 84…90 | Borland + PolyData/PolyTech | Private
-|  | Graphics, BCD og 8087 code to  Borland Pascal and PolyPascal | Multitask kerne, benyttet i bl.a. online tips-systemer i danske kiosker.
+|  | Graphics, BCD og 8087 code to Borland Pascal and PolyPascal | Multitask kerne, benyttet i bl.a. online tips-systemer i danske kiosker.
 |  | Danish manual to PolyPascal | PolyLink (samme som Microsoft's InterLink, LabLink og andre) blot lavet i 1984!
 |  | Macintosh Pascal with debugger | Ekstern for IBS A/S. Projekt: Tandlæge højskolen, det nye Panum: Design af PLC og tilhørende kabler og udstyr, for styring af 330 tandlægestoles kø- og indkalds- system. Designet og monteret 3 typer print i 200 eksemplarer.
 |  | Scandis Pascal (Swedish computer), with hw graphics.| Ambra Soft A/S: Projekt "Børsinformation Telecom" (Klaus Riskær Pedersen). Lavet kommunikations driver for journalist systemet, dvs. modtage nyheder fra eksterne bureauer, håndtere køsystem og sende data til on-line kunder i Danmark, sende børskurser til ops modtagere hvert minut. 
@@ -64,12 +64,12 @@ Main interests, technical:
 | | interGATE4 = interGATE but now as an App on iPad = much simple installations, XCode, Swift | RaspberryPi
 | | CPH airport is first on new Innovative product range. Did lots of interfaces | WSPR
 2017 | Working halftime on architecting cloud solutions, halftime on classic tasks | Member of the board. 
-| | investigating new scaling for ISM, like MicroServices, Azure, Docker | 
-| 2018 | small services on DigitalOcean, Ubuntu, | Try a free drive of [DigitalOcean](https://m.do.co/c/a01c93af1655)
+| |investigating new scaling for ISM, like MicroServices, Azure, Docker | 
+| 2018 | small services on DigitalOcean, Ubuntu, | Do try a free drive of [DigitalOcean](https://m.do.co/c/a01c93af1655)
 | 2019 | |
 | 2020 | |
-| 2021 | | Working QO-100
-| 2022 | TDC Erhverv, Systems Architect, mostly 1-1-2 software | Lots of CW hardware
+| 2021 | | Working QO-100 satellite
+| 2022 |TDC Erhverv, Systems Architect, mostly 1-1-2 software | Lots of CW hardware
 
 In general, lots of bits & bytes still in my head
 
