@@ -2,7 +2,7 @@
 
 ## How to get power on the go
 
-[Read the full article in EDR-Posten, 05-2024, page 9-13]("https://www.edr.dk/rde-posten/#elf_l1_MjAyNA")
+[Read the full article in EDR-Posten, 05-2024, page 9-13](https://www.edr.dk/rde-posten/#elf_l1_MjAyNA)
 
  
 ### Links  
