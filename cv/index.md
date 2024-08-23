@@ -1,12 +1,22 @@
-Christen Fihl 1980..
+# Christen Fihl
 
-Educated DTH 1982, Master of Science
+## Christen Fihl
+Title: Senior Systems Architect
+Education: 1982: DTH/DTU, Master of Science, electronics
 
 Main interests, technical: 
 * Bits & bytes, IP protocols,..
 * Compilers (HSPascal)
 * Protocols, rfc’s and new technology
 * Small, quick and smart features, software and hardware
+
+* Uddannet Civ. Ing. Elektro i 1982. 
+* Ansat hos IBS 1982, siden medejer indtil solgt i 2019. 
+* Har i en periode arbejdet med Turbo Pascal og BASM hos Borland. 
+* Oprindelig hardware interesseret men hurtigt lokket med på IT bølgen. 
+* Software interessen er tekniske detaljer, bit-nørkleri, og standard protokoller. 
+* Udvikler hardware til interGATE flådestyring og interfacer til SINE radioer.
+
 
 | Year | Commercial | Private, own company
 | ----- | --------------- | ---------------
