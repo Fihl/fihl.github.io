@@ -24,4 +24,4 @@ And BLE sending to ComfortTX
 
 ![](picts/USB-host modulet.jpeg)
 
-![](picts/demo.mov)
+![demo movie](picts/demo.mov)
