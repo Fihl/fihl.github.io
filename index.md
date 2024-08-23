@@ -6,11 +6,12 @@
 
 - CW, morse stuff
 * iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
+  - [Facebook](https://www.facebook.com/groups/oz1aab). My discussions group 
   - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A straight model
   - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/indexPaddle.html) A single-lever paddle
 
-  - [CWComfort](/cw/). My morse keyer software, the one with a lazy attitude
-  - [Older version](https://www.fihl.net/CWComfort/). of CWComfort keyer software
+  - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
+  - [Older BLE stuff](https://www.fihl.net/BLE_CW_Keyer/). BLE as transport between modules
 
 - [HSPascal](/HSPascal/). Something 1990: High Speed Pascal
 
