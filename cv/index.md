@@ -17,8 +17,8 @@ Main interests, technical:
 * Software interessen er tekniske detaljer, bit-nørkleri, og standard protokoller. 
 * Udvikler hardware til interGATE flådestyring og interfacer til SINE radioer.
 
-|Year |Commercial |Private, own company
-|----- |--------------- |---------------
+|Year |Commercial |Private, own company|
+|----- |--------------- |---------------|
 |1956 | | Born
 |1972 ||Radioamatør, OZ1AAB, mens i realskolen (9 kl) http://oz1aab.fihl.net 
 |1976
@@ -82,12 +82,15 @@ Main interests, technical:
 
 In general, lots of bits & bytes still left in my head
 
-Christen Fihl\
-Jellingvej 6\
-3650 Ølstykke\
+Christen Fihl  
+Jellingvej 6  
+3650 Ølstykke  
 
-* [https://www.fihl.net](https://www.fihl.net)
-* [https://www.fihl.net/cv](https://www.fihl.net/cv)
-* [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)
-* [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)
-* [https://www.linkedin.com/in/christenfihl/](https://www.linkedin.com/in/christenfihl/)  
+
+|----- |--------------- |
+
+| www | [https://www.fihl.net](https://www.fihl.net)
+| cv |  [https://www.fihl.net/cv](https://www.fihl.net/cv)
+| Facebook |  [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)
+| Facebook hobby |  [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)
+| LinkedIn |  [https://www.linkedin.com/in/christenfihl/](https://www.linkedin.com/in/christenfihl/)  
