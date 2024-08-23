@@ -1,18 +1,21 @@
 # Christen Fihl, Denmark  OZ1AAB
 [Meget andet](/misc.html)
 
-- [OZ1AAB](/oz1aab/). HAM radio
+[OZ1AAB](/oz1aab/). HAM radio
 
-- CW, morse stuff
+CW, QRP, radio stuff  
+[qrpPower, an article on portable use](/qrpPower.html)
+
 * iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
-  - [Facebook](https://www.facebook.com/groups/oz1aab). My discussions group 
+  - [Discussions group](https://www.facebook.com/groups/oz1aab)
   - [iceKeyerStraight](/iceKeyer/indexStraight.html) A straight model
   - [iceKeyerPaddle](/iceKeyer/indexPaddle.html) A single-lever paddle
 
   - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
   - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
 
-- [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer, thanks
+- xxxxxx
+- [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer
 ---
 
 [![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/SLQM)

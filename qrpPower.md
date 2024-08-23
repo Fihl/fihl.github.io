@@ -10,7 +10,7 @@ Christen Fihl
 Ølstykke 
 
  
-References:
+Referencer:
 [QRP labs QCX](https://www.qrp-labs.com/qcx.html)
 [(tr)uSDX](https://dl2man.de/)
 [Lille LiitoKala 3S1P](https://www.aliexpress.com/item/32381410408.html)
