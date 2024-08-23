@@ -13,6 +13,8 @@ CW, QRP, radio stuff
 
 - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
 - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
+
+- [My RBN receiver] (https://beta.reversebeacon.net/main.php?zoom=57.70,6.33,2.00&rows=100&spotters=1&max_age=3,hours&spotter_call=oz1aab&hide=distance_mi)
 - [Beer, thanks, if you like my stuff]("https://www.buymeacoffee.com/Fihl")
 
-[![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/SLQM)  
+<!-- [![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/SLQM)   -->
