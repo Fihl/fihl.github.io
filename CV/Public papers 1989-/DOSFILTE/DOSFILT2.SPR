@@ -1,0 +1,177 @@
+PROGRAM listning DosFilter @BAR[1mm]
+SKAL VISES Pè EN HALVSIDE SPALTE!!
+
+
+Unit DosFilter;
+
+{ Af Christen Fihl 1989 }
+
+{ Filerne Input, Output kan pipes som fx PROGRAM <fil1 >fil2  }
+{ Filen ErrorOutput kan IKKE pipes, hvorfor fejlmeldinger kan }
+{ gives selvom Output filer er pipet til en fil som >fil2     }
+{$R-}
+
+interface
+
+var
+  ErrorOutput: Text;            {ErrorOutput, kan IKKE redirektes til en fil!}
+  DF1,DF2,DF3: Integer;    {Hjëlpe variabler. Grimt, men sparer et par linjer}
+  Line:  String;
+
+const NoParamNo=$8000; {Magisk vërdi}
+
+procedure Stop(Hvad,Lav,Hoej: integer; Tekst: String);     {Test "Hvad" er ok}
+function  ParamNo(Nummer: integer): Integer;
+procedure AdjustLine(var Line: string; Len: integer);    {Juster linje lëngde}
+procedure RemTab(var Line: string; TabPos: integer);           {Fjern tabtegn}
+procedure MakeTab(var Line: string; TabPos: integer);            {Lav tabtegn}
+procedure RemSpace(var Line: string);                              {Fjern ' '}
+
+implementation
+
+Uses Dos;
+
+Const StandardInput=0; StandardOutPut=1;                {Standard DOS filerne}
+      StandardError=2; StandardAux=3; StandardPrinter=4;
+
+{ Returner vërdien af en kommandolinje parameter. ELLER NoParamNo hvis fejl}
+function  ParamNo(Nummer: integer): Integer;
+var n,Fejl: integer;
+begin
+  val(ParamStr(Nummer),n,Fejl);
+  if (Fejl<>0) or (ParamStr(Nummer)='') then word(n):=NoParamNo;
+  ParamNo:=n
+end;
+
+{Juster linje lëngde. DVS tilfõj blanke, eller afkort efter behov}
+{Resultatet er en linje pÜ samme lëngde hver gang                }
+procedure AdjustLine(var Line: string; Len: integer);
+begin
+  while Line[0]<char(Len) do insert('     ',Line,255);           {Fyld ' ' pÜ}
+  Line[0]:=char(Len);                                     {Fjern overskydende}
+end;
+
+{Fjern tabtegn fra linjen. Tab position faktoren skal angives}
+procedure RemTab(var Line: string; TabPos: integer);
+var m,n: integer;
+begin
+  repeat
+    n:=pos(^I,Line);
+    if n>0 then begin
+      delete(Line,n,1);
+      repeat insert(' ',Line,n); inc(n) until (n mod TabPos)=1;
+    end;
+  until n=0;
+end;
+
+{Lav nye tabtegn pÜ linjen. Tab position faktoren skal angives}
+procedure MakeTab(var Line: string; TabPos: integer);
+var m,n: integer;
+begin
+  RemTab(Line,TabPos);
+  n:=TabPos; m:=Length(Line);
+  while (n<m) do begin
+    if Line[n]=' ' thenLine[n]:=^I;          {Indsët tabtegn istedetfor '  '}
+    inc(n,TabPos);
+  end;
+  repeat n:=Pos(' '^I,Line); if n=0 then EXIT;
+    Delete(Line,n,1)               {Alle blanke fõr et tabtegn er overflõdige}
+  until false;
+end;
+
+{Fjern afsluttende blanktegn pÜ linjen}
+procedure RemSpace(var Line: string);
+begin
+  while Line[ord(Line[0])]=' ' do dec(Line[0]);        {Er ret dyr i CPU tid!}
+end;
+
+{ Stop programmet hvis "Hvad" IKKE ligger i intervallet "Lav" til "Hõj"      }
+procedure Stop(Hvad,Lav,Hoej: integer; Tekst: String);
+begin
+  if (Hvad<Lav) OR (Hvad>Hoej) then begin
+    writeln(ErrorOutput,Tekst);  {Skriv fejlen pÜ skërmen}
+    HALT(1);
+  end;
+end;
+
+var    {Erklër nogle bedre(=stõrre) buffere}
+  BufferInput,BufferOutput: Array[1..1*1024] of char;
+  BufferErrorOutput: char;      {Lille og langsom, men giver automatisk flush}
+
+{Initializerings kode               }
+{  GenÜben Input & Output           }
+{  Opret ny fil: ErrorOutput        }
+{  Gõr Input og Output hurtigere    }
+begin
+  Assign(Input,''); reset(Input);           {GenÜben Input, hvis Crt er brugt}
+  Assign(Output,''); rewrite(Output);      {GenÜben Output, hvis Crt er brugt}
+  Assign(ErrorOutput,''); rewrite(ErrorOutput); {Koster IKKE nogen ny handle!}
+  TextRec(ErrorOutput).Handle:=StandardError;          {IKKE handle 1, MEN #2}
+  SetTextBuf(Input,BufferInput);                         {Brug de nye buffere}
+  SetTextBuf(Output,BufferOutput);
+  SetTextBuf(ErrorOutput,BufferErrorOutput);
+end.
+
+
+
+PROGRAM listning ADD-COL @bar[1mm]
+SKAL VISES Pè EN HALVSIDE SPALTE!!
+
+
+Program SammenTaelSojle;  {Adder tallene i en sõjle. Kald det for ADD-COL.EXE}
+Uses DosFilter;                            {Brug nyttige variabler og rutiner}
+var Total,W: longint;
+const Fjern: string[10]=' ,.';
+begin
+  Stop(ParamCount,2,2,'Syntax: Add-Col Sõjle1 Sõjle2 <fil1 >fil2');
+  DF1:=ParamNo(1); DF2:=ParamNo(2);
+  Stop(DF1,  1,255,  'Startsõjle forkert angivet');
+  Stop(DF2,DF1,255,  'Slutsõjle skal vëre stõrre end startsõjle');
+  Total:=0;
+  while not EOF do begin
+    readln(Line); Delete(Line,DF2+1,255); Delete(Line,1,DF1-1);
+    for DF3:=1 to Length(Fjern) do         {Slet alle forekomster fra "Fjern"}
+      while pos(Fjern[DF3],Line)>0 do
+        delete(Line,pos(Fjern[DF3],Line),1);  
+    val(Line,W,DF3);
+    Inc(Total,W);
+  end;
+  writeln(Total);                                            {Udskriv totalen}
+end.
+
+
+
+PROGRAM listning SiderX2 @bar[1mm]
+SKAL VISES Pè EN HALVSIDE SPALTE!!
+
+
+Program SiderX2;        {Laver een side tekst om til to spalter pÜ samme side}
+Uses DosFilter;                            {Brug nyttige variabler og rutiner}
+var  Sider: array[1..2,1..100] of String;
+begin
+  Stop(ParamCount,3,3,                                   {3 parametrer krëves}
+        'Syntax: 2-PAGE 68 4 80 <fil1 >fil2'#13#10+
+        '   -- 68=antal linjer, 4=antal blanke, 80=total linjelëngden'#13#10+
+        '   -- 68+4=72 =antal linjer total pÜ siden');
+  Stop(ParamNo(1),  1,100,  'Antal linjer skal vëre mellem 1 og 100');
+  Stop(ParamNo(2),  0, 99,  'Forkert antal blanke linjer angivet');
+  Stop(ParamNo(3), 10,200,  'Forkert linjelëngde');
+  DF3:=0; write(ErrorOutput,'Behandler side:xxx');               {Side tëller}
+  while not eof do begin
+    inc(DF3); write(ErrorOutput,^H^H^H,DF3:3); Flush(ErrorOutput);
+    for DF1:=1 to 2 do                         {Indlës 2 gange linje antallet}
+    for DF2:=1 to ParamNo(1) do begin
+      readln(Sider[DF1,DF2]);
+      RemTab(Sider[DF1,DF2],8);                               {Fjern tab tegn}
+      AdjustLine(Sider[DF1,DF2],(ParamNo(3) div 2)-1);         {Juster lëngde}
+    end;
+    for DF1:=1 to ParamNo(1) do begin                      {Kombiner linjerne}
+      Line:=Sider[1,DF1]+' '+Sider[2,DF1];         {Sët de to halvdele sammen}
+      RemSpace(Line);                     {Undlad at udskriv ekstra blanktegn}
+      MakeTab(Line,8);
+      writeln(Line);                                            {Skriv linjen}
+    end;
+    for DF1:=1 to ParamNo(2) do writeln;                 {Skriv blanke linjer}
+  end;
+  writeln(ErrorOutput);
+end.

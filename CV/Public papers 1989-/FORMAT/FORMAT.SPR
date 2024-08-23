@@ -1,0 +1,56 @@
+R 65,T 5
+LINJER MED @ ER KOMMENTARER ETC.
+Ordet IKKE og KUN (med stort) b›r vel skrives med bold og sm†bogstaver.
+SE EFTER "
+
+
+Formatering og hvad det ikke er @bar[.5 mm]
+
+Det er nu om dage nemt at gemme sine data p† disketter ogharddiske, men hvordan slipper man egentlig af med dem igen. Jo,man sletter dem blot med DOS kommandoen "DEL FilNavn", hvorefterpladsen p† disken er fri og kan bruges til andre filer. 
+
+Nu skal man ikke tro at filerne er v‘k for evigt. Der findes endel v‘rkt›jer til at f† dem tilbage igen, tit kaldet for un-eraseeller lignende. De virker p† en effektiv m†de, da det eneste, derer ‘ndret med DEL kommandoer, er et enkelt tegn i biblioteket,hvor navnet stod, hvorfor un-erase blot skal g‘tte sig til dettetegn. Hvis biblioteket ogs† er slettet, s† er det lidt sv‘rere,da biblioteket f›rst skal genskabes, f›rend de heri slettedefiler kan findes. F›rst n†r pladsen p† disken er blevet genbrugttil andre filer, er det blevet endeligt umuligt at genskabefilen. 
+
+Det er dejligt, at man kan genskabe slettede filer, jeg har brugtdet mange gange, b†de efter uheld og direkte tilsigtet. Fxsletter jeg altid mine log filer, hvis de indeholder password oglignende, da jeg, hvis der opst†r problemer, blot skaffer filentilbage igen. 
+
+Men nogle gange er det direkte ›nskeligt at kunne slippe af medfilerne for evigt. Nogle af ens filer ›nsker man ikke, at andreskal kunne kigge i, da de indeholder ens regnskab, kildetekster,password og lignende. 
+
+Skal man s‘lge sin maskine med harddisk, eller man skal give endiskette v‘k, hvorp† filerne har v‘ret, s† bliver man n›dt til atoverskrive de steder p† disken hvor filer har v‘ret. Ellers kanden nye bruger alt for nemt genskabe filerne. 
+
+Programmet FyldDisk (se udskriften), kan overskrive al den plads,der er tilovers p† en disk eller diskette, hvorved alle deslettede filer herved effektivt bliver fjernet. Din disk lignersig selv n†r FyldDisk er f‘rdig, alts† intet farligt i at brugeden. Programmet tager lidt tid at k›re, da de skal skrive tilalle de steder p† disken, der ikke er brugt. Programmet l‘gger etkendt m›nster ind p† disken. Du kan selv ‘ndre m›nsteret til envilk†rlig sekvens p† 30 tegn. 
+Du kan opn† samme virkning som FyldDisk ved at kopiere en masseligegyldige filer ind p† disken, indtil denne er fuld, hvorefterde alle slettes igen.
+
+
+FORMAT er bedre end DEL?   @bar[.5mm]
+
+Men hvorfor s† ikke bruge format istedet?
+Format er udem‘rket at bruge, n†r man skal slette en heldiskette, da format overskriver alle sektorer p† disketten,ligegyldig om der allerede er nogle i forvejen eller ej. Daformat tager en del tid, kan man overveje fra gang til gang, omdet er nemmere at bruge FyldDisk istedet. FyldDisk er jo hurtig,hvis der kun er lidt overskydende plads tilbage p† disketten. 
+
+Format er derimod ikke s† god, hvis man vil slette en helharddisk! Formats opgave p† en harddisk er at initialiserebiblioteks strukturen og finde d†rlige sektorer. Format g›r detteved at skrive i de f›rste f† sektorer p† disken med biblioteket,mens der KUN bliver l‘st p† resten af disken. Formats opgave ernemlig ikke at lave en s†kaldt grund-formatering, alts† skrivetomme sektorer ned p† disken, som den g›r p† en diskette. Dertilfindes der specielle programmer p† setup disken eller indbygget ikontrolleren, men disse er kun beregnet til brug for PCteknikeren. 
+
+Format sletter alts† n‘sten ikke noget p† disken. Der er derforkun en mulighed tilbage, for at slette dine spor; brug FillDisk.
+
+
+FORMAT C: ved et uheld?   @bar[.5mm]
+
+Hvem har ikke l‘st en manual, hvor der p† side 2 underinstallation st†r:
+
+  Start med en nyformateret disk,
+    brug fx FORMAT C:
+  Indl‘g din kontoplan
+  Indl‘g dine stamdata
+
+hvilket er udf›rt for mange †r siden. Programmet bliver brugthver dag med et "rimeligt" antal sikkerhedskopier. Hver nysekret‘r, der ans‘ttes, og som ikke kender produktet, vil derforl‘se manualen fra side 1 til 120, og m†ske f›lge den slavisk. 
+Resultatet vil jeg ikke skrive om, men der er masser af plads p†disken efter at punkt et er udf›rt. 
+
+Jeg har lavet et andet lille program, Snavs.PAS, der kan samlealle ubrugte sektorer sammen til en enkelt fil. Denne fil optagerikke ny plads p† disken. Der bliver alts† ikke skrevet p† diskenundtagen i FAT'en og i biblioteket. Programmet opretter en storfil, SNAVS, hvortil der ikke skrives. Derfor indholder den, hvadder tilf‘ldigvis var p† disken p† samme plads. 
+
+Kikker man nu i filen SNAVS, finder man en blanding af alt mulig,men tit kan man finde brudstykker eller alt fra sine filer. Detteer selvf›lgelig nemmest at se, hvis det er tekst filer, man lederefter. Det vil v‘re muligt at lave et program, der viser en blokaf gangen, hvorefter du kan v‘lge at flytte denne over til enanden fil (p† en diskette), eller at g† til n‘ste blok. Husk atblokkene p† en disk er sammensat af st›rre eller mindre blokke(cluster), tit 2 eller 4 KByte i hver. Har du derfor fundet enblok p† 1 KByte, s† skal de andre automatisk tages med. Clusterst›rrelsen, ogs† kaldet allocation unit (vistnok klynge st›rrelsep† dansk), kan afl‘ses ved hj‘lp af CHKDSK i DOS 4.0, ellers medNortons programmer. 
+
+Du kan lege med SNAVS programmet ved at formatere en diskette,kopiere nogle tekst filer derover, hvorefter du sletter en enkeltaf dem igen. Udtag nu disketten eller genstart maskinen sombeskrevet i den bl† boks. Stil dig p† A: og udf›r SNAVS. FilenSNAVS indeholder nu blandt andet din slettede fil.
+
+
+BOX BOX BOX @bar[.5mm]
+
+@box[Der findes forskellige metoder for, hvorledes DOS finderplads til en ny fil p† disken, alt afh‘ngig af hvilken DOS manbruger. I de gamle versioner, blev nye blokke til en fil altidfundet ved en s›gning fra bunden af disken, men dette har ‘ndretsig siden. Derfor kan man nu om dage se, at hvis den samme filgemmes to gange, s† gemmes denne forskellige steder p† disken.Har du 1MByte p† disken, pr›v s† fx flere gange at k›re SNAVS.EXEmed svaret 300 (KByte), efterfulgt af CHKDSK SNAVS. CHKDSK vilfort‘lle hvor mange ikke- sammenh‘ngende dele SNAVS best†r af.Dette tal vil ‘ndre sig, hvis filen skifter plads p† disken.Ellers er Nortons DiskMap meget god til dette. 
+
+Hver gang maskinen genstartes, starter filsystemet forfra. Derforkan det v‘re smart at genstarte f›rend SNAVS programmet k›res. P†en diskette med mere end 360 KByte er det oftest nok blot at tagedenne ud af maskinen et ›jeblik, hvorefter filsystemet starterforfra. Jeg kan ikke helt huske om ^C ogs† nulstiller filsystemetp† samme m†de p† 360 KByte disketter, men pr›v selv.]

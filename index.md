@@ -7,18 +7,18 @@
 - CW, morse stuff
 * iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
   - [Facebook](https://www.facebook.com/groups/oz1aab). My discussions group 
-  - [iceKeyerStraight](https://www.fihl.net/iceKeyer/indexStraight.html) A straight model
-  - [iceKeyerPaddle](https://www.fihl.net/iceKeyer/indexPaddle.html) A single-lever paddle
+  - [iceKeyerStraight](/iceKeyer/indexStraight.html) A straight model
+  - [iceKeyerPaddle](/iceKeyer/indexPaddle.html) A single-lever paddle
 
   - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
-  - [Older BLE stuff](https://www.fihl.net/BLE_CW_Keyer/). BLE as transport between modules
+  - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
 
 - [HSPascal](/HSPascal/). Something 1990: High Speed Pascal
 
 - [hsCoRoutines](/hsCoRoutines/). Super simpel multitasking. ESP too, now using ProtoThreads
 
 - [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
-- [LaserCutter2D](https://www.fihl.net/LaserCutter2D/). My finger joint box construction kit
+- [LaserCutter2D](/LaserCutter2D/). My finger joint box construction kit
 - [WeatherStation (on github)](https://github.com/Fihl/LaserCutter2D/tree/main/Src/WeatherStation/)
 - 
 - [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer, thanks

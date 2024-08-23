@@ -1,0 +1,72 @@
+R 65,T 5
+LINJER MED @ ER KOMMENTAR ETC
+
+Dette er filer DATO.SPR
+Desuden er der:
+136 linjer i DATECALC.PAS og
+31 linjer i DATOTEST.PAS
+
+
+@bar[1mm]
+
+
+Hvorlangt er der til p†ske?
+
+Hvordan beregner man antallet af dage mellem to dage.
+
+@bar[1 mm]
+
+Har man pr›vet at beregne antallet af dage fra fx 15 marts 1986til 20 august 1989, indses det hurtigt, at man b›r have noglestandard rutiner til at lave det h†rde arbejde. 
+
+Det princip, der altid bruges, er at give hver dag et fortl›bendenummer. Har man en s†dan rutine (DagNummer), da er svaret p†problemet s† simpelt som:
+
+  Dag1=DagNummer(1986,03,15)
+  Dag2=DagNummer(1989,08,20)
+  Antal dage=Dag2-Dag1
+
+Laver man ogs† en rutine den anden vej (TilDag), alts† fra etDagNummer til en dato, kan man ogs† give svar p† hvilken dato deter om 100 dage. 
+
+  Dag100=TilDag(DagNummer(IDag+100))
+
+Der er i tidens l›b lavet mange forskellige konverterings formlermellem de to former, dato og nummer. Den ‘ldste, den som jeg vilbeskrive her, er den der bruger det Julianske kalender system.Denne er nemlig ret simpel, da der her altid er skud†r hverfjerde †r, uden undtagelse. 
+
+Pave Gregory XIII indf›rte i 1582 den Gregorianske kalender, dadet gamle Julianske system var kommet flere dage ud af trit med,hvordan  virkeligheden opf›rte sig. Skud†r hvert 4 †r giver et †rp† i gennemsnit er 365 en kvart dag, hvilket ikke er helt pr‘cis.Gregor indf›rte derfor, at alle †r delelig med 100 ikke skullev‘re skud†r, bortset fra de, der er delelig med 400. rene 1800,1900 og 2100 er derfor IKKE skud†r, mens †r 2000 alligevel er etskud†r. Mine rutiner, bruger de Julianske regler, hvorfor de kunkan bruges mellem 1 marts †r 1900 og 28 februar †r 2100. Jegsynes dog de kunne v‘re interressante at studere, da de ergrundlaget for astronomernes dato beregninger l‘nge f›rcomputerne kom frem. Det er p† den anden side set egentligligegyldig hvad der ligger til grund for rutinerne, blot de giverhver af de enkelte dage et fortl›bende nummer.
+
+Rutinerne gemmer dagene i en LongInt variabel, alts† i 32 bit,hvilket giver rigelig med plads. Den udpakkede dato af nul skulleligge p† 1 januar i †r 4713 f›r kristi f›dsel, hvad jeg dog ikkehar kunne f† rutinerne til at give (ca 1 †r til forskel). Det harm†ske netop noget at g›re med system skiftet i 1582. Men somsagt, rutinerne virker mellem †rene 1900 og 2100, s† de erfremtids sikrere lidt endnu. 
+
+Du f†r disse rutiner til r†dighed:
+
+BEGIN DESCRIPTION, indent -1.5 cm
+JulDate	Lav en Juliansk dato af †r, m†ned og dag
+
+CalenderDate	Konverter tilbage til †r, m†ned og dag
+
+JulToday	Idag i Juliansk format
+
+Date	Konverter Juliansk dato til tekst form
+
+WeekDay	Giver ugedagens nummer, 0=s›ndag
+
+WeekDayStr	Ugedagen som tekst
+
+WeekNo	Ugenummer. Uge 1 indeholder den f›rste torsdag i Januar
+
+JulDate1stWeek	Juliansk dato for den f›rste dag i den f›rste ugei †ret
+END DESCRIPTION
+
+Med disse rutiner f†s antallet af dage til p†ske som:DageTilP†ske= JulDate(1990,4,15)- JulToDay.
+
+Der er 30.6001 dage hver m†ned. @bar[1 mm]
+
+Jeg har brugt flydende tals beregning i rutinerne, hvad der godtkan se ud som plads spild. Men jeg tror at disse rutiner mest vilblive brugt sammen med fx bogholderi systemer, hvori der iforvejen bruges flydende tal. Derfor bliver de meget billigere atbruge, da rutinerne s† deles af begge. 
+
+De flydende tal bruges, da det antages at der er 365.25 dage p†et †r, og 30.6001 dage p† en m†ned. N†r disse tal bliver lavet omtil heltal, da fremkommer der automatisk den rigtige blanding af30 og 31 dage per m†ned. Problemet med skud†r er flyttet fra midti omr†det Januar - December til omr†det Marts - Februar, hvorforden 28 eller 29 Februar blot her er den SIDSTE dag p† †ret. 
+
+
+@box[
+Man kan gemme 179 †r i en integer variabel (16 bit), da 366*179er 65514. Der er plads til 65536 i en integer variabel, hvorforman, med andre rutiner, kan n›jes med to bytes per dato.
+]
+
+@box[
+If›lge Dansk Standard 377 om alfabetiseringsregler, er den f›rsteuge den, der indeholder mindst 4 dage af det nye †r. Er den 1.Januar en fredag, l›rdag eller s›ndag, da starter uge 1 f›rstn‘ste mandag. Sagt p† en anden m†de: uge 1 indeholder altid denf›rste torsdag i det nye †r.
+]

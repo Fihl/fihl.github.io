@@ -1,0 +1,147 @@
+R 65,T 5
+TO PROGRAMLISTNINGER I SLUTNINGEN.
+
+
+Psyko pop eller S†ledes bruges paletterne p† en PC'er
+=========
+
+
+Programmet jeg viser denne gang, kan ikke noget s‘rligt i sigselv. Men det demonstrerer lidt om, hvordan man bruger paletteskift i et program. Det kan derfor kun bruges sammen med EGA ogVGA grafik kort. Jeg vil holde mig til at diskutere EGA kortetsfunktion. VGA kortet har blot flere farver og st›rre opl›sning. 
+
+Paletteskift kan bruges til to forskellige form†l, at definereegne farver eller at lave animation p† sk‘rmen. 
+
+Et EGA kort kan vise 16 farver af gangen. Men der er mulighed forat v‘lge disse 16 farver ud af 64 mulige. Man kan frit v‘lge enaf disse 64 til hvert af de 16 "aktive" farver. 
+
+N†r man tegner p† sk‘rmen, angiver man en farve, hvormed derskrives. Det er dette farve nummer (0 til 15), der ved visning p†sk‘rmen bliver konverteret ved brug af paletten. Da dette skerhele tiden (omkring 20000 til 30000 linjer i sekundet), opfatteset paletteskift ›jeblikkeligt som en ‘ndring af hele billedet. 
+
+Animation er karakteriseret ved hurtige skift af billeder p†sk‘rmen, uden at det kan ses, at billedet bliver tegnet. Man kanved at skifte palette opn† den effekt, at billedet med et bliver‘ndret. Selve tegningen vil stadig tage tid, men kan bringes tilat foreg† skjult. 
+
+Til at skrive skjulte streger, har man brug for at kunne tegnemed et farvenummer, der ikke vil ‘ndre den farve, der alleredevises p† sk‘rmen. Det er derfor n›dvendig at begr‘nse antallet afbenyttede farver, til enten 2 eller 4. I Animate programeksemplet her bruges 4 farver. Ved brug af 2 farver, kan der v‘replads til fire billeder p† sk‘rmen af gangen, der kan visesuafh‘ngig af hinanden. Der er plads til 4 billeder af 2 farver da2*2*2*2 kan indeholdes i 16 farver mens der kun er plads til 2billeder af 4 farver da 4*4 kan indeholdes i 16 farver. 
+
+Antag at der er tegnet to billeder p† sk‘rmen, hvor vi ›nsker atvise dem et af gangen. Det ene billede er tegnet ved brug affarverne 0, 1, 2 og 3, mens det andet er tegnet med farverne 0,4, 8 og 12. N†r billedet tegnes, skal der bruges OR tegne metode,eller XOR metode. Dette medf›rer, at tegningen af det andetbillede ikke ›del‘gger det f›rste billede. 
+
+Ved at skifte mellem paletterne (0, 63, 2, 3, 0, 63, 2, 3, 0, 63,2, 3, 0, 63, 2, 3) og (0, 0, 0, 0, 63, 63, 63, 63, 2, 2, 2, 2, 3,3, 3, 3), kan disse to billeder vises skiftevis. Disse v‘rdier erskabt ved at betragte de bit m›nstrer, der kan laves ved brug af4 bit, xxyy. Det ene billede bruger xx bittene, mens det andetbruger yy bittene. De mulige kombinationer er derfor: xx00, xx01,xx10, xx11 og 00yy, 01yy, 10yy, 11yy. 
+
+Pascal rutinen GetPalette(Pal: PaletteType), returnerer standardpalette ops‘tning, der p† min VGA sk‘rm giver: (0, 1, 2, 3, 4, 5,20, 7, 56, 57, 58, 59, 60, 61, 62, 63) for farverne 0 til 15. 0betyder for eksempel sort, 63 betyder hvid, 2 betyder gr›n og 4betyder r›d. 
+
+Animate programmet viser to billeder skiftevis. PaletteDemoprogrammet laver blot noget psykedelisk grafik, der konstant‘ndres. Begge programmer kr‘ver mindst EGA grafik.
+
+
+
+=========================================================
+
+Program Animate;
+{ Flyt rundt p† alle mine brikker ved hj‘lp af palette skift
+  Af Christen Fihl
+}
+uses Crt,Graph;
+Const
+  Pal1: palettetype=(Size:16;Colors:(0,63,2,3, 0,63, 2, 3,0,63,2,3,0,63,2,3));
+  Pal2: palettetype=(Size:16;Colors:(0, 0,0,0,63,63,63,63,2, 2,2,2,3, 3,3,3));
+  PalA: palettetype=(Size:16;Colors:(0,63,2,3,63,63,63,63,2,63,2,3,0,63,2,3));
+  GrDriver: Integer=EGA; GrModus: Integer=EGAHI; MegetFlimmer=false;
+var n: Integer;
+begin
+  InitGraph(GrDriver,grModus,'C:\Turbo');
+  SetWriteMode(XORPut);
+  SetColor(2); Rectangle(220,10,250,40);                     {Kontrol kasser}
+  SetColor(8); Rectangle(220+50,10,250+50,40);
+  repeat
+    n:=1-1; SetColor(8); Rectangle(n+1,n+1,n+181,n+181);
+    for n:=1 to 20 do begin
+      SetColor(2); Rectangle(n,n,n+180,n+180);
+      if not MegetFlimmer then SetAllPalette(PalA);      {Vis begge samtidig}
+      SetAllPalette(Pal1); Delay(10);
+      SetColor(8); Rectangle(n,n,n+180,n+180);
+      SetColor(8); Rectangle(n+1,n+1,n+181,n+181);
+      if not MegetFlimmer then SetAllPalette(PalA);     {Giver ikke "huller"}
+      SetAllPalette(Pal2); Delay(10);
+      SetColor(2); Rectangle(n,n,n+180,n+180);
+    end;
+    n:=20+1; SetColor(8); Rectangle(n,n,n+180,n+180);
+  until keypressed;
+  closegraph;
+end.
+
+=========================================================
+
+program PaletteDemo;
+{ Demonstration af paletteskift i TurboPascal.
+  Skrevet af Christen Fihl for PC-World.
+  Et ubrugeligt men interressant program.
+}
+
+Uses Crt,Graph;
+
+Const
+  Drivers = 'C:\Turbo';    {Hvor er grafik driverne? Angiv dineegen sti her}
+  Reklame='Salgs gas her';
+  maxCol=14;                          {Antal farver bortset frasort og hvid}
+
+Var
+  m,n,o,p,ReklameW,ReklameH,ReklameX,ReklameY,
+  CentrumX,CentrumY,
+  ReklameTimeOut, GrDriver, GrModus: Integer;
+  rad: real;
+  Pal: PaletteType;
+  Image: Pointer;
+
+begin
+  GrDriver := VGA; grModus:= VGAHi;
+  InitGraph(GrDriver,grModus,Drivers);
+  if GraphResult <> grOk then begin
+    GrDriver := EGA; grModus:= EGAHi;      {Pr›v i EGA, hvis VGAikke lykkes}
+    InitGraph(GrDriver,grModus,Drivers);
+    n:=GraphResult;
+    if n <> grOk Then begin
+      writeln('InitGraph fejl: ',n); halt(n);
+    end;
+  end;
+  CentrumX:=GetMaxX div 2; CentrumY:=GetMaxY div 2;       {Findsk‘rm midten}
+  ReklameTimeOut:=0;
+  for n:=0 to 360 do begin
+    rad:=(2*pi/360*n);
+    moveto(CentrumX,CentrumY);
+    o:=1+(n mod maxCol);
+    for p:=1 to 6 do begin
+      m:=8+15*p;
+      setColor(o);
+      lineRel(round(m*sin(rad)),round(m*cos(rad)));
+      o:=1+MaxCol-o;
+    end;
+  end;
+  delay(500);                                          {Altgrafik er tegnet}
+  SetColor(15); SetTextStyle(TriplexFont,0,6);
+  OutTextXY( 35,25,'Christen Fihl');
+  OutTextXY(CentrumX+100,CentrumY-5,'PC World');
+  delay(500);                                                {Alt er tegnet}
+  {Tag en kopi af pladsen hvor reklamen vil dukke op ogforsvinde}
+  ReklameW:=textwidth(Reklame); ReklameH:=TextHeight(Reklame);
+  GetMem(Image,imageSize(0,0,ReklameW,ReklameH));
+  ReklameX:=CentrumX-ReklameW div 2; ReklameY:=CentrumY+CentrumYdiv 2;
+  GetImage(ReklameX,ReklameY,ReklameX+ReklameW,ReklameY+ReklameH,Image^);
+  GetPalette(Pal);
+  with Pal do repeat
+    m:=Colors[1];
+    for n:=1 to maxCol-1 do                                 {Roter farverne}
+      Colors[n]:=Colors[n+1];
+    Colors[MaxCol]:=m; setAllPalette(Pal);
+    case random(20) of                             {Lav ogs†bl›de ‘ndringer}
+    1:  setRGBPalette( 1+random( 5),128+random(128),random(20),random( 20));
+    2:  setRGBPalette( 6+random( 5),random(20),128+random(128),random( 20));
+    3:  setRGBPalette(11+random( 4),random( 20),random(20),128+random(128));
+    4:  setRGBPalette( 1+random(15),255,1,1);
+    else                                  {Ingen ‘ndring 16/20dele af tiden}
+    end;
+    if (ReklameTimeOut=0) and (random(50)=0) then begin
+      SetColor(15); OutTextXY(ReklameX,ReklameY,Reklame);  {Skriv med hvidt}
+      ReklameTimeOut:=30;
+    end;
+    if ReklameTimeOut>0 then begin
+      dec(ReklameTimeOut);
+      if ReklameTimeOut=0 then                       {Sluk forreklamen igen}
+        putimage(ReklameX,ReklameY,Image^,NormalPut);
+    end;
+  until keypressed;
+  closegraph;
+end.

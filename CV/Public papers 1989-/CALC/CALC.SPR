@@ -1,0 +1,94 @@
+R 65,T 5
+## Kommentarer er m‘rket med ##
+## Der er | tegn i denne tekst (ALT-124)
+
+En regnemaskine med 26 registrer
+================================
+
+Jeg kan aldrig finde mine lommeregnere, n†r jeg har brug for dem.De regnemaskiner (programmerbare eller ej) man k›bte for 15 †rsiden, havde en st›rrelse, s† de var til at finde, selvom de vargemt under en stak papir. Det g‘lder ikke rigtig mere, hvor manf†r en regnemaskine p† st›rrelse med et kreditkort, bare manindsender en svarkupon fra avisen. Selvom der ligger flere afdisse og flyder rundt omkring her i huset, ligger de dog aldrig iens n‘rhed. 
+
+Disse sm† maskiner er faktisk meget gode til en hurtig udregning,n†r man kan n›jes med de fire almindelige operationer, som de eri stand til at udf›re. Som regel kan de ogs† beregne kvadratrodenfor en, men jeg kan dog ikke rigtig se hvad dette, i denalmindelige dagligdag, kan bruges til. Denne funktion er nok mereteknisk begrundet end et ›nske fra brugerne. Jeg ville da megethellere have nogle renteberegnings rutiner eller lignende. 
+
+Selvom disse maskiner ikke kan ret meget, er det dog det enestejeg har i ›jeblikket, da mine gamle programmerbare maskinerforl‘ngst er smidt ud. De havde f†et for vane at vise flere cifrep† lystavlen, end jeg selv havde trykket ind, hvorfor jegkonstant skulle kontroller hver eneste indtastning, hvoraf defleste alligevel skulle gentages. 
+
+Jeg har flere gange startet min Pascal overs‘tter, blot for atberegne et komplekst udtryk. Det er dog nemmere at udf›re detsamme i Basic, hvor man p† kommandolinje kan skrive 
+
+  PRINT 2+3  eller
+  ? 2+3
+
+hvorefter man f†r svaret p† n‘ste linje (5 efterfulgt af detkendte lille ord - Ok). 
+
+## MiniCalc programmet kaldes for !
+
+Dette har givet mig ideen til at lave en regnemaskine, der kankaldes fra DOS kommandolinjen, med samme syntaks som Basicversionen. Man kan ikke lave et program, der hedder ?, da de tretegn ?, * og . har speciel betydning for DOS. Derfor har jegvalgt at kalde programmet for !.EXE p† disken. Et udtryk beregnesnu ved at skrive linjen
+
+  ! 2+3*4
+
+hvorefter svaret returneres som
+
+  = 1.4000000E+01
+
+Desuden findes en interaktiv version, der startes ved at skrivelinjen
+
+  !
+
+MiniCalc programmet, som !.EXE kaldes, har 26 registrer (memory),der gemmes fra gang til gang i en datafil. Disse registrer kaldesA, B osv op til Z, og man kan tildele v‘rdier til disse ved fx atskrive ! B=22/7. De bruges igen ved at henvise til deres navne iet udtryk som fx: ! 33*B.
+
+##Operatorerne afh‘nger af hinanden
+
+Mange af de sm† solceller regnemaskiner kan ikke huske ret langt,s† de udregner et udtryk som 2+3*4 som 20, og ikke de 14 som vil‘rte i skolen. 2+3*4 udregnes efter den simple model som(2+3)*4, og ikke som 2+(3*4). Dette sker, da de sm† maskiner ikkelaver forskel p† de forskellige operatorer. I skolen blev vi l‘rtat gange og dividere skal udf›res f›rend plus og minusoperationerne. 
+
+Syntaksen der bruges i MiniCalc kan beskrives s†ledes
+
+Udtryk
+  ::= AssignStmt
+  ::= AddExpr
+
+AssignStmt   
+  ::= ID=AddExpr
+
+AddExpr      
+  ::= MulExpr { ( + | - ) MulExpr }
+
+MulExpr      
+  ::= Term { ( * | / ) Term }
+
+Term         
+  ::= ^ SignedFactor
+  ::=   SignedFactor
+
+SignedFactor 
+  ::= + SignedFactor
+  ::= - SignedFactor
+  ::= Factor
+
+Denne syntaks er skrevet p† (en smule modificeret) BNF form(Backus-Naur form). En linje som AddExpr skal beregnes ved hj‘lpaf n›jagtig een af de efterf›lgende ::= linjer. Et par tuborgparenteser {} indikerer, at det indeholdte kan gentages 0 ellerflere gange. Et par almindelige parenteser () indikerer, at derskal v‘lges n›jagtig een af de, med | adskilte elementer. 
+
+AddExpr kan derfor fx best†r af 
+  MulExpr,
+  MulExpr + MulExpr
+  MulExpr - MulExpr + MulExpr
+
+Denne struktur kan genfindes i koden for AddExpr iprogramlistningen. 
+
+Pr›v i TurboPascal, at beregne udtrykket 2+3*4, medens du kiggerp† variablerne InputShow og InputLine. Du vil nu, mens du trinvisg†r frem, se nogle pile i InputShow, der peger p† netop det stedi InputLine, der nu er under behandling. InputShow er kun fordemonstration, og kan derfor senere fjernes. Pr›v ogs† at beregneudtryk som 2+(((3))), 1+(2+(3+(4+(5)))) og (((1+2)+3)+4)+5.
+
+##Begynd kasse
+Vejledning til MiniCalc
+
+Programmet kaldes ved at skrive ! p† DOS kommandolinjen,efterfulgt af det, der ›nsker beregnet. En interaktiv versionfremkommer, n†r der ikke angives et udtryk efter ! tegnet. 
+
+Der kan udf›res flere operationer fra samme linje, blot deadskilles med et semikolon tegn (;). 
+
+Der kan tildeles v‘rdier til de 26 registrer kaldet A, B .. Z vedat efterf›lge navnet med et lighedstegn (=) og et udtryk. B=2+3. 
+
+V‘rdier der tildeles udskrives ikke, mens alle andre beregningerudskrives, hvorfor kaldet 
+  ! B=2+3 ; B+10
+udskriver 15.
+
+MiniCalc underst›tter i ›jeblikket beregning ved brug af 
+operatorerne:  *, /, +, -, ^
+funktionerne: ABS, SQR, SQRT, SIN, COS, ARCTAN, LOG, LN, EXP 
+og konstanten PI.
+Det er let at tilf›je nye rutiner som fx PV rente funktioner. 
+##Slut kasse

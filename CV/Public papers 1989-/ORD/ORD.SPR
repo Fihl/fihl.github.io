@@ -1,0 +1,50 @@
+R 65,T 5
+LINJER MED ## ER KOMMENTARER.
+
+
+
+
+## OVERSKRIFT  Bin‘re tr‘er
+
+Jeg lavede for nogle †r siden en overs‘ttelse ved brug afWordStar editoren. For at lave stavekontrol brugte jeg etprogram, der samlede alle ordene sammen, sorterede dem og udskrevdem. P† denne m†de fik jeg et par tusinde ord ud, som alle skullekontrolleres. Dette program brugte jeg selvf›lgelig ikke ret tit,kun som en endelig kontrol af min tekst. 
+
+Jeg har fundet dette program frem igen, og ‘ndret en smule p†det, s†ledes at man kan filtrere alle de kendte og alleredegodkendte ord fra, hvorfor kun nye ord vises. Desuden kan derindl‘ses ord, der skal gives speciel advarsel imod, som fx hvisman skriver D i GJORT osv. 
+Programmet er afpr›vet p† filer lavet med Borlandstekstbehandlingsprogram Sprint, men der skal ikke ‘ndres megetfor at bruge det p† andre tekster. 
+
+Jeg viser programmet, da det er et rimeligt kort program, derviser hvordan man kan bruge bin‘re tr‘er. Et tr‘ er en m†de atgemme data p† internt i maskinen. Princippet g›r det nemt atgemme data ordnet i fx alfabetisk r‘kkef›lge. Dette kan fx v‘reen l‘ges patientkort, men for at g›re det simpelt vil jeg antageat alle data elementer er almindelige skrevne ord. 
+
+Hvert element i tr‘et indeholder foruden information om ordetselv, en peger p† et tr‘ er inderholder alle de ord, der ermindre end det selv, og en peger p† et tr‘ med de tilsvarendest›rre ord. Ordet ABE er i Pascal mindre end KO som igen ermindre end ZEBRA. Inds‘ttes disse ord i et (lille) tr‘ som ifigur 1, vil elementet i roden, alts† det element man har fat i,v‘re KO, mens tr‘et med ord der er st›rre kun indeholder ZEBRA.Tr‘et der er vist i figur 2 er dog ogs† et gyldigt tr‘, men deter ikke balanceret. Da en s›gning altid starter i roden, ses det,at det tager l‘ngere tid at finde ABE end ZEBRA i figur 2. 
+
+I kassen st†r, at man kun skal s›ge 10 gange, f›rend man harfundet et vilk†rligt element udaf 1000 elementer, hvis tr‘et erp‘nt. Tr‘et i figur 2 er ikke p‘nt. Dette tr‘ opn†r man, n†r maninds‘tter elementerne i r‘kkef›lgen ZEBRA, KO, HEST og ABE. Derfindes algoritmer til at g›re et d†rligt tr‘ godt igen, men de erstore. Derfor kan man istedet fors›ge at modvirke dette, vedsimpelthen at inds‘tte nogle ideelle elementer f›rst, og i denrette r‘kkef›lge. I programmmet inds‘ttes etbogstavs ord fraPreStr strengen i linje 19. Derfor inds‘ttes f›rst ordet N,efterfulgt af G og U osv. Dette er en del bedre end intet atg›re. 
+
+
+## OVERSKRIFT: Program gennemgang
+
+Programmet har tre trin:
+ 1. Lav et p‘nt tr‘. Se f›r n‘vnt
+ 2. Indl‘s tekst og definition
+ 3. Udskriv resultat
+
+I trin 2 bliver alle filerne indl‘st, ord for ord, hvorefter deinds‘ttes i det sorterede tr‘. Alle filer med endelsen ".DEF"opfattes som definitions filer med et ord per linje. Starterlinjen med tegnet "-", gemmes ordet, og alle forekomster af detvises specielt. Alle andre ord i DEF filen opfattes som v‘rendeuden interesse, og vises derfor aldrig. "-" ordene er derfor enopremsning af de ord, man ikke m† bruge, eller altid skriverforkert. DEF ordene indl‘ses i ReadDEF procedure. Almindeligtekst indl‘ses i ReadTextFile proceduren. 
+
+Ord der skal indl‘gges i tr‘et, bliver behandlet i EnterWord ogEnter procedurerne. Midt i proceduren ses den grundl‘ggendesammenligning, hvor det bestemmes, hvor ordet skal placeres. Skalordet ned i et undertr‘, kaldes Enter proceduren blot igen(rekursiv), nu med dette undertr‘ som parameter. Der foretagessamtidig lidt statestik p†, hvor mange gange hvert ord er brugtog i hvilke filer. 
+
+Trin 3 foretager udskriften. Dette foreg†r i WriteTreeproceduren. For at f† elementerne ud alfabetisk, skal man blotgenneml›be tr‘et fra venstre til h›jre, alts† tage venstre grenaf venstre undertr‘ af venstre undertr‘ af venstre undertr‘ osv,indtil der ikke er flere undertr‘er der. Derefter udskriveselementet selv, efterfulgt af h›jre undertr‘erne. 
+
+
+
+##KASSE
+## OVERSKRIFT:  Bin‘rt tr‘.
+Ordet bin‘r betyder to, ligesom i det bin‘re talsystem. Et bin‘rttr‘ betyder, at der er h›jst 2 under-tr‘er for hvert element.DataBase v‘rkt›jet til TurboPascal bruger B+ tr‘er, som kan haveet variabelt antal under-tr‘er. 
+Roden i tr‘et bliver som regel vist ›verst. Derfor st†r tr‘etreelt p† hovedet, n†r det vises p† papir. Den eneste adgang tiltr‘et er gennem roden, hvorfor en gennems›gning allerede her skalbeslutte, hvilken halvdel af tr‘et der skal gennems›ges f›rst. 
+Inderholder et tr‘ 1000 elementer, j‘vnt fordelt, s† beh›ves derh›jst 10 sammenligninger, f›rend elementet er fundet. Hversammenligning halverer jo mulighederne, s† efter 10 gange er mannede p† det enkelte element. Starter man med 1024, s† er antalletefter hver deling: 512, 256, 128, 64, 32, 16, 8, 4, 2 og 1. 
+##SLUT KASSE
+
+##KASSE
+## OVERSKRIFT:  En nem m†de at bruge CntWords.
+CntWords programmet bruger definitions filer. De oprettes nemmestved at f›re al udskriften fra en k›rsel af CntWords til f.eks.MINE_ORD.DEF filen hvorefter du blot tilretter denne fil ved atfjerne overskrifter og skrive "-" udfor forbudte ord. Alle andreord, der er i orden, lader ud st† u‘ndret, alts† med t‘ller,filnavne osv. Det er kun det f›rste ord p† hver linje der harbetydning. G›r derfor s†ledes:
+
+C:>  CNTWORDS minfil1 minfil2 minfil3 >MINE_ORD.DEF
+     tilret MINE_ORD.DEF hvorefter du kan pr›ve igen med
+C:>  CNTWORDS *.DEF minfil4 minfil5
+##SLUT KASSE

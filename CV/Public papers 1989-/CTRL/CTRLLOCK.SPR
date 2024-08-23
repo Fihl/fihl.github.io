@@ -1,0 +1,102 @@
+R 75,T 5
+## Kommentarer er m‘rket med ##
+## Er der nogen problemer med at tale om IBM??
+## Ordet "Start" findes 2 gange i teksten. B›r v‘re boldface!
+## Du kan ikke ‘ndre navnet CtrlLock. Det st†r ogs† internt i programmet.
+
+Hvordan du flytter kontrol tasten op p† sin gamle plads
+=======================================================
+##eller
+
+Ombyt CapsLock og Ctrl tasterne p† din maskine
+==============================================
+
+
+Jeg kender flere personer, der vil g›re alt for at kunne beholde deresgamle tastatur, hvis de f†r en ny maskine med et tilsvarende nyt tastatur.Da AT3 maskinerne afl›ste AT2'erne, flyttede funktionstasterne fra venstreside til over de almindelige taster. Samtidig byttede CapsLock og Ctrltasterne plads. Vil man gerne have sit "gamle" tastatur tilbage igen, menikke har mulighed for at k›be et der ligner, s† m† man snyde. Man kan ikkes† godt flytte funktionstasterne ned til venstre, men man kan sagtens medet program bytte om p† virkningen af CapsLock og Ctrl. Selv v‘nnede jeg mighurtig til at bruge de nye funktionstaster, men min venstre lillefinger hardet ikke godt efter et †rs intensiv trykken p† Ctrl knappen. 
+
+Dette program, CtrlLock, laver denne ombytning. Navnet er en sammentr‘kningaf "Ctrl CapsLock ombytter". Hvert tryk p† Ctrl f†r CapsLock lampen til atskifte mellem t‘ndt og slukket, mens CapsLock tasten nu virker som om, duhar trykket p† Ctrl tasten. Med Ctrl tasten mener jeg altid den venstre afde to Ctrl taster. Den h›jre virker stadig som normalt. Dette er vigtig atvide, da visse programmer som debuggere og TurboPascal kikker direkte p†tastatur interruptet for at opfange, hvorn†r Ctrl-Break bruges, for atstoppe et l›bsk program. Dette virker ikke her, hvorfor du istedet m† brugeden h›jre Ctrl tast sammen med Break tasten.
+
+CtrlLock virker fra f›rste gang det kaldes. Hver gang det bruges herefter,skiftes der mellem at g›re omskifter funktionen aktiv og passiv. 
+
+Teorien bag programmet
+
+N†r der trykkes p† en tast, laves der en interrupt i maskinen til INT9. Detf›rste der sker her er, at tastaturet afl‘ses for hvilken tast, der blevbrugt, hvorefter INT15 kaldes med denne v‘rdi. Det er nu muligt for INT15at stj‘le denne v‘rdi (tast), s†ledes at INT9 rutinen ikke har mere atlave. INT15 kan ogs† returnere en anden v‘rdi istedet, hvorefter INT9arbejder videre med denne som om den kom direkte fra tastaturet. 
+CtrlLock programmet laver en ny INT15 rutine, som bytter om p† de to tasterCtrl og CapsLock. Dette er jo let. Der er blot et par sm† ting at tageh›jde for. Der er to forskellige v‘rdier for hver tast alt eftersom tastentrykkes ned eller slippes, og begge skal ombyttes. Desuden stilles der enkode E0 foran nogle af koderne, n†r den samme tast findes to steder p†tastaturet. Dette g‘lder fx for den h›jre Ctrl tast og for de ekstra (nye)Insert, Delete, Home osv taster. Pause knappen giver endda E1 efterfulgt afto koder fra sig. Da de to ›nskede taster ikke bruger E0 eller E1 prefixet,skal vi simpelthen se bort fra alle sekvenser der starter med E0 koden.
+
+De koder der sendes er blandt meget andet
+
+ 3A = CapsLock ned
+ BA = CapsLock op
+ 1D = Venstre Ctrl ned
+ 9D = Venstre Ctrl op
+ E1 1D 45 = Pause ned
+ E1 9D C5 = Pause op
+
+Bem‘rk op v‘rdierne er 80 st›rre end ned v‘rdierne. V‘rdierne findes i delysebl† Technical Reference manualer fra IBM.
+
+Programmet best†r af to dele, en installerings del, og en resident del. Denresidente del er den del af koden, der ligger tilbage i maskinen, n†rprogrammet er installeret, og som tager sig af tast ombytningen.Installerings delen kontrollerer om CtrlLock allerede er installeret, ogudskriver status derefter. 
+
+Den residente del
+
+Efter installationen ligger der kun den kode tilbage, der findes indenforINT15H procedure som vist i listningen. Hver gang der trykkes p† en tast,bliver denne rutine kaldt med AL indeholdende tastens kode. Procedure kannu ‘ndre p† v‘rdien, hvis den er interesseret i det. Her ombyttes tastnummerne 1D, 3A, 9D og BA med 3A, 1D, BA og 9D. 
+Desuden er der et sp›rgsm†l om AL har v‘rdien DE. Denne v‘rdi brugesnormalt ikke. Er v‘rdien DE, skifter proceduren tilstand fra at v‘re aktivtil at v‘re passiv eller omvendt. Den nye tilstand returneres. Da derellers ikke i maskinen er nogen program, der reagerer p† AL=DE, kan Pascalkaldet INTR($15,AX=$4FDE) bruges til at finde ud af om CtrlLock erinstalleret. Dette bruges senere ved selve installeringen. 
+
+Installeringen
+
+Hovedprogrammet laver en installering af CtrlLock funktionen f›rste gangdet k›res, mens det de efterf›lgende gange blot aktiverer og passivererCtrlLock funktionen. Hver gang udskrives en status tekst p† sk‘rmen. 
+
+Programmet starter altid i Start adressen. De f›rste 7 linjer g†r med atkontrollere om programmet overhovedet kan bruges p† denne maskine. De n‘ste4 linjer med INT 15h kaldet, kontrollerer om CtrlLock allerede erinstalleret.
+
+Er CtrlLock allerede installeret, returnerer det med carry flaget slette,s†ledes der blot udskrives en status som returneret i AL. 
+
+Er det f›rste gang programmet k›res, hoppes der ned til InstallProgadressen. Her sker en r‘kke ting som f›lger: En tekst skrives til brugeren.Et par variabler s‘ttes til passende v‘rdier. Koden for den residente delflyttes s† langt ned i lageret som muligt. Den gamle interrupt 15h hentesog gemmes. Kodens adresse fort‘lles til DOS, idet interrupt 15 s‘ttes tilat pege p† vores kode. Programmets environment returneres til DOS tilgenbrug, da det ikke skal bruges. M‘ngden af bytes brugt til vores kodeberegnes i DX, hvorefter programmet stopper. DOS ved nu hvor vores kode er,s† den kan bruges og ikke bliver overskrevet af andre programmer.
+
+N†r et program (af COM typen) startes under DOS, bliver dets program pilsat til at pege p† 100h adressen, det jeg kalder Start i programmet.Omr†det fra 0 til 100h, ogs† kaldet PSP'en, er reserveret DOS, men ikkemere end at alt over adresse 5Ch egentlig er til fri afbenyttelse. N†rprogrammet starter indeholder adresse 80h en kopi af, hvad der stod efterCtrlLock p† kommando linjen. 5Ch og 6Ch er reserveret til FCB'er, en gammelform for fil kontrol strukturer, derfor ogs† ledig. N†r programmet skalindl‘gges i maskinen, angiver man, hvor meget det fylder over adresse 0.Der kan g† en sport i at f† programmerne til at fylde s† lidt som muligt imaskinen, og da dette program (INT15H proceduren) ikke fylder ret meget iforvejen, er det en oplagt emne for at presse system til det yderste. Jegbruger derfor nogle f† linjer til at kopiere den residente del s† langt nedi lageret som muligt. 
+
+Med en ombygning af programmet, kan det fx bringes til at fjerne funktionenaf Pause knappen. Der er nogle programmer der g›r dette, for at forhindrebrugeren i at lave flere problemer end n›dvemdig. 
+
+##Begynd kasse
+Advarsel
+
+Dette program kan ikke bruges p† ‘ldre 8086 maskiner som PC'erne. Der erdog ogs† maskiner i AT klassen, der ikke giver programmet mulighed for atbruge de n›dvendige faciliteter. Bruges programmet p† en s†dan maskine,udskrives blot "CtrlLock kan ikke bruges p† denne maskine", og andet skerder ikke. Kravet er at INT9 rutinen skal kalde INT15 for hver tast, ogdette g›res ikke altid. Spar derfor taste arbejdet hvis du ikke kan brugedette program. Jeg vil i en senere artikel lave en anden rutine, der g†rdirekte ned p† tastatur interruptet, og derfor ogs† virker p† PC'er. 
+##Slut kasse
+
+##Begynd kasse
+Spar p† den dyrebare lagerplads
+
+Bruger man normale metoder til at l‘gge programmer residente i en maskine,da spilder man noget plads p† un›dvendige ting. For det f›rste gives etprogram, der startes af DOS, en kopi af alt, hvad der st†r i environmentet,som ses med SET kommandoen i DOS. Dette kan sagtens fylde et par hundredebytes. Dette kan nemt slettes som vist. For det andet er der "masser" afplads i PSP'en, m†ske endda nok til ens program. Her kan der spares 160bytes. Har man 5 af denne slags programmer liggende i maskinens lager, kande derfor have brugt 2 KByte lager, som lige er, hvad der mangles for at f†ens favorit program af mamut klassen til at k›re.
+##Slut kasse
+
+##Begynd kasse
+Har du ikke en assembler, kan programmet indtastes bin‘rt ved hj‘lp afDebug programmet. Indtaster f›lgende 26 linjer (fra og med E 100 ...) meden editor til en fil kaldet DEBUG.SCR. Tastefejl er farlige! F›lgendekommando vil nu lave CtrlLock.COM programmet:
+
+  DEBUG < DEBUG.SCR
+
+E 100 B4 C0 CD 15 BA D5 01 B0 63 72 19 26 F6 47 05 10  
+E 110 74 12 B8 DE 4F F9 CD 15 72 18 24 01 BA 3B 02 74  
+E 120 03 BA 27 02 50 E8 05 00 58 B4 00 CD 21 B4 09 CD  
+E 130 21 C3 BA 01 02 E8 F5 FF C6 06 60 00 FF C6 06 61  
+E 140 00 00 B9 60 00 BE 75 01 BF 62 00 0E 07 FC F3 A4  
+E 150 B8 15 35 CD 21 8C 06 5E 00 89 1E 5C 00 BA 62 00  
+E 160 B8 15 25 CD 21 8E 06 2C 00 B4 49 CD 21 BA 0D 00  
+E 170 B8 02 31 CD 21 80 FC 4F 75 55 3C DE 75 0D 2E F6  
+E 180 16 60 00 2E A0 60 00 F8 CA 02 00 2E 80 3E 60 00  
+E 190 00 74 3C B4 02 3C E0 74 2A B4 03 3C E1 74 24 2E  
+E 1A0 80 3E 61 00 00 75 21 3C 1D B4 3A 74 12 3C 3A B4  
+E 1B0 1D 74 0C 3C 9D B4 BA 74 06 3C BA B4 9D 75 0E 8A  
+E 1C0 C4 B4 01 2E 88 26 61 00 2E FE 0E 61 00 B4 4F F9  
+E 1D0 2E FF 2E 5C 00 43 74 72 6C 4C 6F 63 6B 20 6B 61  
+E 1E0 6E 20 69 6B 6B 65 20 62 72 75 67 65 73 20 70 86  
+E 1F0 20 64 65 6E 6E 65 20 6D 61 73 6B 69 6E 65 0D 0A  
+E 200 24 43 74 72 6C 2D 43 61 70 73 4C 6F 63 6B 20 6F  
+E 210 6D 62 79 74 74 65 72 65 6E 20 69 6E 73 74 61 6C  
+E 220 6C 65 72 65 73 0D 0A 43 74 72 6C 4C 6F 63 6B 20  
+E 230 65 72 20 61 6B 74 69 76 0D 0A 24 43 74 72 6C 4C  
+E 240 6F 63 6B 20 65 72 20 70 61 73 73 69 76 0D 0A 24  
+R CX
+150
+N CtrlLock.COM
+W
+Q
+Sk‘lder programmet ud ved starten, og har du et nyt tastatur, pr›v da at‘ndre f›rste linje fra "E 100 B4 C0 ..." til "E 100 EB 10 ...". Det er ikkefarligt!
+##Slut kasse

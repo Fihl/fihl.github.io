@@ -1,0 +1,48 @@
+R 65,T 5
+## Kommentarer er m‘rket med ##
+
+
+
+## Filtrering af printer data (output) ved sk‘rmkopi
+
+Visse programmer kan vise andre tegn p† sk‘rmen and dealmindelige l‘sbare tegn. Dette kan v‘re sm† m‘nd, spillekortsymboler og andet. Det er der ikke noget problem i f›r mantrykker p† PrintScreen knappen, og forventer at f† en n›jagtigkopi af hele sk‘rmen p† printeren. Visse kontroltegn f†r nuprinteren til at opf›re sig h›jst mystisk. Nogle tegn forsvinderhelt, mens andre medf›rer at tegnst›rrelsen skifter op og ned,mens atter andre f†r kopien til at fylde adskillige sider. 
+Det program, jeg har de fleste problemer med, er NortonsUtilities, n†r jeg kigger p† en hex-dump af en program fil. Mendet er ikke den eneste. 
+
+Da det ikke er programmerne selv, der klarer udskriften, n†r dertrykkes p† PrintScreen tasten, er det rimeligt nemt at bryde indi systemet og korrigere for visse af disse fejl. 
+Det er computeren selv der ved opstarten installerer en rutine,der kan h†ndtere PrintScreen tasten. Den indbyggede rutine kankun udskrive, sk‘rmen mens denne er i tegn tilstand. Vil man laveudskrifter (med PrintScreen) af grafik sk‘rme, kan man selvinstallere yderligere rutiner, der kan h†ndtere dette. Programmethedder GRAPHICS, og f›lger med DOS operativ systemet. Fra DOS4.00 kan man udskrive billeder i farver og til forskellige typerprintere. 
+
+Det program, som jeg her har lavet, virker kun i normal teksttilstand. Programmet skal startes en enkelt gang, hvorefter detved hver tryk p† PrintScreen tasten rydder lidt op p† sk‘rmen,inden den gamle PrintScreen rutine bliver udf›rt. Man kan udvideprogrammet til at tilf›je visse ting til det udskrevne. Man kanfor eksempel f† udskrevet en fast tekst hver gang, eventuelt ogs†en sideskift efter hver kopi.
+
+## Teknikken i programmet........
+
+Hver gang der trykkes p† PrintScreen tasten bruges, kaldes enrutiner udpeget med interrupt 5 vektoren. 
+Ved opstarten stj‘ler programmmet denne vektor, men gemmeradressen p† den gamle rutine. 
+Ved hver brug af PrintScreen tasten kaldes vores program f›rst. 
+Denne gemmer en kopi af hele sk‘rmbilledet, hvorefter alle tegnp† sk‘rmen kontrolleres for d†rlige eksemplarer. 
+Den gamle PrintScreen rutine kaldes nu og udskriver herved det‘ndrede sk‘rmbillede.
+Til slut genetableres det originale billede p† sk‘rmen. 
+
+N†r programmet aktiveres med tasten, skal der kontrolleres visseting. Programmet g›r ikke noget, hvis det allerede er i f‘rd meden udskrift. 
+Hvis sk‘rmen er i grafik tilstand, sker der heller ikke noget fraprogrammets side, men den gamle rutine kaldes s† der stadig kanudskrives grafik. 
+Programmet m† ikke bruge DOS rutiner, n†r det aktiveres, hvorforder ikke m† bruges write og lignende rutiner. 
+Men programmet m† gerne skrive ny information direkte p† sk‘rmen,hvilket bevirker at man f.eks. kan skrive sit eget (firma-) navnnederst p† hvert billede. Dette g›r programmet allerede. Dettefjerner noget af informationen fra billedet, s† denne finesse kanjo overvejes. 
+Andre tegn, der kan blive tale om, er de danske tegn. Bruger manen printer, der ikke er helt kompatibel med computeren, kan derblive tale om at ‘ndre tegnet › (155) til { (123), da 123 netoptit er koden for dette tegn p† ‘ldre printere. Se programmet forde andre 5 n›dvendige ascii koder.
+
+Endelig kan jeg forestille mig det smarte i at tilf›je etsideskift efter hvert billede, eller omkring 12 ekstra linjeskiftfor at f† pr‘cist to billeder per side. Sideskift oglinjeskiftene skal anbringes i de sidste felter p† sk‘rmen (seprogrammet).
+
+
+## Kasse=================================================================
+Jeg bruger konsekvent ordet tegn fremfor ordet karakterer. Derg†r ikke en dag uden man i annoncer og lignende ser dette ordmisbrugt. Karakterer er noget man f†r i skolen. 
+Det kan dog v‘re sv‘rt at finde ord for mange af de nye edb ord.Det er s† nemt at tale om en printer, mens ikke alle ved, hvadman taler om, n†r man siger en skriveenhed. 
+Men da ordet karakter falder sammen med et godt gammelt danskord, synes jeg det lyder t†beligt at bruge denne i nyesammenh‘nge. Det lyder liges† forkert som det man m† h›re hverafter p† TV-2 i annoncerne: "t‘ppet l‘gger s† fast p† gulvet,at...". 
+
+En printer kan ikke skrive med 200 karaktere i sekundet, og mankan ikke tale om antallet af karakterer p† sk‘rmen. 
+
+==========================================================================
+
+Christen Fihl
+
+
+
+
+## S›ren, lav m†ske et eksempel med NU eller lignende (se mitvedlagte eksempel).

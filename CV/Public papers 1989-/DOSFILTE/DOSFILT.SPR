@@ -1,0 +1,155 @@
+R 65,T 5
+-- BEM’RK BRUGEN AF SPECIALTEGNET | (=ASCII 124). DET SKALGENGIVES KORREKT FOR AT ARTIKLEN KAN FORSTS. --
+LINJER MED @ ER KOMMENTARER ETC.
+
+
+@bar[2 mm]
+
+OverSkrift @bar[1 mm]
+
+Lav selv dine DOS filtrer
+
+Dos har et par kommandoer, der aldrig bliver brugt af noglebrugere, mens andre bruger dem hele tiden. Det er kommandoerne FIND, MORE og SORT. De skiller sig ud fra m‘ngden, da de ikkebruges helt p† samme m†de som de andre DOS kommandoer. Dissekommandoer er reelt ganske almindelige programmer, og jeg vil hervise hvordan man selv let kan lave disse.
+
+Det specielle for programmerne er, at de n‘sten altid bruges isammenh‘ng med omdirigering af deres input og/eller output. DOSmanualen taler her om PIPING af input og output. Et pareksempler:
+
+1.  DIR | MORE
+
+2.  DIR | FIND "-88" >outFilen
+
+Det f›rste eksempel laver en biblioteks oversigt til enmidlertidig fil, hvorefter MORE viser denne fil med en side afgangen. Det andet eksempel tager biblioteks udskriften gennemFIND programmet, der kun udskriver de linjer, der indeholder de 3tegn -88, hvilket er opfyldt for de filer, der er oprettet i1988. FIND afleverer sit output i filen "outFilen".
+
+Alle programmer, der skriver p† sk‘rmen kan principieltomdirigeres til en fil eller et andet program. TIME kommandoenkan fx bringes til kun at udskrive tiden, uden at vente p† nytidsangivelse. Kommandoen "DATE <NyLinje" g›r dette, forudsat atfilen NyLinje eksisterer i forvejen, og indeholder en tom linje.
+
+Disse tegn kan bruges ved omdirigering af data:
+
+    <   L‘s fra en fil
+    >   Skriv til fil
+    >>  Skriv til fil
+    |   Skriv til fil, l‘s igen senere
+
+Kommandoen >> adskiller sig fra > ved at ny output ikkeoverskriver filen, men l‘gges efter det gamle indhold. Kommandoen| s›rger for at output fra et program f›res til n‘ste program sominput. Den ene kommandolinje:
+
+  Program1 | Program2
+
+er det samme som disse 3 linjer:
+
+  Program1 >temp-fil
+  Program2 <temp-fil
+  del temp-fil
+
+Dos har 5 standard filer, der er †bne straks et program starter.
+
+  0: Input
+  1: Output
+  2: Error Output
+  3: AUX Output
+  4: Printer Output
+
+Omdirigerings princippet kan kun h†ndtere de to f›rste, 0 og 1.Skriver programmet til fil nummer 2, kommer teksten ud p†sk‘rmen, selvom output er omdirigeret med fx >OutFil. Det er p†denne m†de nogle programmer kan skrive Copyright meddelelser udp† sk‘rmen, selvom programmet er startet med
+
+  Programmet >NUL
+
+hvilket ellers skulle fjerne den u›nskede tekst.
+
+
+Et hj‘lpe modul @bar[1 mm]
+
+Programmodulet DosFilter, indeholder flere nyttige ting, der kanbruges ved programmering af filtrer. Det vigtigste nye i detteunit er ErrOutput filen, der installerer Error Output filen fraf›r, alts† fil nummer 2. 
+Desuden indeholder modulet et par forskellige hj‘lpe rutiner, derkan forklare sig selv.
+
+
+Lav selv dine DOS filtrer @bar[1 mm]
+
+Jeg vil nu vise, hvordan man selv kan lave denne slags programmerselv. De er utrolig nemme at programmere. Man slipper fx for at†bne de to benyttede filer, da DOS allerede har †bnet dem.
+
+Det simpleste filter er vel dette:
+
+program NyLinje;
+begin
+  writeln
+end.
+
+Det kan m†ske ikke kaldes for et filter, da det er totaltligeglad med input. Det kan bruges sammen med DATE i "NyLinje |DATE". 
+
+
+Efterlign FIND filteret @bar[1 mm]
+
+Dette, lidt mere komplicerede program, efterligner DOS'ens FINDfilter:
+
+Program FindString;{S›g efter given streng}
+Uses DosFilter;{Brug nyttige ting}
+begin
+  Stop(ParamCount,1,1,
+    'Syntax: Find-Str tekst <fil1 >fil2');
+  while not EOF do begin
+    readln(Line);
+    if pos(ParamStr(1),Line)>0
+      writeln(Line);
+  end;
+end.
+
+Filteret indl‘ser alle linjer, men udskriver kun de, derindeholder s›geteksten. Det bruges som fx "DIR | FindString -89",hvilket finder filer fra 1989. 
+
+
+Et nyttigt filter @bar[1 mm]
+
+Filteret ADD-COL piller et tal ud af hver linje det l‘ser,hvorefter alle disse tal l‘gges sammen. Programmet skal haveoverf›rt to parametrer, start og slut position p† linjen. Disseparametrer kan skrives enten f›r eller efter tegnene < og >, menf›r et eventuelt | tegn. Det kan som her, sammen med DIR, brugestil at samment‘lle hvormeget filer fylder. Et par eksempler:
+
+  DIR | ADD-COL  14  22
+  FindFile *.bak | ADD-COL  21  30
+
+Det sidste eksempel finder alle *.BAK filerne, ved hj‘lp afNorton's FindFile program, hvorefter ADD-COL samment‘ller tallenei den s›jle hvori filst›relserne st†r. Resultatet er summen afst›rrelsen af alle *.bak filer. S† ved man, hvor meget der kanspares ved at slette dem.
+
+
+Et stort filter @bar[1 mm]
+
+Til sidst vil jeg vise er ret stort program. Det fylder dog kungodt 30 linjer. Det er kaldt SiderX2. Det kan presse en fil sammep† det halve antal linjer, idet to sider inddata placeres side omside p† en enkelt side. Pr›v selv at l‘se programmet igennem.Hovedl›kken siger noget i retning af: S†l‘nge der er input, l‘sto sider men skriv kun en enkelt. Med dette program kan man sparehalvdelen af sit papir forbrug! Eksempel p† brug:
+
+  SiderX2 68 4 120 <rapport.txt >prn
+
+
+Et programmerings problem @bar[1 mm]
+
+Der er lige et problem ved programmering af filtrerne; man kanikke umiddelbar debugge dem med omdirigering aktiv. Hvis man fxvil l‘se inddata fra filen temp.dat, bliver man n›dt til selv at†bne Inputfilen. G›r s†ledes som det f›rste i programmet:
+
+  Assign(Input,'Temp.dat');
+  Reset(Input);
+
+hvorefter alt inddata kommer fra filen, og ikke fra tastaturet.
+
+
+
+Lav og brug filtrerne! @bar[1 mm]
+
+Dos filtrer er nemme at programmere, s†l‘nge man ikke propper formeget ind i et enkelt filter. Det er dumt andet, da det jo er s†let at kalde flere filtrer efter hinanden med | kommandoen.
+
+@columnBreak
+@bar[2 mm]
+
+KASSE @bar[1 mm]
+Jeg har brugt TurboPascal i eksemplerne. Bruger du PolyPascal,kan det viste UNIT selvf›lgelig ikke bruges direkte. For at brugePolyPascal skal der tilf›jes en enkelt linje f›rst i programmet:{$G1024,P1024}, hvilket giver muligheden for omdirigering.
+
+
+@columnBreak
+KASSE @bar[1 mm]
+Det er meget let selv at lave et DOS filterprogram som fx MORE.Det kan laves s† simpelt som:
+
+Program MORE;
+Uses  Crt,DosFilter;
+Const Prompt: String[20]=
+              '--Mere endnu--';
+begin
+  DF1:=0;
+  while not EOF do begin
+    readln(Line); writeln(Line);
+    inc(DF1); if (DF1 mod 24)=0 then
+    begin
+      write(ErrorOutput,Prompt);
+      repeat until ReadKey<>#0;
+      for DF2:=1 to Length(Prompt) do
+        write(ErrorOutput,^H' '^H);
+    end;
+  end;
+end.
+

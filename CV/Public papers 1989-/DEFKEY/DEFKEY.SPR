@@ -1,0 +1,163 @@
+R 65,T 5
+
+Overskrift...................
+Nyt for den hurtige/avancerede PC bruger
+
+Under overskrift.............
+Udvid tastatur bufferen fra 15 til 40 tegn, og f† i tilgift etbrugerdefinerbart tastatur. 
+
+
+Plads til 15 taster i tastatur bufferen er meget. Men hvem harikke h›rt de evindelige dyt der kommer ud af h›jttaleren, n†r ensPC'er ikke kan udf›re ens kommandoer hurtigt nok trods 386motoren. Dette program giver dig en 40 tegns buffer. Bufferudvidelsen er helt passiv, da bufferen blot flyttes til et merevelegnet og st›rre omr†de. Dette omr†de er indtil dato ubrugt afBIOS'en. 
+
+Den anden funktion er et tastatur omdefinerings program. Dettegiver mulighed for at programmere en tast til en sekvens af eentil flere taster. De fleste taster kan omprogrammeres. Jeg brugertit de gr† taster rundt om den numeriske afdeling (/, *, - og +)for omdefinering. De taster bruger jeg alligevel sj‘ldent. 
+
+Taste sekvenser kan bruges et utal af steder. 
+Et par eksempler:
+Kan erstatte sm† TEST.BAT kommando filer.
+Til at inds‘tte den samme tekst gentagne gange i en tekst.
+Til at ombytte et par kolonner gennem en del af teksten i minekilde tekster.
+Til hurtigt at g›re det bin‘re dump, du kan se i kassen her p†siderne, klar til tryk, efter at v‘re blevet genereret afdebuggeren som en simpel dump til en fil. 
+
+
+Programmet DEFKEY.COM...................................
+
+Denne gang har jeg fundet et af mine ‘ldre programmer frem fraskuffen. F›rhen kunne det omdefinere tastaturet med op til 15taster per tast. Men med en udvidelse p† 14 assembler linier, erdet nu muligt at udnytte en type-ahead buffer p† hele 40 taster.Dette er en hel del mere end de originale 15 taster og b›r velv‘re tilstr‘kkelig for de fleste. 
+
+Buffer udvidelsen er helt passive medens omdefineringen kr‘ver endel programmering. Programmet fylder 500 bytes p† disk og 1000bytes n†r det er startet. 
+
+Programmet var lavet ved hj‘lp af tilstands skift, og var retuoverskueligt p† grund af dette. De der l‘ste artiklen ommultitasking i november 90 nummeret ved, at jeg kan lide at g›retingene enkle, smarte og overskuelige. Derfor var det heltn›dvendig at omskrive programmet totalt. 
+
+Arbejds metoden..............................
+
+I multi tasking rutinerne gik hele opgaven ud p† at laveomgivelserne omkring de enkelte task p† en s†dan m†de, at taskeneikke beh›ver at bekymre sig s‘rlig meget om det milj›, de skaludf›res i. Det samme kan laves i kode, der udf›res p† interruptniveau. Derfor har jeg programmeret den sjove del af koden f›rst,alts† den del der tager sig af selve defineringen. Det er enhj‘lp at se brugervejledningen og koden omkring linje 100 vedDEFKEY rutinen, samtidig med f›lgende forklaring.
+
+Koden f›r DEFKEY er interrupt delen, medens de 30 linier i DEFKEYer programmeret almindeligt som om, der ikke er interrupts med ibilledet. Det eneste DEFKEY venter p† hele tiden, er en tast.WaitKey rutinen, der returnerer den n‘ste tast, der trykkes,h†ndterer forskellene mellem interrupt systemets m†de at arbejdep†, og DEFKEY's almindelige m†de at arbejde p†. WaitKey opf›rersig, set med DEFKEY's ›jne, derfor som en almindelig funktion,der returnerer en tast. 
+
+Programmet var f›rhen lavet med tilstands variabler med v‘rdierne0, 1, 2 osv. Programmet er dog stadig programmeret med tilstandsvariabler. Det er bare mere skjult nu. Variablen er PDEFKEY, derikke indeholder sigende numre, men derimod adresser i koden. Detf›rste WaitKey g›r er at gemme adressen p† den n‘ste instruktion,der skal udf›res ved n‘ste interrupt. De mulige adresser erderfor alle de linier, der f›lger lige efter et kald til WaitKey. 
+
+N†r interrupt rutinen returnerer, bliver alle registrerreetableret til det, de oprindelig var. Derfor smadres allevariabler, ogs† dem DEFKEY rutinen ›nsker at bruge. WaitKey skalderfor ogs† s›rge for at gemme de mest interessante af disseregistrer, her BX, CX og DI. 
+
+WaitKey returnerer enten 0801H (og Zero flag), n†r der tastesALT-ESC, eller den kode der returneres af den originale interrupt9 rutine efter al dennes bearbejdning. Er der ingen tast efterdet originale INT9 kald, v‘kkes WaitKey slet ikke. Da ALT-ESCaldrig returneres af den originale rutine, skal der laves lidtextra programmering. ALT giver 08H i SHFTS variablen, mens ESCgiver skankoden 01H l‘st direkte p† tastatur porten. 
+
+Den negative side............................
+
+Den grimmeste programmerede rutine er BEEP, der er ret s† CPUafh‘ngig. Du kan pr›ve at lege med v‘rdierne af CX=200 og AH=100,der angiver l‘ngden og frekvensen af tonen. Et p‘nt program erikke afh‘ngig af, hvilken maskine det skal k›re p†. 
+
+Ved opstart ops‘ttes en ny tastatur buffer. Den gamle bufferkopieres IKKE over i den nye, derfor vil de allerede tastede tegnvil forsvinde. 
+
+Da jeg bruger et reserveret omr†de af lageret til den nye buffer,kan programmet ikke garanteres at fungere i fremtiden. Dette erikke afh‘ngig af DOS versionen, kun af BIOS'en, s† programmet vilkun virke s†l‘nge maskinen ikke bliver udskiftet. 
+
+
+Kasse......................................
+
+Hele programmet er lavet i assembler, men jeg vil i en senereartikel beskrive, hvordan man kan lave residente programmer iPascal p† en meget enkel m†de. Og med enkel mener jeg lige s†enkelt som at bruge Idle rutinen i multitasking rutinerne inummer 15, 1990 af PC World. Du f†r selvf›lgelig fuld mulighedfor at bruge alle funktionerne som f›r, inklusiv DOS kald. 
+
+
+KASSE.............................................
+
+Sl†skampen om aktiverings tasterne
+
+Residente programmer skal tit aktiveres med en taste sekvens.DEFKEY skal startes med ALT-ESC sekvensen, men dette konfliktermed Windows 3.0 programmet. Bruges Windows, da b›r DEFKEY ‘ndrestil at bruge andre taster. 
+
+Der skal ‘ndres to steder i programmet. Begge linjer der hedder: 
+
+   CMP AX,0801H 
+
+skal ‘ndres til 
+
+   CMP AX,044CH ; Ctrl-Num5 
+
+hvis Ctrl-Num5 tasterne skal bruges istedet. Num5 betyder 5tasten p† den nummeriske del af tastaturet. 
+
+Reglerne for valg af taster er: Brug MM00 + NN tilsammenligningen. MM00 er masken for ALT, Ctrl og de to skiftetaster. NN er skankoden for tasten. Brug fx ReadKey i TurboPascal til at l‘se tasten, hvorefter skankoden st†r ihi(ReadKey). Brugt sammen m† de to taster IKKE returnere nogettil ReadKey. ALT-ESC, Ctrl-Num5 er ok mens ALT-Num5, Shift-ESCikke er. 
+
+
+Kasse......................................
+
+Vejledning til DEFKEY:
+
+Start af DEFKEY:
+
+DEFKEY
+DEFKEY -h
+
+-h parameteren medf›rer at man kan definere taster UDEN, at debliver udf›rt samtidig. Dette er dog ret sv‘rt, da der intet skerp† sk‘rmem!
+
+Brugen af DEFKEY:
+
+ALT-ESC, ALT-ESC: sletter alle definitioner
+
+ALT-ESC, tast, ALT-ESC: sletter definitionen for tasten tast
+
+ALT-ESC, tast, tast40, ALT-ESC: definerer tasten tast tilsekvensen tast40, der best†r af h›jst 40 taster
+
+Et eksempel:
+
+For at f† « tasten til at fungere som \, da g›res f›lgende:
+
+  ALT-ESC, «-tegnet, \-tegnet, ALT-ESC
+
+Bem‘rk at alle kommaerne kun er vist for at adskille delene ibeskrivelsen. 
+
+Kasse.......................................
+
+Vejledning til SETKEY:
+
+SETKEY er et Pascal program der kan l‘se/skrive en definitiontil/fra en allerede indl‘st DEFKEY.COM. Du kan derfor have et s‘tdefinitioner, een for hvert arbejds omr†de. 
+
+Hent en definition fra filen fil:
+  SETKEY fil
+
+Skriv en definition til filen fil:
+  SETKEY -w fil
+
+Bem‘rk at Turbo compileren ikke kan debugge dette program, daTurbo selv retter i interrupt 9 vektoren.
+
+
+Kasse................................
+Har du ikke en assembler, kan programmet indtastes bin‘rt vedhj‘lp af Debug programmet. Du indtaster f›lgende linier (fra ogmed E 100 til og med Q) med en editor til en fil kaldetDEBUG.SCR. Tastefejl er farlige! F›lgende kommando vil nu laveDEFKEY.COM programmet:
+
+  DEBUG < DEBUG.SCR
+
+E 0100  E9 37 01 44 45 46 4B 45 59 38 02 A4 01 50 53 51  
+E 0110  56 57 1E 06 0E 1F B8 40 00 8E C0 26 8B 36 1C 00  
+E 0120  9C FF 1E A0 00 E4 60 26 8A 26 17 00 80 E4 0F 3D  
+E 0130  01 08 74 0A 26 3B 36 1C 00 74 06 26 8B 04 FC EB  
+E 0140  1E 07 1F 5F 5E 59 5B 58 CF 72 01 10 00 8F 06 49  
+E 0150  01 89 3E A8 00 89 0E A4 00 89 1E A6 00 EB E2 8B  
+E 0160  1E A6 00 8B 0E A4 00 8B 3E A8 00 3D 01 08 FF 26  
+E 0170  49 01 74 08 E8 4E 00 E8 D3 FF EB F6 E8 CE FF 75  
+E 0180  08 C7 06 38 02 00 00 EB EE E8 65 00 E8 7A 00 E8  
+E 0190  5F 00 8B 0E 4B 01 8B FB EB 11 E8 B0 FF 74 D8 FF  
+E 01A0  05 43 43 81 3E 5D 00 2D 48 75 05 26 89 36 1C 00  
+E 01B0  89 47 02 C7 47 04 00 00 81 FB D2 03 7D 02 E2 DA  
+E 01C0  E8 60 00 EB B2 E8 29 00 72 26 FC 8B FE E8 1B 00  
+E 01D0  8D 77 04 8B 0F A5 26 3B 3E 82 00 75 05 26 8B 3E  
+E 01E0  80 00 26 3B 3E 1A 00 74 3A E2 EA 26 89 3E 1C 00  
+E 01F0  C3 BB 38 02 83 3F 00 F9 74 0E 3B 47 02 74 09 8B  
+E 0200  3F 03 FF 8D 59 04 EB EC C3 56 50 8B 37 03 F6 74  
+E 0210  0F 8D 70 04 EB 03 90 43 43 AD 89 07 0B C0 75 F7  
+E 0220  58 5E C3 B9 C8 00 E4 61 34 02 EB 00 E6 61 B4 64  
+E 0230  FE CC 75 FC E2 F0 C3 90 00 00 B8 09 35 CD 21 89  
+E 0240  1E A0 00 8C 06 A2 00 BE 0D 01 8B FE B9 1E 00 F3  
+E 0250  A6 75 18 A1 5D 00 26 A3 5D 00 3D 20 20 75 07 BA  
+E 0260  BB 02 B4 09 CD 21 B8 01 4C CD 21 BA DC 02 B4 09  
+E 0270  CD 21 BA 0D 01 B8 09 25 CD 21 8E 06 2C 00 B4 49  
+E 0280  CD 21 B8 40 00 8E C0 BB AE 00 2B C0 26 39 07 75  
+E 0290  22 26 39 47 12 75 1C C7 06 4B 01 29 00 26 89 1E  
+E 02A0  1C 00 26 89 1E 1A 00 26 89 1E 80 00 26 C7 06 82  
+E 02B0  00 00 01 BA 3E 00 B8 00 31 CD 21 44 45 46 4B 45  
+E 02C0  59 20 65 72 20 61 6C 6C 65 72 65 64 65 20 69 6E  
+E 02D0  73 74 61 6C 6C 65 72 65 74 0D 0A 24 44 45 46 4B  
+E 02E0  45 59 20 69 6E 73 74 61 6C 6C 65 72 65 74 0D 0A  
+E 02F0  24                                               
+R CX
+1F1
+N DEFKEY.COM
+W
+Q
+
+
+S›ren, S›ren, S›ren, S›ren, ???????????????????????????
+Programmet fra PC World kan nu f†s p† PC Society BBS??????????????
+Er det i orden nu ???????

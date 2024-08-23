@@ -1,0 +1,259 @@
+R 78,T 5
+Page 1## Kommentarer er m‘rket med ##
+
+Smarte hop i Pascal
+SetJmp og LongJmp fra C overf›rt til Pascal
+##=========================================
+
+Det siges, det er godt, at bruge procedurer og funktioner i ens programmer.Alternativet er at lave masser af goto linjer som i de gamle Basic programmer.Programmerne skulle bliver b†de lettere at programmere og vedligeholde. 
+
+Det er jeg helt enig i. Der kan dog v‘re situationer, hvor man gerne vilhurtigt helt ud af en procedure, fx helt ud til hovedprogrammet, idet man bloter interesseret i at vide et: den gik ikke Granberg. 
+
+Grunden hertil kan v‘re mange, afh‘ngig af ens program. I et menu program kanbrugeren fx kalde AFSLUT, mens der er tre undermenuer p† sk‘rmen. Eller etprogram kan l›be t›r for en af sine resourcer (disk, stak eller heap plads),hvilket skal behandles p‘nt, og ikke med et simpelt HALT placeret midt i dethele. 
+
+I et skakprogram kommer man tit ud for denne problem stilling. For at beregnen‘ste tr‘k, kaldes en procedure, der rekursivt beregner de mulige n‘stestillingers styrke. Nogle af disse tr‘k kan pludselig vise sig at v‘rekatastrofale, hvorfor programmet simpelthen m† opgive al videre behandling afdette tr‘k, for ikke at splide tiden yderlige. 
+
+Se engang p† f›lgende kode:
+
+function DoIt: boolean;
+begin
+  If DoSomeMore then begin
+    Behandl data...
+    DoIt:=true
+  end else
+    DoIt:=false;
+end;
+
+der kaldes s†ledes:
+
+  if not DoIt then
+    writeln(Fejl)
+  else begin
+    writeln(Ok);
+    Udf›r...
+  end;
+
+Page 2Dette hoppen rundt ser ikke godt ud. Det vil v‘re mere gennemskueligt, hviskoden s† s†ledes ud:
+
+procedure DoIt;
+begin
+  DoSomeMore;
+  Behandl data... {her kun hvis ok}
+  if FlereFejl then 
+    exit_to_BehandlFejl
+end;
+
+I hovedprogrammet:
+  if Installer_DoIt then
+    DoIt
+  else
+    BehandlFejl
+
+Den anden kode version, uden de mange hop kr‘ver et par rutiner for atfungere. Rutinerne her p† siden er lavet som en hj‘lp til dette. 
+
+Her er kun vist et par procedure niveauer, men i mange programmer befinder mansig tit dybt inde i systemet n†r problemet opst†r. 
+
+
+Rutinerne
+##=======
+
+Den f›rste rutine, SetJMP, opretter en f‘lles variabel, der blandt andetindeholder adressen p† fejlrutinen, mens den anden, LongJMP, bruges n†r manhar brug for at hoppe til fejlrutinen. Der afleveres samtidig en fejlkode. 
+
+De bruges s†ledes:
+
+  if SetJMP(T)<>0 then
+    FejlRutinen
+    HALT;
+  SetJMP(T,1);
+
+SetJMP er den mest specielle. N†r man kommer ind i SetJMP fra oven, returneresder 0, hvilket viser programmet, at dette er f›rste gang. Returneres der andetend 0 fra SetJMP, betyder dette, at man ikke er kommet igennem fra toppen, menistedet via et LongJMP kald. 
+
+Det er yderst vigtig, at der ikke hoppes med LongJMP via en uinitialiseretvariabel, da det er som at bruge en uinitialiseret pointer, alts† totalnedbrud. Desuden, kan LongJMP KUN bringe programmet bagl‘ns i kaldek‘den.Page 3Dette kontrolleres heller ikke. Denne fejl opst†r, hvis man kalder enprocedure, der initialiserer med SetJMP, mens man bruger LongJMP frahovedprogrammet. LongJMP s‘tter nemlig SP og BP registrerne til hvad de var iproceduren, og det er ikke l‘ngere gyldig, n†r rutinen returnerer tilhovedprogrammet. SP registeret m† kort sagt ikke p† noget tidspunkt mellemSetJMP og LongJMP have v‘ret h›jere oppe (den starter oppefra) i lageret. 
+
+Jeg har overalt snakket om fejludhop. Dette er kun en talem†de. Rutinerne erikke kun velegnede til dette, men ogs† ved almindelig programmering. 
+Eksemple 2 viser et fakultets program, der bruger rigeligt med stakplads,hvorfor det ikke kan klare de store udregninger. Skulle fakultets funktionenogs† returnere et ok flag, ville den se en del mere kompliceret ud. Her erblot tilf›jet en ekstra linje, med sp›rgsm†let - if SPtr<minimum thenLongJMP(). 
+
+Lidt teori
+##========
+
+Skal Turbo Pascal beregne to udtryk, da gemmes der ingenting mellem disse.Derfor beh›ver SetJMP ikke at gemme de almindelige registrer som AX, BX, CX,DX, SI, DI og segment registeret ES. Hoppes der mellem forskellige procedure,skal SP og BP ‘ndres tilbage til, hvad de var ved tiden for SetJMP.  TurboPascal ‘ndrer aldrig p† DS og SS, data- og stak- segmenterne, hvorfor disseheller ikke gemmes. Der gemmes derfor kun CS:IP, SP og BP. 
+
+Det er selvf›lgelig muligt at have mere end en enkelt Target aktiv af gangen,fx StakOverlob, DivisionMedNul, ReturTilStart osv. Man kan ogs† ‘ndre p† enTarget flere gange undervejs, da den sidst satte vil g‘lde. 
+
+LongJMP er ikke s‘rlig brugbare sammen med overlay systemet. En procedure, derreturnerer til en anden overlay procedure kan for†rsage, at der skal indl‘seskode fra disken. Dette omg†r LongJMP. Derfor m† LongJMP ikke hoppe til enoverlay procedure. Jeg kan ikke se, der er problemer i at hoppe fra en overlaytil en almindelig procedure. Dette er dog ikke nogen garanti, pr›v selv f›rst. 
+
+Lad nu v‘re at bruge LongJMP uh‘mmet, da programmet ellers bliveruoverskueligt. Brugt med f›lelse, har disse rutiner deres berettigelse. 
+
+##Begynd kasse
+LongJmp kommer fra C
+##==================
+De her viste rutiner, SetJMP og LongJMP, er almindelig kendte i sproget C. Dekendes desuden fra Lisp som rutinerne Catch og Throw. Rutinerne i C gemmer somregel hele CPU tilstanden. De er derfor generelle nok til at man kan bruge demPage 4til at implementere korutiner baserede programmer, hvor man f†r forskelligedelprogrammer til at skiftes til at bruge CPU'ens arbejdskraft. Korutiner eren simpel form for multitasking. 
+SetJMP i C gemmer alt, hvorfor LongJMP her kan bruges ved interrupts oglignende, men alts† ikke min version. 
+##Slut kasse
+
+##Begynd kasse (MSKE sammen med forrige kasse)
+LongJmp kan mere end hvad godt er
+##===============================
+Man kan i Pascal ikke hoppe ind i en s‘tning afgr‘nset med begin .. end.LongJMP er dog ligeglad med dette. Den g›r, hvad den bliver bedt om. Pasderfor selv p† dette. 
+Derimod kan man i nogle Pascal versioner hoppe ud af en procedure med GOTO,dog ikke i Turbo Pascal. Her er LongJMP meget velegnet. 
+##Slut kasse
+
+##Begynd kasse
+Har du ikke en assembler, kan LJMP.OBJ filen indtastes bin‘rt ved hj‘lp afDebug programmet. Indtaster f›lgende 14 linjer (fra og med E 100 ...) med eneditor til en fil kaldet DEBUG.SCR. F›lgende kommando vil nu lave LJMP.COMprogrammet:
+
+  DEBUG < DEBUG.SCR
+
+E 100  80 0A 00 08 4C 4A 4D 50 2E 41 53 4D 2C 96 02 00  
+E 110  00 68 96 06 00 04 43 4F 44 45 45 98 07 00 60 2F  
+E 120  00 02 01 01 CE 90 0D 00 00 01 06 53 45 54 4A 4D  
+E 130  50 00 00 00 89 90 0E 00 00 01 07 4C 4F 4E 47 4A  
+E 140  4D 50 19 00 00 2A 88 04 00 40 A2 01 91 A0 33 00  
+E 150  01 00 00 5B 59 5F 07 26 89 25 26 89 6D 02 26 89  
+E 160  5D 04 26 89 4D 06 33 C0 26 FF 6D 04 58 58 58 5F  
+E 170  07 26 8B 25 26 8B 6D 02 2D 01 00 15 01 00 26 FF  
+E 180  6D 04 47 8A 02 00 00 74                          
+R CX
+88
+N LJMP.OBJ
+W
+Q
+##Slut kasse
+
+##Begynd kasse
+Unit LJMP;
+{ Af Christen Fihl, for PC-World
+  Definition af SetJMP, LongJMP rutinerne og af Target typen
+  Bruges s†ledes:
+  if SetJMP(T)<>0 then writeln('T: returneret')
+  else writeln('T er installeret');
+Page 5  .....
+  LongJMP(T,1);
+}
+
+interface
+
+Type
+  Target= Record
+    SP,BP,IP,CS: Word;
+  end;
+
+function  SetJMP(T: Target): Integer;
+procedure LongJMP(T: Target; Val: Integer);
+
+implementation
+
+{$L LJMP.OBJ}   {Den assemblerede version af LJMP.ASM. Evt fra Debug scripten}
+
+function  SetJMP(T: Target): Integer;        EXTERNAL;
+procedure LongJMP(T: Target; Val: Integer);  EXTERNAL;
+
+end.
+
+; LJMP.ASM filen. Giver efter assemblering filen LJMP.OBJ
+
+; Assembleres s†ledes:
+; TASM LJMP    med Turbo assembleren eller
+; MASM LJMP;   med Microsoft assembleren
+
+        PUBLIC  SetJMP,LongJMP        ; Giv rutinerne til Turbo Pascal
+
+Target  struc                         ; Strukturen Target fra LJMP.PAS
+SaveSP  DW    ?                       ; Target= Record
+SaveBP  DW    ?                       ;   SP,BP,IP,CS: Word;
+SaveIP  DW    ?                       ; end;
+SaveCS  DW    ?
+Target  ends
+
+CODE    segment                       ; Der er kun kode i dette modul
+
+; function  SetJMP(T: Target): Integer;       EXTERNAL;
+SetJMP: pop     bx                    ; Pop returadressen af stakken
+        pop     cx                    ; --
+        pop     di                    ; Hent adressen p† T
+        pop     es                    ; --
+        mov     ES:SaveSP[di],SP      ; Gem SP i T
+Page 6        mov     ES:SaveBP[di],BP      ; Gem BP i T
+        mov     ES:SaveIP[di],bx      ; Gem offset af returadressen i T
+        mov     ES:SaveCS[di],cx      ; Gem segment af returadressen i T
+        xor     ax,ax                 ; Returner 0 efter installering
+        jmp     ES:dword ptr SaveIP[di]
+
+; procedure LongJMP(T: Target; Val: Integer); EXTERNAL;
+LongJMP:pop     ax                    ; Retur adressen bruges ikke
+        pop     ax                    ; --
+        pop     ax                    ; Val
+        pop     di                    ; Offset af T
+        pop     es                    ; Segment af T
+        mov     SP,ES:SaveSP[di]      ; Reetabler SP
+        mov     BP,ES:SaveBP[di]      ; og BP
+        sub     ax,1                  ; Returner Val. AX = 0 er ulovlig!
+        adc     ax,1                  ; Derfor laves 0 om til 1 ellers u‘ndret
+        jmp     ES:dword ptr SaveIP[di];Returner Val efter hop gennem SetJMP
+
+CODE    ends
+        end
+##Slut kasse
+
+##Begynd kasse
+Test program 1
+Program JMP1Test;
+{ Eksempel p† brug af SetJMP/LongJMP
+  S† simpelt at man lige s† godt kunne have brugt en almindelige Pascal GOTO
+  Der udskrives f›lgende:
+    Installering af Afslut
+    Afslut er installeret
+       1   2   3   4   5   6   7   8   9  10  11  12
+    LongJMP(Afslut)
+    Afslut: returneret
+}
+Uses LJMP;
+
+var Afslut: Target;
+    n: Integer;
+
+begin
+  writeln; writeln('Installering af Afslut');
+  if SetJMP(Afslut)<>0 then
+    writeln('Afslut: returneret')
+  else begin
+    writeln('Afslut er installeret');
+Page 7    for n:=1 to 20 do
+      if n=13 then begin                                    { F‘rdig, afslut }
+        writeln; writeln('LongJMP(Afslut)');
+        LongJMP(Afslut,1);            { Hop tilbage til efter SetJMP(Afslut) }
+      end else write(n:4);
+  end;
+end.
+
+## EVT i ny kasse-----------------------------
+
+Test program 2
+Program JMP2Test;
+{$M 2000,0,0}
+
+Uses LJMP;
+
+var T: Target;
+
+Function Fakultet(N: Integer): Real;
+var BigBUFF: array[1..50] of byte;
+begin
+  if SPtr<1200 then LongJmp(T,SPtr);
+  if N=1 then
+    Fakultet:=1
+  else
+    Fakultet:=N*Fakultet(N-1);
+end;
+
+var
+  n: Integer;
+begin
+  n:=SetJMP(T);
+  if n<>0 then begin
+    writeln('Fakultets fejl. Stakfejl, SPtr=',n);
+    HALT;
+  end;
+  for n:=1 to 20 do
+    writeln(Fakultet(n):15:0,' =',n:2,'!');
+end.
+##Slut kasse

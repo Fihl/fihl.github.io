@@ -1,0 +1,22 @@
+L 3,R 65,T 5
+@box[
+Vejledning til programmerne.
+
+PCW_DIR /S /n sti\filer1 filer2 filer3 ...
+  Der kan kun v‘re sti p† den f›rste fil angivelse.
+  /S angiver at der skal s›ges gennem alle underbiblioteker.
+  /n, n=1,2,4 eller 8 angiver filblokst›rrelsen p† disken
+  Eksempel: PCW_DIR C:\src\*.pas /s
+
+PCW_ATTR /S -A sti\filer1 filer2 filer3 ...
+  Der kan kun v‘re sti p† den f›rste fil angivelse.
+  /S angiver at der skal s›ges gennem alle underbiblioteker.
+  -A angiver at A flaget (backup) skal fjernes.
+  +A angiver at A flaget (backup) skal s‘ttes.
+  Eksempel: PCW_ATTR \*.bak *.exe *.com -a /s
+
+PCW_TREE sti
+  Udskriver tr‘ strukturen af biblioteket startende i STI.
+  Eksempel:  PCW_TREE C:\
+
+]

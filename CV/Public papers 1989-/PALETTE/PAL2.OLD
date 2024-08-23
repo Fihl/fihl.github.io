@@ -1,0 +1,20 @@
+Program Animate;
+{ Vis to kasser skiftevis ved hj‘lp af paletteskift
+  Af Christen Fihl
+}
+uses Crt,Graph;
+Const
+  Pal1:palettetype=(Size:16;Colors:(0,63,2,3,0,63,2,3,0,63,2,3,0,63,2,3));
+  Pal2:palettetype=(Size:16;Colors:(0,0,0,0,63,63,63,63,2,2,2,2,3,3,3,3));
+  GrDriver: Integer=EGA; GrModus: Integer=EGAHI;
+begin
+  InitGraph(GrDriver,grModus,'c:\turbo');
+  SetWriteMode(XORPut);
+  SetColor(2); Rectangle(10+4,10+4,180+4,180+4);
+  SetColor(8); Rectangle(10,10,180,180);
+  repeat
+    SetAllPalette(Pal1); Delay(300);
+    SetAllPalette(Pal2); Delay(300);
+  until keypressed;
+  closegraph;
+end.

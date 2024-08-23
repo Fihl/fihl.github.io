@@ -1,0 +1,107 @@
+R 65,T 5
+Page 1## Kommentarer er m‘rket med ##
+
+Kommunikation med modem
+
+
+Bruger man en computer, benytter man sig via denne af mangeformer for kommunikation til ydre enheder. Der overf›res datamellem lageret og harddisken med mindst 500000 bytes per sekund,mellem lageret og et netv‘rk med enten 1 MBits eller 10 MBits persekund. Der overf›res data til udskrivning p† printeren via denparallelle port med en fart, der er rigelig til at holdeprinteren travl besk‘ftiget. Farten er bestemt af kablets l‘ngde,printerens form†en, m†ske ogs† computerens. Desuden benytter mansig af den absolut langsomste form for kommunikation, nemligserielt gennem et modem. 
+
+Hastigheden p† et modem er afh‘ngig af, hvor effektivt det kanudnytte den telefonlinje, der benyttes. En normal telefonlinjekan kun overf›re frekvenser mellem 300 Hz og 3500 Hz, hvorfor derskal benyttes specielle kneb for at f† presset 9600 bit overlinjen hvert sekund. Hz eller Hertz betyder antal svingninger persekund. 
+
+Seriel kommunikation via modem er inde i en rivende udvikling,b†de med hensyn til hvad det bruges til, og hvor godt detegentlig udf›rer sit job. Det er ikke mange †r siden, at et godtmodem sendte med 300 bps (bits per sekund), endda med 1200 bps,hvis det gik h›jt. Nu er det ret almindeligt med 2400 bps modems.Fremtidens modems vil give mindst 9600 bps. De er jo alleredefremme, men forholdsvis dyre for den almindelige bruger. 
+
+Er baud ikke blot et modeord?
+
+L‘ser man bilannoncer, bliver man fyldt med detaljer om hvorhurtigt bilen kan komme op p† 100 KM/t og lignende. Det er formange ret ligegyldig (dvs pengepungen bestemmer), s†l‘nge bilenblot kan k›re 100 KM/t p† motorvejen. 
+
+Er baud hastigheden ikke en tilsvarende fiktiv v‘rdi, der blotp†virker prisen? Det kommer an p†, hvad modemet skal bruges til.Skal man ringe til den elektroniske telefonbog p† 0036 eller etlokalt BBS, kr‘ver dette ikke den allerhurtigste forbindelse.Siden nyt†r afregnes prisen for telefonbogen ikke kun i en minutpris, men ogs† i en pris per oplysning man modtager. Prisen perminut har derfor mindre at sige i forhold til, hvad man kan brugep† at hente de enkelte oplysninger. Man skal jo ogs† lige havetid til at l‘se og nedskrive det modtagne. 
+Ringer man til et BBS, modtager man typisk ca 500 tegn for hversk‘rmside, hvilket ved 1200 baud vil tage omkring 5 sekunder atmodtage, idet baudhastigheden delt med 10 angiver, hvor mangetegn man modtager hver sekund. 5 sekunder er meget passende, hvisman skal n† at l‘se, hvad man lige har modtaget, men det erafsindig lang tid, hvis man har set den samme menu side 30 gangef›r. 
+En h›j baud hastighed kan tit spare penge, af og til flere gangemodemets pris. Dette g‘lder is‘r, n†r der skal overf›res filer.Skal der sendes 1MByte, vil det tage 2 timer og 18 minutter ved1200 baud, mens det kun tager 17 minutter ved 9600 bps. De toekstra timer koster ved 82 ›re per minut (rigstakst) n‘sten 100Kr, mens det ved 13 Kr per minut (USA takst) koster 1560 Kr!Alts† 1500 Kr, der kunne spares. 
+
+
+Protokol styring.
+
+Page 2X-Modem protokollen, den ‘ldste af protokollerne, er nok kendt afalle, ligesom nogle af de nyere som Z-Modem ogs† vil v‘revelkendte. Disse er alle lavet i det program, der styrer modemet,alts† i Betty, Procomm eller hvad ens terminal program hedder.Protokol styringen s›rger for at ens data (ved filoverf›ring)kommer sikkert igennem, idet det tilf›jer kontrol information,s†ledes at senderen kan gentage, hvis der skete fejl. 
+
+Der er modems, der har indbygget fejlkorrigering, s†ledes at ensdata altid kommer sikkert frem. Dette g‘lder ikke blot vedfiloverf›rsel, men generelt. 
+
+MNP, Microcom Networking Protocol fra firmaet Microcom, er ennyere form for protokol styring, der er indbygget i modemetistedet for i programmet. Bruger man et MNP modem, da er  mansikker p†, at data der sendes til modemet bliver overf›rt korrekttil et andet MNP modem. Modemet s›rger selv for gentransmissionenhvis n›dvendig. 
+
+MNP systemet er delt op i forskellige klasser, der gradvis erbedre og bedre. Her er de f›rste 5 klasser, de der som regelfindes i et MNP modem:
+
+1: Bruger asynkron kommunikation. Bruger 70% af tiden og dermeddatam‘ngden p† data, og 30% p† kontrol information. Et 2400 bpsmodem overf›rer derfor kun 1700 bits per sekund! Men overf›rslener fejlfri.
+
+2: Giver nu 84% data.
+
+3: Bruger synkron overf›rsel, sparer derfor 2 bit for hver 10 iasynkron formatet. Overf›rer 108% data. 2400 bps virker derforsom et 2600 baud modem.
+
+4: Variabel blok st›rrelse afh‘ngig af st›jen p† linjen.Komprimerer kontrol informationerne. Giver 120% data overf›rsel. 
+
+5: Komprimerer ogs† data. ARC og ZIP filer kan nok ikkekomprimeres ret meget, medens tekst, COM, og EXE filer har bedrechancer. Kan give op til omkring 200% data, alts† dobbelt s†meget. 
+
+Klasse 5 modems kan derfor g›re ens forbindendelse med et BBSdobbelt s† hurtigt som ellers n†r man l‘ser breve, mensmodtagelse af filer, der altid er pakkede, ikke foreg†r hurtigereend ellers, blot mere sikkert. 
+
+Alle de 9600 bps modems jeg har set beskrevet, har indbyggetfejldetektering, nogle med MNP protokol, mens andre har dereseget private format. 
+
+AT kommandoer.
+
+Modems nu om dage har selvf›lgelig Hayes eller AT kommandos‘ttetindbygget. AT kommandoerne blev opfundet af firmaet Hayes, ogintroduceret i deres Smartmodem 300 og 1200. Dette nye modem blevtestet i en artikel i det amerikanske BYTE i marts 1983.Smartmodem 1200 kostede 699 dollars, n‘sten det samme som et 9600bps modem koster idag. De der dengang havde r†d til et 1200 bpsmodem burde derfor idag kunne k›be et 9600 bps modem. 
+AT kommandoerne best†r af bogstaverne AT efterfulgt af fx D 0036for at ringe til 0036. Der findes adskillige andre kommandoer. 
+Page 3F›r AT kommandoerne skulle man f›rst ringe til det ›nskede nummermed en almindelig telefon, hvorefter man trykkede p†startknappen, eller lagde telefonr›ret ned i de akustiske hulleri modemet. 
+
+
+Nye modems, nye problemer.
+
+Ved 300, 1200 og 2400 bps normale modems sendes der byte for bytedet samme ud af modemet, som der sendes ind. Derfor beh›verprogrammet p† ens maskine ikke at vente p† at modemet er klar tilat modtage n‘ste byte. Det forholder sig anderledes ved de mereavancerede modems, idet de fx er angiver til at sende med 9600bps, men m†ske kun kan opn† 7000 bps over en d†rlige telefonforbindelse. Man kan derfor ikke vedblive med at sende 9600 baudfra computeren, da modemets buffere til sidst vil blive fyldt op.Derfor skal programmet, med denne type af modems, kontrollere ommodemet er klar f›rend hver byte sendes. Dette bliver sikkertikke opfyldt af alle kommunikations programmer. 
+
+De modems, der kan pakke data, kan ved at modtage 9600 bits,sagtens finde p† at ville af med mere en 9600 bits hvert sekund,hvorfor man tit bliver n›dt til at have en forbindelse mellemcomputeren og modemet, der kan overf›re med en tilsvarende h›jerehastighed. Computerens baud hastighed stiger ved fordobling,hvorfor man kan blive n›dt til at bruge 19200 baud med et 9600bps modem. For et 2400 bps MNP modem bruges en 4800 eller 9600baud forbindelse. En h›jere hastighed er ikke noget problem, idetder blot inds‘ttes pauser mellem de forskellige tegn, hvis derikke er flere klar til sending fra modemet. 
+Man skal heller ikke glemme at 19200 baud faktisk er ret hurtigfor ens maskine, omkring 2000 tegn per sekund. Der sker en heldel n†r et tegn skal modtages ved hj‘lp at et interrupt system,skal vises p† sk‘rmen, hvorefter sk‘rmen m†ske skal rulle enlinje op. 
+
+At et modem kan kommunikere med computeren p† en anden hastighedend hvad der sendes ud, fjerner en af de irritations momenter dervar ved de gamle modems, nemlig at de skifter hastig hvis detopn†r forbindelse ved en lavere hastighed end det det startedemed. Startede man ud med 2400 baud, udf›rte AT D01234567 for atringe til et 1200 bps modem p† nummer 01234567, s† f†r man med2400 baud udskrevet CONNECT 1200, hvorefter modemet selv skiftertil 1200 baud. Man skal s† selv hurtigt skifte programmet overtil 1200 baud, mens man mistede de f›rste 3 sekunders data. 
+
+
+##BEGYND KASSE
+Hvordan kan man egentlig presse 9600 bits gennem en telefonlinje. 
+
+Det lyder lidt modstridende, at man kan sende mere end 3500 bitshvert sekund gennem en telefonlinje, n†r man ikke kan sende lydgennem den samme linje p† mere end 3500 Hz. L›sningen er egentligret simpel: N†r man taler om bits i en computer, taler man kun om0 og 1 bit, mens man p† en telefonlinje ikke blot taler om denoverf›rte frekvens, men ogs† om hvor kraftig signalet er, alts†volumen. Et 9600 bps modem beh›ver derfor ikke at sender 9600enkelte bit ud, men kan derimod n›jes med at sende 4800 gange tobit (dibit) eller 2400 gange fire bit (quadbit), hvor modemet ihver udsendelse koder mere end et bit sammen. Skal man sendesende en dibit ved at ‘ndre volumen af det sendte kan man fxsende de fire mulige bin‘re v‘rdier 00, 01, 10 og 11 somsp‘ndingerne 0, 1, 2 og 3 volt. P† modtagersiden skal man derforblot kunne skelne mellem disse fire v‘rdier, hvorved man hargenskabt de originale to bit. P† samme m†de med en quadbit. HerPage 4skal der sendes og modtages fire bit, svarende til en ud af 16mulige v‘rdier, hvilket selvf›lgelig stiller st›rre krav tilmodtagerens evner og linjens kvalitet. 
+I et rigtigt modem er det ikke volumen, der ‘ndres, med derimodfasen af et konstant signal. Dette g›r modemet meremodstandsdygtig overfor st›j. De fire v‘rdier 00, 01, 10 og 11kan derfor repr‘senteres ved at signalet er forskudt 0, 90, 180og 270 grader. Dette princip bruges i 1200 bps modemerne, hvorforde reelt sender med 600 baud. Et 2400 bps modem sender ogs† med600 baud, men med 4 bit af gangen. 
+
+Et andet princip for at udnytte en telefonlinje optimal er atdele linjens form†en op i mange sm† separate kanaler, hvorigennemder kan sendes data uafh‘ngig af de andre kanaler. Fordelen er,at modemet kan udnytte de kanaler, der er gode, mens de d†rligerekan glemmes. Jo flere d†rligere der er, jo langsommere g†r det,men forbindelsen vedbliver at fungere. Er linjen delt s†ledes op,kan der kun sendes med en tilsvarende lavere baud hastighed perkanal, da baud hastigheden ikke kan overstige b†ndbredden. Enlinje kan p† denne m†de sagtens deles op i 300 kanaler, hvorforhver kanal kun har 10 Hz at g›re godt med. 
+ 
+Som det ses er det let at blive forvirret over begrebene bps(bits per sekund) og baud (antal signalelementer per sekund).Baud angivelsen kan egentlig ikke bruges til ret meget, mens bpsgiver det rigtige udtryk for hvad modemet form†r. Den enestegrund til at tale om baud, er n†r man angiver hastigheden,hvormed man taler med modemet fra computeren, fx med 9600 baud. Icomputerens verden er baud jo det samme som bps, da den kun kantale i 0 og 1 v‘rdier. 
+##SLUT KASSE
+
+##BEGYND KASSE (PROGRAM)
+Dette lille Pascal program viser hvor simple et program manegentlig kan n›jes med for at bruge et modem. Det er sjovere selvat eksperimentere. Teori bliver man jo ikke mere erfaren af, kunklogere. 
+
+Du skal s‘tte baud hastigheden op f›rend MiniTerm benyttes. Detteg›res ved hj‘lp af MODE kommandoen i DOS. 1200 baud s‘ttess†ledes:
+
+  MODE COM1:1200,n,8,1          ##DOS LINJE..........
+
+R 83,T 5
+Program MiniTerm;
+{ Simpel terminal program. }
+{ Kan med "lidt" udbygning erstatte Procomm }
+{ Bruger ikke interrupt, derfor tabes der modtagne tegn n†r sk‘rmen ruller op}
+{ Skal stoppes med Ctrl-Break! }
+{ Af Christen Fihl }
+
+Uses Crt;
+
+Const PNo=$03F8;  { $03f8=COM1. COM2=$02F8}
+Var   Ch: Char;
+
+begin
+  repeat
+    if (port[PNo+5] and $01<>0) then begin   {Data klar p† porten til l‘sning}
+      Ch:=Chr(port[PNo]);
+      write(Ch);
+Page 5    end;
+    if Keypressed then begin
+      repeat until (Port[PNo+5] and $20)<>0;   {Vent til sidste tegn er sendt}
+      Ch:=ReadKey;
+      Port[PNo]:=ord(Ch);                                      {Send nyt tegn}
+    end;
+  until false;
+end.
+##SLUT KASSE

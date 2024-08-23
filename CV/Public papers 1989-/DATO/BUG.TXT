@@ -1,0 +1,43 @@
+Til S›ren Karg†rd,   PC-World, BUGS Boxen.
+
+
+Ang sp›rgsm†l til Dato beregning i PC-World Februar:
+
+Jo, der har faktisk indsneget sig en fejl i rutinenen JulDate1stWeek.
+Hele den sidste IF s‘tning skal erstattes med JulDate1stWeek:=JDate,
+hvorefter rutinen ser s†ledes ud mellem BEGIN og END:
+
+begin
+  CalenderDate(JD,
+     Year, Month, Day);
+  JDate:=JulDate(Year,1,1);
+  if WeekDay(JDate) in [5,6,0]
+    then N:=1 else N:=-1;
+  while WeekDay(JDate)<>1 do
+    JDate:=JDate+N;
+  JulDate1stWeek:=JDate
+end;
+
+Christen
+
+
+=========================================================================
+
+
+
+Kan det ikke godt v‘re i ‚n spalte, n†r det er formateret som vist???
+
+
+Ellers er funktionen her i naturlig st›rrelse:
+function  JulDate1stWeek(JD: JulType): JulType;
+Var
+  N, Year, Month, Day: integer;
+  JDate: JulType;
+begin
+  CalenderDate(JD, Year, Month, Day);
+  JDate:=JulDate(Year,1,1);
+  if WeekDay(JDate) in [5,6,0] then N:=1 else N:=-1;       {fredag til s›ndag}
+  while WeekDay(JDate)<>1 do JDate:=JDate+N;                  {mandag i uge 1}
+  JulDate1stWeek:=JDate
+end;
+

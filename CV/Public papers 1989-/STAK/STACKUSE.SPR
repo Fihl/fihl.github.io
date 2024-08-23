@@ -1,0 +1,146 @@
+@style(fill no,                 leftmargin 4 cm,
+       BottomMargin 1 inch,     Font Times,
+       TopMargin 1 inch,        Spacing 1,
+       Spread 1,                Size 9 points,
+       headerspacing 1 picas,   footerspacing 1 picas,
+       widowprevent on,         leftindent 0 picas,
+       rightindent 0 picas,     
+       linelength 14 cm)
+@define(ding, font dingbats)
+Christen Fihl, 22-10-89. @ding'%'02 17 52 73
+Skrevet i Times 9 point Linjel‘ngde 6 cm. Tekstbehandling: Sprint 
+
+R 62,J,T 2
+@begin[COLUMNS2, GUTTER = 2 cm]
+
+Hvor meget plads bruger et Turbo Pascal program egentlig p†sin stak.
+
+N†r man programmerer i Pascal, t‘nker de fleste p†, hvorhurtigt en enkelt s‘tning bliver udf›rt. Derimod t‘nker mansj‘ldent p†, hvor meget plads der bliver brugt for at udf›redenne s‘tning.
+Turbo Pascal bruger tit ekstra plads p† stakken for at udf›resit arbejde. Eksempel: 
+
+	C:=A+B;
+
+Her beregnes A f›rst (kan v‘re en variabel eller en funktion),A gemmes, hvorefter B beregnes. Dette fylder ikke s† meget p†stakken, da vi antager at alle tre variable er af typenINTEGER. 
+Sagen stiller sig helt anderledes, hvis vi taler om variableraf typen STRING. En streng variabel fylder typisk en del mereend de 2 bytes, en integer fylder. En streng kan fylde helt optil 256 bytes, s†ledes at der bruges 256 bytes ekstra, hvergang der bliver brug for en midlertidig lagerplads. N†r A+Bskal beregnes (strenge), reserverer pascalen f›rst 256 bytestil en midlertidig streng, hvortil alle de andre strengebliver lagt. F›rst n†r resultatet skal afleveres i C, bliverden midlertidige variabel begr‘nset i st›rrelse efter, hvorstor C er. Antager vi at A, B og C er erkl‘ret som 
+
+	Var A,B,C: String[20];
+
+vil C:=A+B; blive udf›rt som
+
+	T	=	''		Reserver 256 bytes
+	T	=	T+A		L‘g A til
+	T	=	T+B		L‘g B til
+	C	=	T			Aflever resultat
+
+hvor T er den midlertidige variable.
+
+Hvad kan alt dette s† betyde for mit program? Som regelingenting. I hvert fald ikke mens man er i f‘rd med at udvikledet, da man selv har rigelig med plads p† maskinen, og med destandard v‘rdier for lager forbrug man f†r for‘ret afpascalen, s† virker det jo bare.
+
+Men n†r programmet skal afleveres, b›r man selv v‘lge noglelager st›rrelser med $M direktivet. Standard v‘rdierne er{$M16384,0,655360}. De tre tal betyder,
+
+	1.	16KB afsat til stak
+	2.	Minimum 0KB for heap
+	3.	Maximum 640KB for heap
+
+Stak omr†det er alts† fast afsat til 16 KBytes. Heapen derimod(New procedure f†r sit lager herfra), kan f† alt mellem 0 og640 KB, alt afh‘ngig af hvor meget, der er tilbage i maskinen,n†r programmet starter. Hvis meget af pladsen er brugt tilnetv‘rksprogrammer, memorydiske osv, kan man alts† risikere atf† meget mindre heap, end man havde forventet.
+S† kan man skrive {$M16384,2000,655360}, s†ledes at man i detmindste f†r 2KB heap.
+Bruger ens program Exec proceduren, for at udf›re andre DOSprogrammer, eller p† anden m†de skal bruge nogle af DOS'enslagerrutiner (DOS funktion 48H, 49H og 4AH),  SKAL man ogs†angive en h›jeste v‘rdi for heapen, da DOS'en ellers ikke kanudf›re disse kommandoer. Vi skriver nu {$M16384,2000,2000},s† ved vi hvad programmet vil bruger. 
+
+Skal programmet ligge resident i maskinen, kan man jo i sagensnatur ikke bruge alt lager. Man skal her fors›ge at begr‘nsepladskravene mest mulig. Her kan selv v‘rdierne i den sidste$M linje v‘re for meget, da vi har brugt 16KB+2KB= 18KBytestil data og stak. Til et resident program er selv 16KByte stakfr†ds, da man ikke kan starte mange af den slags programmer,f›rend maskinen er fyldt op. En $M parameter med stak=5000bytes ville ikke v‘re d†rlig, da vi s† har sparet omkring10KByte.
+
+Men hvordan kan man nu v‘re sikker p† at en stak p† 5000 bytesnu ogs† er forsvarlig at bruge. 
+Den naturlige m†de er at pr›ve sig frem med en endnu laverev‘rdi, f.eks. 4000 bytes, samtidig med at stakkontrollen ersl†et til ved brug af $S+ direktivet. Man pr›ver nu allekrogene af programmet. Bryder programmet ned med k›rselsfejlen"stak overl›b", har v‘rdien v‘ret for lav, ellers kan manpr›ve med en endnu lavere.
+
+Jeg vil her vise en anden metode, der direkte kan vise, hvormeget stak der maksimalt er brugt. Man kan s† efter hvereneste af  sine test k›rsler, f† udskrevet stak forbruget.Hvis dette tal pludselig stiger, har man mulighed for at t‘nketilbage og overveje, om dette nu ogs† er rimeligt eller om derer noget, der kunne g›res anderledes, og dermed billigere istak forbrug. Det s†ledes fundne stakforbrug skal nu till‘ggesomkring 10% eller mindst 500 bytes, hvorefter det skrives i $Mdirektivet.
+De n›dvendige procedurer hertil er indlagt i programmetStakTest. Man skal, n†r programmet starter, kalde funktionen"StakMaerke1", der fylder stakken op med et bestemt m›nster.Man kan s† senere, med "Stakmaerke2" funktionen, kontrolleredette m›nster, og det laveste sted, hvor m›nsteret er ›delagt,angiver, hvor langt stakken har v‘ret nede. Forskellen mellemdisse to positioner angiver, hvor meget stak der er brugt.
+
+Programmet StakTest kan for visse udvalgte s‘tninger vise,hvor meget stak der bruges. Dette kan give et indtryk af, hvorman skal passe p†, og hvilke metoder man b›r bruge.
+
+Programmet vil udskrive disse stak forbrug:
+
+	Test 1:24 bytes
+	Test 2:24 bytes
+	Test 3:268 bytes
+	Test 4:268 bytes
+	Test 5:526 bytes
+	Test 6:302 bytes
+	Test 7:1082 bytes
+	Test 8:38 bytes
+	Test 9:24 bytes
+	Test 10:206 bytes
+	Test 11:418 bytes
+	Test 12:630 bytes
+	Test 13:842 bytes
+	Test 14:1054 bytes
+	Test 15:1266 bytes
+
+Det, der interesserer os her, er ikke de sm† marginaler, menderimod st›rrelsesordenen af tallene. To k›rsler af programmetgiver ikke altid de samme resultater, da stakken ogs† bliverbrugt ved hver eneste hardware interrupt, der sker i maskinen.F.eks bliver maskinens ur opdateret 18 gange i sekundet vedhj‘lp af et regelm‘ssigt interrupt. Dette giver mindst 20bytes ekstra stak forbrug.
+
+Pr›v selv med andre beregninger i StakTest programmet. Jeg vilher blot kommentere nogle enkelte.
+@begin[bullets, Spread 0]
+I Test2 sker der ingen beregning. Derfor er der ikke brug fornogen form for midlertidig lager plads.
+
+Test3 l‘gger strenge sammen, derfor 256 bytes forbrug. 268bytes = 256 plus lidt ekstra.
+
+Test4 skal reservere plads til funktions resultatet f›rFunktion1 kaldes.
+
+Test5 skal b†de reservere plads til en midlertidig streng ogtil resultatet.
+
+Test6 reserverer f›rst plads til resultatet, hvorefterFunkProc bruger 21 bytes p† den overf›rte parameter.
+
+Test7: Pascal'en reserverer her f›rst plads til 4 strenge p†256 bytes, f›rend den kalder FunkProc 4 gange i tr‘k. Dette erdyrt, 1024 bytes, og kunne have v‘ret programmeret anderledesved f.eks. selv at bruge en ekstra variabel.
+
+Test8 og Test9 er n‘sten ens, bortset fra Test8, der bruger 21bytes ekstra p† variablen den f†r overf›rt.
+
+Test nummer 10 til 15 kalder alle Fakultet funktionen, blotmed forskellige v‘rdier. Fakultet kalder herefter sig selv detsamme antal gange som v‘rdien, den er blevet kaldt med.Fakultet bruger cirka 200 bytes, hver gang den kaldes. Vedkald af Fakultet(6) vil der p† et tidspunkt v‘re 6 kopier afFakultet's data tilstede p† samme tid, hvorfor der er brugt6*200 bytes af stakken. T‘nk lidt over hvad Fakultet(50) s†kan bruge.
+@end[bullets]
+
+
+Kig engang p† funktionen @b'HvadBrugesDer'. Den har alle deformer for parameterer, der kan t‘nkes. Kaldes denne med 
+
+	Str1:=HvadBrugesDer(Str2,Str3);
+
+bruges der f›lgende stak:
+
+@begin[bullets, Spread 0]
+F›r kaldet reserveres der 256 bytes til Str1.
+
+Adressen p† Str2 og Str3 overf›res til HvadBrugesDer. Herbruges 4 bytes til hver.
+
+Variabel A er af VAR typen. Derfor er A reelt det samme somStr2. A fylder derfor ingenting, eller mere rigtigt, kun de 4bytes fra f›r.
+
+Variabel B derimod er af "value" typen, dvs B skal v‘re enkopi af Str3. Denne kopi tages, i det ›jeblik BEGIN iHvadBrugesDer bliver udf›rt. B kan nu ‘ndres uden at Str3bliver ‘ndret. B fylder derfor 256 bytes (og desuden de 4 byteadresse overf›rslen var skyld i).
+
+Variabel C fylder 256 bytes p† stakken.
+
+Variablen HvadBrugesDer fylder ikke noget, da dens adresse eroverf›rt, pegende p† Str1.
+
+Tildelingen HvadBrugesDer:=A+B; bruger yderligere 256 bytes.
+@end[bullets]
+
+Det ses, at variabel B er dyr at bruge. Ikke blot bruges der256 bytes, men der bruges ogs† meget tid p† at kopiere datatil variablen. Der er selvf›lgelig tit situationer, derretf‘rdigg›r dette, men hvis der ikke bliver ‘ndret p†variablen i proceduren, s† er kopieringen spildt.
+
+@end[COLUMNS2]
+@bar(1 mm)
+
+@BEGIN[text, font=Courier.Bold] 
+	Function HvadBrugesDer(Var A: String; B: String): String;
+	Var
+		C: String;
+	begin
+		HvadBrugesDer:=A+B;
+	end;
+@END[text] 
+
+@bar(1 mm)
+R 40
+
+@BOX[
+Jeg har overalt antaget at kompilerenikke foretager nogen form for optimeringved overs‘ttelsen. Men Turbo Pascal vildog foretage visse ombytninger afoperanderne, hvis den kan se en fordelderi. F.eks. kan A:=3+A omskrives tilA:=A+3, da det er nemmere at l‘gge enkonstant til en variabel end omvendt.Man sparer samtidig at gemme tre talleti en midlertidig variabel. ]
+
+@BOX[
+N†r man kan gennemskue, hvordan stakkenbruges, har man meget bedre mulighed forat kunne beregne, hvor meget stak pladset helt  program kan finde p† at bruge. 
+Ved almindelig programmering har mansj‘lden stak problemer. Man skal dogaltid t‘nke sig om f›rend man erkl‘rermange og/eller store variabler lokalt ien procedure, is‘r hvis denne igen skalkalde andre procedurer. ]
+
+
+@BOX[Husk at bruge VAR parameteroverf›ring, hvor det er muligt. Ved VARoverf›rsel, afleveres kun adressen p†elementet, mens v‘rdi overf›rselmedf›rer at hele elementet f›rst skalkopieres. ]
