@@ -1,7 +1,7 @@
 # Christen Fihl, Denmark  OZ1AAB
-[Meget andet](/misc.html)
+[Stuff, unordered](/misc.html)
 
-[OZ1AAB](/oz1aab/). HAM radio
+[OZ1AAB ham radio](/oz1aab.html)
 
 ### CW, QRP, radio stuff  
 [qrpPower, an article on portable use](/qrpPower.html)
