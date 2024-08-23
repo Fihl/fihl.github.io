@@ -6,10 +6,11 @@
 CW, QRP, radio stuff  
 [qrpPower, an article on portable use](/qrpPower.html)
 
-## iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
-- [Discussions group](https://www.facebook.com/groups/oz1aab)
+###### iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
+### iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
 - [iceKeyerStraight](/iceKeyer/indexStraight.html) A straight model
 - [iceKeyerPaddle](/iceKeyer/indexPaddle.html) A single-lever paddle
+- [My discussion group](https://www.facebook.com/groups/oz1aab)
 
 - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
 - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
