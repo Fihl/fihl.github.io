@@ -1,8 +1,8 @@
 # Christen Fihl
 
 ## Christen Fihl
-Title: Senior Systems Architect
-Education: 1982: DTH/DTU, Master of Science, electronics
+Title:  Senior Systems Architect\
+Education:  1982: DTH/DTU, Master of Science, electronics
 
 Main interests, technical: 
 * Bits & bytes, IP protocols,..
@@ -87,8 +87,8 @@ In general, lots of bits & bytes still in my head
 * Jellingvej 6
 * 3650 Ølstykke
 
-*  (https://www.fihl.net)[https://www.fihl.net]
-*  (https://www.fihl.net/cv)[https://www.fihl.net/cv]
-*  (https://www.facebook.com/ChristenFihl)[https://www.facebook.com/ChristenFihl]
-  (https://www.facebook.com/groups/oz1aab)[https://www.facebook.com/groups/oz1aab]
-  (https://www.linkedin.com/in/christenfihl/)[https://www.linkedin.com/in/christenfihl/]
+*  [https://www.fihl.net](https://www.fihl.net)
+*  [https://www.fihl.net/cv](https://www.fihl.net/cv)
+*  [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)
+ [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)
+ [[text](https://www.linkedin.com/in/christenfihl/)](https://www.linkedin.com/in/christenfihl/)  
