@@ -7,15 +7,21 @@
 ## So far
 * ComfortTXusbhost is a controller, having one input (an USB connected keyboard), and one output (BLE to ComfortTX). Myself I do use a wireless USB keyboard, now we already are "wireless"
 * ComfortTX is a generic CW keyer, controlled via BLE commands. 
-* Arduino code is [here](https://github.com/Fihl/CWComfort)
+* Arduino code is [here](https://github.com/Fihl/BLE_CW_Keyer)
 
 ## Picts
 ### ComfortTX, the BLE receiver with keying circuit
-![ComfortTX](https://www.fihl.net/CWComfort/picts/ComfortTX.png)
+![ComfortTX](/picts/ComfortTX.png)
 
 ### Arduino DUE part, having the USB host for USB keyboard. 
 And BLE sending to ComfortTX
-![ComfortTXusbhost](https://www.fihl.net/CWComfort/picts/USBkbd.jpeg)
+![ComfortTXusbhost](/picts/USBkbd.jpeg)
 
 ### Room with a view
-![QO100](https://www.fihl.net/CWComfort/picts/QO100.jpeg)
+![QO100](/picts/QO100.jpeg)
+
+![](picts/En anden display enhed.jpeg)
+
+![](picts/USB-host modulet.jpeg)
+
+![](picts/demo.mov)
