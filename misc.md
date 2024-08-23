@@ -4,6 +4,11 @@
 - [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
 
 
+---
+
+Get started on DigitalOcean with this free $200 credit [![DigitalOcean](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://m.do.co/c/a01c93af1655) 
+
+And then create WEB pages for free [Instructions](https://www.fihl.net/DigitalOcean/)
 
 
 

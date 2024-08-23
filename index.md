@@ -15,7 +15,9 @@ CW, QRP, radio stuff
   - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
 
 - xxxxxx
-- [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer
+- [Beer, thanks, if you like my stuff]("https://www.buymeacoffee.com/Fihl")
+- yyyy
+  
 ---
 
 [![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/SLQM)
@@ -23,8 +25,3 @@ CW, QRP, radio stuff
 [.](/hsCoRoutines/)
 [.](/CWComfort/)
 
----
-
-Get started on DigitalOcean with this free $200 credit [![DigitalOcean](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://m.do.co/c/a01c93af1655) 
-
-And then create WEB pages like mine [found here](https://www.fihl.net/DigitalOcean/)

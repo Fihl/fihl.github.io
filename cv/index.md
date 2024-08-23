@@ -1,6 +1,5 @@
-# Christen Fihl
+# Christen Fihl, CV
 
-## Christen Fihl
 Title: Senior Systems Architect\
 Education: 1982: DTH/DTU, Master of Science, electronics
 
