@@ -1,6 +1,5 @@
 # Christen Fihl, Denmark  OZ1AAB
-
-- [LinkedIn](https://www.linkedin.com/in/christenfihl/). Myself, commercial
+[Meget andet](/misc.html)
 
 - [OZ1AAB](/oz1aab/). HAM radio
 
@@ -13,18 +12,7 @@
   - [CWComfort](/CWComfort/). My single-lever paddle keyer software, the one with a lazy attitude
   - [Older BLE stuff](/BLE_CW_Keyer/). BLE as transport between modules
 
-- [HSPascal](/HSPascal/). Something 1990: High Speed Pascal
-
-- [hsCoRoutines](/hsCoRoutines/). Super simpel multitasking. ESP too, now using ProtoThreads
-
-- [WEB pages on DigitalOcean, for free](/DigitalOcean/). How to make your own WEB page, using DigitalOcean Apps, for free
-- [LaserCutter2D](/LaserCutter2D/). My finger joint box construction kit
-- [WeatherStation (on github)](https://github.com/Fihl/LaserCutter2D/tree/main/Src/WeatherStation/)
-- 
 - [Beer, thanks](https://www.buymeacoffee.com/Fihl). If you like my stuff, you might buy me a cup of coffee/beer, thanks
-
-## <font face="Monotype Corsiva">Christen Fihl, Denmark  OZ1AAB</font>
-
 ---
 
 [![Visitors](https://s11.flagcounter.com/map/SLQM/size_t/txt_000000/border_CCCCCC/pageviews_1/viewers_Christen+Fihl/flags_0/)](https://info.flagcounter.com/SLQM)
