@@ -25,7 +25,7 @@ Main interests, technical:
 |..82 |	PolyData during education Sold and repaired computer kits. |Lavet byggesæt for computer brugere. Bl.a. MiDiCos, digital kassettebånd OS med 60KByte, solgt i knap 100 byggesæt (mange).
 |1982	|DISA A/S, medical electronics, urologi.	|
 |82…84	|Innovative Business Software A/S. |
-| | Alarm program on Series/1. 
+| | Alarm program on IBM Series/1. 
 | | Installation and responsibility in USA, Brinks..	|
 |84…90 | Borland + PolyData/PolyTech |Private
 | | Graphics, BCD og 8087 code to Borland Pascal and PolyPascal |Multitask kerne, benyttet i bl.a. online tips-systemer i danske kiosker.
