@@ -14,6 +14,5 @@ With scouts we do JOTA once a year.
 |ITU Zone|18|
 |CQ Zone|14|
 |IOTA|EU-029 (Sealand, Denmark)|
-|Lat Lon|55.769444N 12.172778E|
-
-![me](/picts/Fihl.jpg)
+|Lat Lon|55.7694N 12.1728E|
+|Me|![me](/picts/Fihl.jpg)|
