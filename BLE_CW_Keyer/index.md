@@ -24,7 +24,6 @@ And BLE sending to ComfortTX
 
 ![](picts/USB-host modulet.jpeg)
 
-![demo movie](picts/demo.mov)
-![demo movie1](/picts/demo.mov)
+[Download a demo movie](picts/demo.mov)  
+[Download a demo movie2](https://www.fihl.net/BLE_CW_Keyer/picts/demo.mov)  
 
-[demo movie2](https://www.fihl.net/BLE_CW_Keyer/picts/demo.mov)  
