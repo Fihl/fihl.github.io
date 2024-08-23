@@ -1,8 +1,8 @@
 # Christen Fihl
 
 ## Christen Fihl
-Title:  Senior Systems Architect\
-Education:  1982: DTH/DTU, Master of Science, electronics
+Title: Senior Systems Architect\
+Education: 1982: DTH/DTU, Master of Science, electronics
 
 Main interests, technical: 
 * Bits & bytes, IP protocols,..
@@ -11,12 +11,11 @@ Main interests, technical:
 * Small, quick and smart features, software and hardware
 
 * Uddannet Civ. Ing. Elektro i 1982. 
-* Ansat hos IBS 1982, siden medejer indtil solgt i 2019. 
+* Ansat hos IBS 1982, siden 1999 medejer indtil solgt i 2019. 
 * Har i en periode arbejdet med Turbo Pascal og BASM hos Borland. 
-* Oprindelig hardware interesseret men hurtigt lokket med på IT bølgen. 
+* Oprindelig hardware uddannet/interesseret men hurtigt lokket med på IT bølgen. 
 * Software interessen er tekniske detaljer, bit-nørkleri, og standard protokoller. 
 * Udvikler hardware til interGATE flådestyring og interfacer til SINE radioer.
-
 
 | Year | Commercial | Private, own company
 | ----- | --------------- | ---------------
@@ -83,12 +82,12 @@ Main interests, technical:
 
 In general, lots of bits & bytes still in my head
 
-* Christen Fihl
-* Jellingvej 6
-* 3650 Ølstykke
+Christen Fihl\
+Jellingvej 6\
+3650 Ølstykke\
 
-*  [https://www.fihl.net](https://www.fihl.net)
-*  [https://www.fihl.net/cv](https://www.fihl.net/cv)
-*  [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)
- [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)
- [[text](https://www.linkedin.com/in/christenfihl/)](https://www.linkedin.com/in/christenfihl/)  
+* [https://www.fihl.net](https://www.fihl.net)
+* [https://www.fihl.net/cv](https://www.fihl.net/cv)
+* [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)
+* [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)
+* [https://www.linkedin.com/in/christenfihl/](https://www.linkedin.com/in/christenfihl/)  
