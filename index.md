@@ -5,8 +5,9 @@
 #### CW, QRP, radio stuff
 [qrpPower, an article on portable use](/qrpPower.html)
 #### iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
-[iceKeyerStraight](/iceKeyer/indexStraight) Straight model  
-[iceKeyerPaddle](/iceKeyer/indexPaddle) Single-lever paddle  
+[xxxx](/iceKeyer) xxx model  
+[iceKeyerStraight](/iceKeyer/indexStraight.html) Straight model  
+[iceKeyerPaddle](/iceKeyer/indexPaddle.html) Single-lever paddle  
 [Facebook](https://www.facebook.com/groups/oz1aab) My discussion group  
 
 #### Other keying stuff
