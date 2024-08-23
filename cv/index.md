@@ -83,12 +83,12 @@ Main interests, technical:
 
 In general, lots of bits & bytes still in my head
 
-*  Christen Fihl
-*  Jellingvej 6
-*  3650 Ølstykke
+* Christen Fihl
+* Jellingvej 6
+* 3650 Ølstykke
 
-*  https://www.fihl.net
-*  https://www.fihl.net/cv
-*  https://www.facebook.com/ChristenFihl
-*  https://www.facebook.com/groups/oz1aab
-*  https://www.linkedin.com/in/christenfihl/
+*  (https://www.fihl.net)[https://www.fihl.net]
+*  (https://www.fihl.net/cv)[https://www.fihl.net/cv]
+*  (https://www.facebook.com/ChristenFihl)[https://www.facebook.com/ChristenFihl]
+  (https://www.facebook.com/groups/oz1aab)[https://www.facebook.com/groups/oz1aab]
+  (https://www.linkedin.com/in/christenfihl/)[https://www.linkedin.com/in/christenfihl/]
