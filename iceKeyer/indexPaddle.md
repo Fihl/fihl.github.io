@@ -6,7 +6,8 @@
 - No adjustment
 - No more bad contacts, no wetting problems
 - No noise/click
-- Room for magnets on bottom
+- Family frendly at late nights
+- Room for magnets on bottom, or fixed to solid metal
 - No Jambic, as only 1 paddle
 - I do use my own [CWComfort](https://www.fihl.net/cw/) [older pictures](https://www.fihl.net/CWComfort/) 
   - where you can keep keying using your own speed, and transmit on a lower speed. 
