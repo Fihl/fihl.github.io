@@ -31,4 +31,4 @@ See the box folder on GitHub
 [iceKeyer github](https://github.com/Fihl/iceKeyer)  
 
 ## The code
-The code will come later on github, when more menues and adjustments are done 
+Stay tuned, to get the code later right here on github, when more menues and adjustments are done 

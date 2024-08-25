@@ -19,6 +19,8 @@
 
 ![Boxed](picts/Straight/iceKeyerBoxed.jpeg "iceKeyer boxed")
 
+![Bottom with magnets](picts/Straight/Magnets.jpeg "iceKeyer magnets")
+
 ![cad](/picts/Straight/OpenSCAD1.png "OpenSCAD")
 ![cad](/picts/Straight/OpenSCAD2.png "OpenSCAD")
 
