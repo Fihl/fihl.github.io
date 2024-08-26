@@ -1,12 +1,13 @@
 # Christen Fihl, Denmark  OZ1AAB
-[Stuff, unordered](/misc.html)  
-[Laser cutting, 2D](/LaserCutter2D/laser.html)
+
 [OZ1AAB ham radio](/oz1aab.html)  
+[Laser cutting, 2D](/LaserCutter2D/laser.html)  
+[Stuff, unordered](/misc.html)  
 
 
 #### CW, QRP, radio stuff
 [qrpPower, an article on portable use](/qrpPower.html)
-#### iceKeyer is a keyer without moving parts/contacts, using a loadcell as active "contact"
+#### iceKeyer is a CW keyer without moving parts/contacts, using a loadcell as active "contact"
 [iceKeyerStraight](/iceKeyer/indexStraight.html) Straight model  
 [iceKeyerPaddle](/iceKeyer/indexPaddle.html) Single-lever paddle  
 [Facebook](https://www.facebook.com/groups/oz1aab) My discussion group  
