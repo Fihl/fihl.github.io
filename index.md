@@ -1,6 +1,8 @@
 # Christen Fihl, Denmark  OZ1AAB
-[Stuff, unordered](/misc.html)
-[OZ1AAB ham radio](/oz1aab.html)
+[Stuff, unordered](/misc.html)  
+[Laser cutting, 2D](/LaserCutter2D/laser.html)
+[OZ1AAB ham radio](/oz1aab.html)  
+
 
 #### CW, QRP, radio stuff
 [qrpPower, an article on portable use](/qrpPower.html)
