@@ -1,7 +1,7 @@
 # Christen Fihl, Denmark  OZ1AAB
 
 [OZ1AAB ham radio](/oz1aab.html)  
-[Laser cutting, 2D](/LaserCutter2D/laser.html)  
+[Laser cutting, 2D](/LaserCutter2D)  
 [Stuff, unordered](/misc.html)  
 
 
