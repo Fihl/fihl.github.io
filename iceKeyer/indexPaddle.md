@@ -1,8 +1,8 @@
-# iceKeyer, the no fuss keyer. Single-paddle model
+# iceKeyer, the no fuss keyer. Single-Lever model
 
 ## Features
 - No moving parts
-- Need pressure are automatically calculated, by reading how the usage is
+- Needed pressure are automatically calculated, by how you use it
 - No adjustment
 - No more bad contacts, no wetting problems
 - No noise/click
@@ -16,7 +16,8 @@
 
 ## The electronics
 - ESP32 (Like [LOLIN S2 mini](https://www.aliexpress.com/item/1005004912486444.html))
-- SSD1306 display
+- ESP32 (Or [C3 Super Mini](https://www.aliexpress.com/item/1005006391993583.html))
+- [SSD1306 display](https://www.aliexpress.com/item/1005003660103053.html)
 - Load cell weight element with [amplifier HX711](https://www.aliexpress.com/item/1005005990833147.html) 
   - HX711 has to be changed for 80 samplings/second
 
