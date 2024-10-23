@@ -12,6 +12,9 @@
     "coverage": "npm run test -- --coverage",
     "prepare": "npm run build"
   },
+  {
+    "type": "module"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hodgef/simple-keyboard"
