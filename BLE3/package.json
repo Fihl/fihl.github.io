@@ -3,6 +3,7 @@
   "version": "3.8.9",
   "description": "On-screen Javascript Virtual Keyboard",
   "main": "build/index.js",
+  "type": "module",
   "scripts": {
     "start": "webpack serve --config webpack.config.demo.js",
     "build": "webpack && npm run build-modern && npm run build-modern-esm && tsc",
@@ -11,9 +12,6 @@
     "test": "jest --silent",
     "coverage": "npm run test -- --coverage",
     "prepare": "npm run build"
-  },
-  {
-    "type": "module"
   },
   "repository": {
     "type": "git",
