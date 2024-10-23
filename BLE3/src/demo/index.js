@@ -1,9 +1,6 @@
 
 // import "./css/index.css";
 
-/**
- * Demos
- */
 //import BasicDemo from "./BasicDemo.js";
 //import RTLDemo from "./RTLDemo";
 //import ButtonThemeDemo from "./ButtonThemeDemo";
@@ -12,11 +9,7 @@
 //import MultipleKeyboardsDemo from "./MultipleKeyboardsDestroyDemo";
 import CandidateBoxDemo from "./CandidateBoxDemo.js";
 
-/**
- * Selected demo
- */
 const SELECTED_DEMO = CandidateBoxDemo;
-
 
 const keyboard = new Keyboard({
   onChange: input => onChange(input),
