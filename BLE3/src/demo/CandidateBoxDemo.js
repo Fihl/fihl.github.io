@@ -1,4 +1,4 @@
-import Keyboard from "../lib";
+import Keyboard from "../lib/components/Keyboard.ts";
 import "./css/CandidateBoxDemo.css";
 
 const setDOM = () => {
