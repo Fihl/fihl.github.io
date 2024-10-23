@@ -4,7 +4,7 @@
 /**
  * Demos
  */
-import BasicDemo from "./BasicDemo";
+import BasicDemo from "./BasicDemo.js";
 //import RTLDemo from "./RTLDemo";
 //import ButtonThemeDemo from "./ButtonThemeDemo";
 //import DOMElementDemo from "./DOMElementDemo";
