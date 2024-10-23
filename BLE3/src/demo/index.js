@@ -10,7 +10,7 @@ import "./css/index.css";
 //import DOMElementDemo from "./DOMElementDemo";
 //import FullKeyboardDemo from "./FullKeyboardDemo";
 //import MultipleKeyboardsDemo from "./MultipleKeyboardsDestroyDemo";
-import CandidateBoxDemo from "./css/CandidateBoxDemo";
+import CandidateBoxDemo from "./CandidateBoxDemo";
 
 /**
  * Selected demo
