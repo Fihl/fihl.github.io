@@ -1,4 +1,5 @@
-import Keyboard from "../lib";
+
+import Keyboard.js from "../lib/components/css";
 import "./css/BasicDemo.css";
 
 const setDOM = () => {
