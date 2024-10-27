@@ -1,35 +1,38 @@
-<!-- https://freefrontend.com/css-keyboards/#google_vignette -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
-  <!-- <meta charset="UTF-8"> -->
-  <title>Fihls iceKeyer</title>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Flexbox Apple Keyboard</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 
+<script type="text/javascript" src="https://fast.fonts.net/jsapi/c5ab810d-8100-4223-81cb-576a10c74dc6.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div class="container">
-  <h1 class="title">iceKeyer controller, by <a href="//fihl.net/">OZ1AAB</a></h1>
+  <h1 class="title">CSS Flexbox Apple Keyboard by <a href="//olex.co/">Olex</a></h1>
   <div class="keyboard">
     <div class="keyboard-row thin">
-      <div class="key function lo-bright"><span>F1</span></div>
-      <div class="key function hi-bright"><span>F2</span></div>
-      <div class="key function expose"><span>F3</span></div>
-      <div class="key function tilez"><span>F4</span></div>
-      <div class="key function"><span>F5</span></div>
-      <div class="key function"><span>F6</span></div>
-      <div class="key function rewind"><span>F7</span></div>
-      <div class="key function play-pause"><span>F8</span></div>
-      <div class="key function ffwd"><span>F9</span></div>
-      <div class="key function mute"><span>F10</span></div>
-      <div class="key function lo-vol"><span>F11</span></div>
-      <div class="key function hi-vol"><span>F12</span></div>
+      <div class="key lowercase">Esc</div>
+      <div class="key function lo-bright"><span>f1</span></div>
+      <div class="key function hi-bright"><span>f2</span></div>
+      <div class="key function expose"><span>f3</span></div>
+      <div class="key function tilez"><span>f4</span></div>
+      <div class="key function"><span>f5</span></div>
+      <div class="key function"><span>f6</span></div>
+      <div class="key function rewind"><span>f7</span></div>
+      <div class="key function play-pause"><span>f8</span></div>
+      <div class="key function ffwd"><span>f9</span></div>
+      <div class="key function mute"><span>f10</span></div>
+      <div class="key function lo-vol"><span>f11</span></div>
+      <div class="key function hi-vol"><span>f12</span></div>
+      <div class="key eject"></div>
     </div>
     <div class="keyboard-row">
-      <div class="key lowercase">Esc</div>
+      <div class="key"><span>~<br/>`</span></div>
       <div class="key"><span>!<br/>1</span></div>
       <div class="key"><span>@<br/>2</span></div>
       <div class="key"><span>#<br/>3</span></div>
@@ -42,6 +45,7 @@
       <div class="key"><span>)<br/>0</span></div>
       <div class="key"><span>_<br/>-</span></div>
       <div class="key"><span>+<br/>=</span></div>
+      <div class="key extra-size lowercase lower-right"><span class="lower-row-text">delete</span></div>
     </div>
     <div class="keyboard-row">
       <div class="key extra-size lowercase lower-left"><span class="lower-row-text">tab</span></div>
@@ -55,8 +59,9 @@
       <div class="key">I</div>
       <div class="key">O</div>
       <div class="key">P</div>
-      <div class="key">Å</div>
-      <div class="key"><span>^<br/>¨</span></div>
+      <div class="key"><span>{<br/>[</span></div>
+      <div class="key"><span>}<br/>]</span></div>
+      <div class="key"><span>|<br/>\</span></div>
     </div>
     <div class="keyboard-row">
       <div class="key lowercase lower-left extra-size-two"><span class="lower-row-text">caps lock</span><span class="absolute-left caps-dot">&bull;</span></div>
@@ -69,9 +74,9 @@
       <div class="key">J</div>
       <div class="key">K</div>
       <div class="key">L</div>
-      <div class="key">Æ</div>
-      <div class="key">Ø</div>
-      <div class="key extra-size-two lowercase lower-right"><span class="lower-row-text">return</span></div>
+      <div class="key"><span>:<br/>;</span></div>
+      <div class="key"><span>"<br/>'</span></div>
+      <div class="key extra-size-two lowercase lower-right"><span class="lower-row-text">return</span><span class="absolute-right">enter</span></div>
     </div>
     <div class="keyboard-row">
       <div class="key double-size lowercase lower-left"><span class="lower-row-text">shift</span></div>
@@ -82,9 +87,9 @@
       <div class="key">B</div>
       <div class="key">N</div>
       <div class="key">M</div>
-      <div class="key"><span>;<br/>,</span></div>
-      <div class="key"><span>:<br/>.</span></div>
-      <div class="key"><span>_<br/>-</span></div>
+      <div class="key"><span>&lt;<br/>,</span></div>
+      <div class="key"><span>&gt;<br/>.</span></div>
+      <div class="key"><span>?<br/>/</span></div>
       <div class="key double-size lowercase lower-right"><span class="lower-row-text">shift</span></div>
     </div>
     <div class="keyboard-row bottom-row">

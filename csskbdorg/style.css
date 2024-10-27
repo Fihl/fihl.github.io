@@ -4,7 +4,7 @@
 body {
   box-sizing: border-box;
   background-color: #404049;
-  /* font-family: "Wide Latin","PROSPHATE", "Courier newxx", "Cooper", "StencilXX"; */
+  font-family: 'VAG Rounded W01 Thin';
 }
 .container {
   max-width: 816px;
@@ -191,6 +191,7 @@ h1 a:hover {
   background-position: 50% 45%;
   background-repeat: no-repeat;
 }
+.eject,
 .lo-bright,
 .hi-bright,
 .expose,
@@ -200,10 +201,14 @@ h1 a:hover {
 .play-pause,
 .mute,
 .lo-vol,
-.hi-vol {
+.hi-vol,
+.eject {
   background-size: auto 60%;
   background-position: 50% 45%;
   background-repeat: no-repeat;
+}
+.eject {
+  background-image: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/8533/apple-icons-01_1.svg);
 }
 .lo-bright {
   background-image: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/8533/apple-icons-10_1.svg);
@@ -234,4 +239,7 @@ h1 a:hover {
 }
 .hi-vol {
   background-image: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/8533/apple-icons-02_1.svg);
+}
+.eject {
+  background-image: url(//s3-us-west-2.amazonaws.com/s.cdpn.io/8533/apple-icons-01_1.svg);
 }
