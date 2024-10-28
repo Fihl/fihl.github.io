@@ -70,6 +70,15 @@
     }
   }
 
+function clickAkey(n) {
+  // var n = event.srcElement;
+  console.log( n );
+  document.getElementById("fldCallX").innerHTML = "clickAkey";
+  console.log( document.getElementById("fldCallX").innerHTML );
+  console.log( document.getElementById("myDiv").innerHTML );
+  document.getElementById("myDiv").innerHTML = "inner " + n;
+}
+
 function startQueue() {
     ajaxRequest=GetXmlHttpObject();
     if (ajaxRequest==null) {
@@ -96,6 +105,8 @@ function startQueue() {
     $("#panelsMenu").load('./kbd/kbd_index.html', function() {
       // var s = $("#panelsMenu").html();
       // $("#panelsMenu").load("!"+s);
+
+      // document.getElementById("QQx").innerHTML = "L";
     })
     // $("#mainMenuDynamic").load('/CreateMainMenu', function() {
     //   var s = $("#mainMenuDynamic").html();
@@ -117,34 +128,21 @@ function startQueue() {
       //});
     }); 
 
-    $("#knap1").click(function( event ) {
-      // sendCmd('/menu?Val2=103'); //Free
-      map.setView(new L.LatLng(56.50, 10.50), 7);
-        //$("#panels").load('14.html');
-    });
-    $("#knap2").click(function( event ) {
-        // $("#panels").load('/LastPage'); 
-    });
-    $("#knap3").click( function( event ) {
-      //doASync();
-        // $("#panels").load('/ASync', function() {
-        //   console.log( "xxxxxxxxxx" + $("#panels").href);
-        // });
-    });
-    $("#knap4").click( function( event ) {
-      setIsmCoor(56.000, 12.000);
-    });
-    $("#knap5").click( function( event ) {
-      setIsmCoor(55.76944, 12.1734);
-    });
-
     //events, måske https://www.w3schools.com/js/js_htmldom_css.asp
     //  https://www.freecodecamp.org/news/manipulate-html-and-css-using-javascript/
     $("#QQ").click( function( event ) {
       // setIsmCoor(54.0, 12.0);
-      setIsmCoor(56.000, 12.000);
+      setIsmCoor(56.000, 12.000);document.getElementById("fldCallX").innerHTML = "QQ";
       console.log("QQ");
+      document.getElementById("myDiv").innerHTML = "QQ";
     });
+    // console.log(document.getElementById("QQ").innerHTML);
+    // document.getElementById("QQ").style.color = "red";
+    
+    // document.getElementById("fldCallX").innerHTML = "TEST12312312313";
+    // console.log( document.getElementById("fldCallX").innerHTML );
+    // console.log( document.getElementById("myDiv").innerHTML );
+    // document.getElementById("myDiv").innerHTML = "inner";
 
     doASync(); //Start timer
 }

@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- <meta charset="UTF-8"> -->
-  <title>Fihls iceKeyer</title>
+  <meta charset="UTF-8">
+  <title>iceKeyer</title>
 
 <link rel="stylesheet" href="./kbd/kbd_style.css">
 
@@ -45,8 +45,8 @@
     </div>
     <div class="keyboard-row">
       <div class="key extra-size lowercase lower-left"><span class="lower-row-text">tab</span></div>
-      <div id=QQ, class="key">Q</div>
-      <div class="key">W</div>
+      <div id="QQx", class="key">Q</div>
+      <div onclick="clickAkey('W')" class="key">W</div>
       <div class="key">E</div>
       <div class="key">R</div>
       <div class="key">T</div>
@@ -113,6 +113,17 @@
   // initmap();
   // startQueue();
   // startIsmCoor();
+
+  const buttonContainer = document.querySelector('.container');
+  // console.log('buttonContainer', buttonContainer);
+  buttonContainer.addEventListener('click', event => {
+    console.log("-----------");
+    console.log(event.target);
+    console.log(event.target.innerHTML);
+    console.log("-----------");
+    document.getElementById("queue").innerHTML = event.target.innerHTML;
+  })
+
 </script>
 
 </body>

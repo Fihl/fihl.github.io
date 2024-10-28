@@ -7,7 +7,7 @@
     margin: 0;
     width: 100%;
     height: 100%;
-    background-color: none;  /* pink; */
+    background-color: pink; 
     flex-wrap: wrap;
     flex-direction: column;
     margin: 000px;
@@ -38,7 +38,7 @@
   height: 73%;
 }
 .flexItem {
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
     width: 500px;
     height: 50px;
     margin: 10px;
@@ -46,7 +46,7 @@
 
 /* Base display */
 #base {
-  background-color:#384930;
+  background-color:#55db18;
   margin: 0000px;
   width: 33%; 
   height: 100%;
@@ -55,7 +55,7 @@
 }
 /* Queue display */
 #queue {
-  background-color:#08703c;
+  background-color:#70eaad;
   margin: 0 auto;
   width: 66%; 
   height: 100%;
@@ -66,7 +66,7 @@
 
 /* Panels */
 #panels {
-  background-color:#775050;
+  background-color:#eaece6;
   margin: 0 auto;
   width: 59%; 
   height: 100%;
@@ -78,7 +78,7 @@
 
 /* LeafLet map display */
 #map {
-  background-color:#808080;
+  /* background-color:#808080; */
   margin: 0 auto;
   width: 40%;
   height: 100%;
