@@ -29,7 +29,10 @@
 I do export dxf files right out of OpenSCAD. 
 And the text is exported in svg file 
 See the box folder on GitHub  
-[iceKeyer github](https://github.com/Fihl/iceKeyer)  
+[Look inside box folder](https://github.com/Fihl/iceKeyer)  
 
 ## The code
-Stay tuned, to get the code later right here on github, when more menues and adjustments are done 
+[Look inside src folder](https://github.com/Fihl/iceKeyer)
+
+## Feedback
+[Please join the facebook group iceKeyer](https://www.facebook.com/groups/oz1aab)
