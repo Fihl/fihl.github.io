@@ -13,7 +13,7 @@
 [iceKeyerStraight](/iceKeyer/indexStraight.html) Straight model  
 [iceKeyerPaddle](/iceKeyer/indexPaddle.html) Single-lever paddle  
 [USB host keyer](https://github.com/Fihl/Stuff/tree/main/ArduinoDueKeyerUSB) Use your USB keyboard as CW controller  
-[Please join my facebook group **iceKeyer**](https://www.facebook.com/groups/oz1aab) My discussion group  
+[Please join my facebook discussion group **iceKeyer**](https://www.facebook.com/groups/oz1aab) 
 
 #### Other keying stuff
 [CWComfort](/CWComfort/) My single-lever paddle keyer software, the one with a lazy attitude  
