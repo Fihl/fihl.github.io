@@ -51,7 +51,7 @@ Main interests, technical:
 ||VoIP misc DTMF protocols, for elevator routine calls and homecare calls. |Solgt DSP ekspertise til highspeed filtre på Palm lomme computere til http://www.voiceit-tech.com for tale genkendelse/talestyring. 
 ||118-phonebook lookup, for 1-1-2. Free format text search in 10 million numbers in 2 seconds. |Laver video overførsel pc-pc med egen udviklet DCT kodning
 2005 |1-1-2: Location positioning of mobile phones in Denmark for 1-1-2 use. 
-||Specified LIF protocol including SOAP call, for all Danish mobile operators to follow. |Genoptaget amatørradio [https://fihl.net/oz1aab](https://fihl.net/oz1aab)
+||Specified LIF protocol including SOAP call, for all Danish mobile operators to follow. |Genoptaget amatørradio [https://fihl.net/oz1aab](https://fihl.net/oz1aab), nu med A certificat
 ||SOAP front end to reception of location data. |Afholdt JOTA på kortbølge
 ||Test program for this too.|DSP, fx til PSK.
 ||VoIP, now with VoiceLogger (wav files)
