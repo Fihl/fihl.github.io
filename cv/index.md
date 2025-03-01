@@ -19,7 +19,7 @@ Main interests, technical:
 |Year |Commercial |Private|
 |----- |--------------- |---------------|
 |1956 ||Born
-|1972 ||Radioamatør, OZ1AAB, mens i realskolen (9 kl) https://www.fihl.net/oz1aab 
+|1972 ||Radioamatør, OZ1AAB, mens i realskolen (9 kl) [https://www.fihl.net/oz1aab](https://www.fihl.net/oz1aab) 
 |1976
 |..82 ||Master of Science, DTH (DTU), elektro	
 |..82 |	PolyData during education Sold and repaired computer kits. |Lavet byggesæt for computer brugere. Bl.a. MiDiCos, digital kassettebånd OS med 60KByte, solgt i knap 100 byggesæt (mange).
@@ -34,7 +34,7 @@ Main interests, technical:
 ||Scandis Pascal (Swedish computer), with hw graphics.|Ambra Soft A/S: Projekt "Børsinformation Telecom" (Klaus Riskær Pedersen). Lavet kommunikations driver for journalist systemet, dvs. modtage nyheder fra eksterne bureauer, håndtere køsystem og sende data til on-line kunder i Danmark, sende børskurser til ops modtagere hvert minut. 
 ||Inline assembler BASM for Borland Pascal, Delphi 1 og C++. Used up to Delphi 5
 90…	|IBS A/S |
-||Westinghouse, online handling of 65000 private customers alarm panels.	|Skrevet tekniske artikler til det danske PC-World https://bibliotek.dk/find?q.all=christen+fihl 
+||Westinghouse, online handling of 65000 private customers alarm panels.	|Skrevet tekniske artikler til det danske PC-World [https://bibliotek.dk/find?q.all=christen+fihl](https://bibliotek.dk/find?q.all=christen+fihl) 
 ||Honeywell, multi protocol concentrator for alarm reception from various equipment.|Produceret egen Pascal oversætter til Amiga og Atari. Solgt for royalties via dansk firma til Maxon Gmbh som Maxon Pascal, og til HiSoft ltd som HighSpeed Pascal.
 ||Honeywell, manual pc. Database download to flat files and quick lookup of max 500000 customers data (backup purpose).|Kontrakt job for Borland Inc. Lavet BASM, en 32bits inline assembler for Delphi og C++ produkterne.
 ||Securitas AB, datex, X.21
@@ -44,14 +44,14 @@ Main interests, technical:
 ||Designed and implemented new 1-1-2 system for Copenhagen 1-1-2 alarm central, now on Windows
 1999.. |1-1-2 for Rigspoliti, version 1.
 ||Design and implemented in 3 areas, Odense, Århus og Ålborg.|Produceret en ny Pascal oversætter til Palm Pilot.  Solgt (nu shareware) via egen internet server
-||Partner in Innovative Business Software A/S with 20% shares, and member of board|https://www.fihl.net/HSPascal/ (incl hjemmebygget news server til support)
+||Partner in Innovative Business Software A/S with 20% shares, and member of board|[https://www.fihl.net/HSPascal/](https://www.fihl.net/HSPascal/) (incl hjemmebygget news server til support)
 2002 |1-1-2 Rigspoliti, version 2, country wide version. With central server, replication and 8 locations in call-center setup. |Fatter interesse for VoIP og udvikler grundmoduler og metoder i Delphi.
 ||VoIP koden senere benyttet hos Innovative Business Software A/S |
 2004 |VoIP, 100% own code, SIP
 ||VoIP misc DTMF protocols, for elevator routine calls and homecare calls. |Solgt DSP ekspertise til highspeed filtre på Palm lomme computere til http://www.voiceit-tech.com for tale genkendelse/talestyring. 
 ||118-phonebook lookup, for 1-1-2. Free format text search in 10 million numbers in 2 seconds. |Laver video overførsel pc-pc med egen udviklet DCT kodning
 2005 |1-1-2: Location positioning of mobile phones in Denmark for 1-1-2 use. 
-||Specified LIF protocol including SOAP call, for all Danish mobile operators to follow. |Genoptaget amatørradio http://fihl.net/oz1aab
+||Specified LIF protocol including SOAP call, for all Danish mobile operators to follow. |Genoptaget amatørradio [https://fihl.net/oz1aab](https://fihl.net/oz1aab)
 ||SOAP front end to reception of location data. |Afholdt JOTA på kortbølge
 ||Test program for this too.|DSP, fx til PSK.
 ||VoIP, now with VoiceLogger (wav files)
@@ -79,6 +79,7 @@ Main interests, technical:
 |2021 ||Working QO-100 satellite
 |2022 |TDC Erhverv, Systems Architect, mostly 1-1-2 software |Lots of CW hardware
 |2025 |Still 1-1-2, through 25 years |Fihl Labs, CVR:60386153
+|||Scout through 18 years
 
 In general, lots of bits & bytes still left in my head  
 
