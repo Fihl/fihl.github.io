@@ -78,13 +78,15 @@ Main interests, technical:
 |2020 ||
 |2021 ||Working QO-100 satellite
 |2022 |TDC Erhverv, Systems Architect, mostly 1-1-2 software |Lots of CW hardware
+|2025 |Still 1-1-2, through 25 years |Fihl Labs, CVR:60386153
 
-In general, lots of bits & bytes still left in my head
+In general, lots of bits & bytes still left in my head  
 
 Christen Fihl  
 Jellingvej 6  
 3650 Ølstykke  
 Denmark  
+CVR:60386153  
 
 |What|Where|
 |-----|---------------|
