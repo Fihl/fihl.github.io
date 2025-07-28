@@ -11,8 +11,11 @@ https://qrp-labs.com/images/ocxokit/ocxosynth_assembly.pdf
 https://en.wikipedia.org/wiki/Crystal_oven
 
 andre tanker
-https://www.hanssummers.com/ocxosynth
-https://qrp-labs.com/ocxokit.html
+https://www.hanssummers.com/ocxosynth  
+https://qrp-labs.com/ocxokit.html  
+
+MK-1
+https://www.qsl.net/m0ayf/Crystal-Ovens/Mk1-Xtal-Oven.gif
 
 
 ## Feedback
