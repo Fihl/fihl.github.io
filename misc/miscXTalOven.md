@@ -3,7 +3,7 @@
 ## Links
 |What|Where|
 |-----|---------------|
-|si5351|[the chip)[https://shop.qrp-labs.com/synth?search=Si5351)|
+|si5351|[the chip](https://shop.qrp-labs.com/synth?search=Si5351)|
 |MCP9701|[specs](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf)|
 |Other| [Crystal Ovens for QRSS Applications](https://www.qsl.net/m0ayf/Crystal-Ovens.html)|
 |ovens|[MK-1](https://www.qsl.net/m0ayf/Crystal-Ovens/Mk1-Xtal-Oven.gif)|
