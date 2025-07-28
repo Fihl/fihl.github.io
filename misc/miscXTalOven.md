@@ -1,6 +1,7 @@
 # XTal oven. Links and xtra's
 
 ## Links
+
 |What|Where|
 |-----|---------------|
 |si5351|[the chip](https://shop.qrp-labs.com/synth?search=Si5351)|
@@ -12,6 +13,16 @@
 |Wiki|[Crystal oven](https://en.wikipedia.org/wiki/Crystal_oven)|
 |||
 |Hans Summers|[OCXO and synthesiser design](https://www.hanssummers.com/ocxosynth)|
+
+
+|What|Where|
+|-----|---------------|
+| www | [https://www.fihl.net](https://www.fihl.net)|
+| cv |  [https://www.fihl.net/cv](https://www.fihl.net/cv)|
+| Facebook |  [https://www.facebook.com/ChristenFihl](https://www.facebook.com/ChristenFihl)|
+| **My Facebook hobby, radio, discussion** |  [https://www.facebook.com/groups/oz1aab](https://www.facebook.com/groups/oz1aab)|
+| LinkedIn |  [https://www.linkedin.com/in/christenfihl/](https://www.linkedin.com/in/christenfihl/)|
+
 
 ## Feedback
 [Please join the facebook group iceKeyer](https://www.facebook.com/groups/oz1aab)
