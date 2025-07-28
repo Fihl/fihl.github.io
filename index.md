@@ -4,7 +4,7 @@
 [Laser cutting, 2D](/LaserCutter2D)  
 [ESP32 things](https://github.com/Fihl/Stuff/tree/main/ESP32)  
 [HSPascal](/HSPascal/). Now with public [source on GitHub](https://github.com/Fihl/HSPascal/)  
-[Stuff, unordered](/misc.html)  
+[Stuff, unordered](/misc/misc.html)  
 
 
 #### CW, QRP, radio stuff
