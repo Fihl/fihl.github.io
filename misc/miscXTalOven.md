@@ -5,7 +5,7 @@
 |What|Where|
 |-----|---------------|
 |MCP9701 temp sensor|[specs](https://ww1.microchip.com/downloads/aemDocuments/documents/MSLD/ProductDocuments/DataSheets/MCP970X-Family-Data-Sheet-DS20001942.pdf)|
-|Eagle layout|[on github](https://github.com/Fihl/Stuff/xtalOven)|
+|Eagle layout|[on github](https://github.com/Fihl/Stuff/tree/main/xtalOven)|
 |si5351 oscilator|[the chip](https://shop.qrp-labs.com/synth?search=Si5351)|
 |Other ovens| [Crystal Ovens for QRSS Applications](https://www.qsl.net/m0ayf/Crystal-Ovens.html)|
 |Other ovens|[MK-1](https://www.qsl.net/m0ayf/Crystal-Ovens/Mk1-Xtal-Oven.gif)|
